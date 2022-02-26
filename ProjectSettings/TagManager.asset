@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Drop
+  - Diffuse
   layers:
   - Default
   - TransparentFX

@@ -37,6 +37,11 @@ public class PlayerGrabDrop : MonoBehaviour
                 UIManager.Instance.ActivateIconDrop();
                 dropArea = hit.transform.gameObject;
             }
+            else if (hit.transform.gameObject.tag == "Diffuse" && grabObject != null)
+            {
+                UIManager.Instance.ActivateIconDrop();
+                dropArea = hit.transform.gameObject;
+            }
             else if (hit.transform.gameObject.tag != "Box" && hit.transform.gameObject.tag != "Drop")
             {
                 UIManager.Instance.DeactivateIconGrab();
@@ -53,6 +58,10 @@ public class PlayerGrabDrop : MonoBehaviour
 
         if (Input.GetKeyDown("a") && grabableObject != null)
         {
+            if(grabableObject.transform.parent != null)
+            {
+                grabableObject.transform.parent.GetComponent<DiffuseTable>().RetrieveBox();
+            }
             grabObject = grabableObject;
             grabObject.transform.parent = this.transform;
             grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
@@ -64,6 +73,10 @@ public class PlayerGrabDrop : MonoBehaviour
 
         if (Input.GetKeyDown("e") && grabObject != null && dropArea != null)
         {
+            if(dropArea.GetComponent<DiffuseTable>() != null)
+            {
+                dropArea.GetComponent<DiffuseTable>().RecieveBox(grabObject);
+            }
             grabObject.transform.parent = null;
             grabObject.GetComponent<BoxCollider>().enabled = true;
             grabObject.GetComponent<Rigidbody>().useGravity = true;
