@@ -63,20 +63,23 @@ public class PlayerGrabDrop : MonoBehaviour
                 grabableObject.transform.parent.GetComponent<DiffuseTable>().RetrieveBox();
             }
             grabObject = grabableObject;
+            Rigidbody rBody = grabObject.GetComponent<Rigidbody>();
+            rBody.velocity = Vector3.zero;
+            rBody.angularVelocity = Vector3.zero;
             grabObject.transform.parent = this.transform;
             grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
             grabObject.transform.transform.localRotation = Quaternion.Euler(0, 0, 0);
             grabObject.transform.localPosition = new Vector3(0, -0.8f, 1.35f);
-            grabObject.GetComponent<Rigidbody>().useGravity = false;
+            rBody.useGravity = false;
             grabObject.GetComponent<BoxCollider>().enabled = false; //faire un tag BoxGrab et désactiver collision de ce tag
         }
 
         if (Input.GetKeyDown("e") && grabObject != null && dropArea != null)
         {
             if(dropArea.GetComponent<DiffuseTable>() != null)
-            {
                 dropArea.GetComponent<DiffuseTable>().RecieveBox(grabObject);
-            }
+            else if(dropArea.GetComponent<Crusher>() != null)
+                dropArea.GetComponent<Crusher>().RecieveBox(grabObject);
             grabObject.transform.parent = null;
             grabObject.GetComponent<BoxCollider>().enabled = true;
             grabObject.GetComponent<Rigidbody>().useGravity = true;

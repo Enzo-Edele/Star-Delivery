@@ -6,10 +6,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveSysteme : MonoBehaviour
 {
-    public static void Save(GameManager gameData, int emplacement)
+    public static void Save(GameManager gameData, int file)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/data" + emplacement + ".save";
+        string path = Application.persistentDataPath + "/data" + file + ".save";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SaveData data = new SaveData(gameData);
@@ -17,9 +17,9 @@ public class SaveSysteme : MonoBehaviour
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    public static SaveData LoadData(int emplacement)
+    public static SaveData LoadData(int file)
     {
-        string path = Application.persistentDataPath + "/data" + emplacement + ".save";
+        string path = Application.persistentDataPath + "/data" + file + ".save";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

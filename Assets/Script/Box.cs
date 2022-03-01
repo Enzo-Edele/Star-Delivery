@@ -5,18 +5,24 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     public GameObject bomb;
+    public bool isArmed;
+    string destination = "test";
+    //destination (faire une liste de nom dans un manager)
+
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        //destination rnd liste
+        isArmed = false;
+        if(Random.Range(0, 100) < 20) //mettre une variable ?manager? pour la proba de bombe
+        {
+            bomb.SetActive(true);
+            isArmed = true;
+        }
     }
 
     public void Diffuse()
     {
         bomb.SetActive(false);
+        isArmed = false;
     }
 }

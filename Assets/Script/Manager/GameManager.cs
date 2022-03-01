@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,5 +16,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Save(int file)
+    {
+        SaveSysteme.Save(this, file);
+    }
+
+    public void Load(int file)
+    {
+        string path = Application.persistentDataPath + "/data.save";
+        if (File.Exists(path))
+        {
+            SaveData data = SaveSysteme.LoadData(file);/*
+            level = data.level;
+            for (int i = 0; i < data.highScoreList.Length; i++)
+            {
+                HighScoreList[i] = (data.highScoreList[i]);
+            }*/
+        }
     }
 }

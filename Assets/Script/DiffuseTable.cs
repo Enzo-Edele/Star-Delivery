@@ -9,7 +9,7 @@ public class DiffuseTable : MonoBehaviour
 
     GameObject bomb;
     GameObject bombedBox;
-
+    //trouver un moyen de bypass la bombe
     void Start()
     {
         
@@ -44,6 +44,7 @@ public class DiffuseTable : MonoBehaviour
     void DiffuseMod()
     {
         bomb.transform.parent = null;
+        bomb.GetComponent<Bomb>().ActiveCollider();
         cam.Priority = 15;
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -51,6 +52,7 @@ public class DiffuseTable : MonoBehaviour
     void QuitDiffuseMod()
     {
         bomb.transform.parent = bombedBox.transform;
+        bomb.GetComponent<Bomb>().DeactiveCollider();
         cam.Priority = 5;
         Cursor.lockState = CursorLockMode.Locked;
     }
