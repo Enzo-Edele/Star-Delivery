@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text saveText;
     [SerializeField] GameObject newGameButton;
     [SerializeField] GameObject loadButton;
+    [SerializeField] GameObject tablet;
 
     [SerializeField] GameObject pauseMenu;
 
@@ -26,7 +27,14 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown("a") && tablet.gameObject.activeSelf == false)
+        {
+            tablet.gameObject.SetActive(true);
+        }
+        else if (Input.GetKeyDown("a"))
+        {
+            tablet.gameObject.SetActive(false);
+        }
     }
 
     public void ActivateIconGrab()
