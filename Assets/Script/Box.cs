@@ -6,7 +6,7 @@ public class Box : MonoBehaviour
 {
     public GameObject bomb;
     public bool isArmed;
-    string destination = "test";
+    public string destination = "test";
     //destination (faire une liste de nom dans un manager)
 
     void Start()
@@ -18,6 +18,11 @@ public class Box : MonoBehaviour
             bomb.SetActive(true);
             isArmed = true;
         }
+    }
+
+    public void ReachEndBelt()
+    {
+        Destroy(gameObject);
     }
 
     public void Diffuse()
