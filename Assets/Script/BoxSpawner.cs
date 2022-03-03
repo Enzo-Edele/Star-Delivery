@@ -6,12 +6,12 @@ public class BoxSpawner : MonoBehaviour
 {
     [SerializeField]GameObject box;
 
-    [SerializeField] float time;
+    [SerializeField] float timeMin, timeMax;
     float timer;
 
     void Start()
     {
-        timer = time;
+        timer = timeMin;
     }
 
     void Update()
@@ -22,8 +22,8 @@ public class BoxSpawner : MonoBehaviour
         }
         else
         {
-            timer = time;
-            Instantiate(box, transform.position + new Vector3(1,0,0), Quaternion.identity);
+            timer = Random.Range(timeMin, timeMax);
+            Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
         }
     }
 }

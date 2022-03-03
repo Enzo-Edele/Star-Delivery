@@ -12,7 +12,7 @@ public class PlayerGrabDrop : MonoBehaviour
     GameObject dropAreaBelt;
     GameObject dropAreaDiffuse;
     GameObject dropAreaCrusher;
-    GameObject dropAreaShip;
+    GameObject dropAreaSpacecraft;
 
 
     void Start()
@@ -44,7 +44,17 @@ public class PlayerGrabDrop : MonoBehaviour
             else if (hit.transform.gameObject.tag == "Diffuse" && grabObject != null)
             {
                 UIManager.Instance.ActivateIconDrop();
-                dropAreaBelt = hit.transform.gameObject;
+                dropAreaDiffuse = hit.transform.gameObject;
+            }
+            else if (hit.transform.gameObject.tag == "Crusher" && grabObject != null)
+            {
+                UIManager.Instance.ActivateIconDrop();
+                dropAreaCrusher = hit.transform.gameObject;
+            }
+            else if (hit.transform.gameObject.tag == "Spacecraft" && grabObject != null)
+            {
+                UIManager.Instance.ActivateIconDrop();
+                dropAreaSpacecraft = hit.transform.gameObject;
             }
             /*else if (hit.transform.gameObject.tag != "Box" && hit.transform.gameObject.tag != "Drop")
             {
@@ -58,13 +68,16 @@ public class PlayerGrabDrop : MonoBehaviour
             UIManager.Instance.DeactivateIconGrab();
             grabableObject = null;
             dropAreaBelt = null;
+            dropAreaDiffuse = null;
+            dropAreaCrusher = null;
+            dropAreaSpacecraft = null;
         }
 
         if (Input.GetMouseButtonDown(0) && grabableObject != null)
         {
             if(grabableObject.transform.parent != null)
             {
-                grabableObject.transform.parent.GetComponent<DiffuseTable>().RetrieveBox();
+                grabableObject.transform.parent.GetComponent<DiffuseTable>().RetrieveBox(); //essayer de virer ici aussi
             }
             grabObject = grabableObject;
             Rigidbody rBody = grabObject.GetComponent<Rigidbody>();
@@ -76,23 +89,38 @@ public class PlayerGrabDrop : MonoBehaviour
             grabObject.transform.localPosition = new Vector3(0, -0.8f, 1.35f);
             rBody.useGravity = false;
             grabObject.GetComponent<BoxCollider>().enabled = false; //faire un tag BoxGrab et désactiver collision de ce tag
+            grabObject.GetComponent<Box>().DisplayInfo();
         }
 
         if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaBelt != null)
         {
-            if(dropAreaBelt.GetComponent<DiffuseTable>() != null)
-                dropAreaBelt.GetComponent<DiffuseTable>().RecieveBox(grabObject);
-            else if(dropAreaBelt.GetComponent<Crusher>() != null)
-                dropAreaBelt.GetComponent<Crusher>().RecieveBox(grabObject);
-            grabObject.transform.parent = null;
-            grabObject.GetComponent<BoxCollider>().enabled = true;
-            grabObject.GetComponent<Rigidbody>().useGravity = true;
-            grabObject.transform.parent = dropAreaBelt.transform;
-            grabObject.transform.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            grabObject.transform.localPosition = new Vector3(0, 0.6f, 0f);
-            grabObject.transform.parent = null;
-            grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
-            grabObject = null;
+            Drop(dropAreaBelt);
         }
+
+        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaDiffuse != null)
+        {
+            dropAreaDiffuse.GetComponent<DiffuseTable>().RecieveBox(grabObject);
+            Drop(dropAreaDiffuse);
+        }
+
+        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaCrusher != null)
+        {
+            dropAreaCrusher.GetComponent<Crusher>().RecieveBox(grabObject);
+            Drop(dropAreaCrusher);
+        }
+    }
+
+    void Drop(GameObject dropArea)
+    {
+        grabObject.transform.parent = null;
+        grabObject.GetComponent<BoxCollider>().enabled = true;
+        grabObject.GetComponent<Rigidbody>().useGravity = true;
+        grabObject.transform.parent = dropArea.transform;
+        grabObject.transform.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        grabObject.transform.localPosition = new Vector3(0, 0.6f, 0f);
+        grabObject.transform.parent = null;
+        grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
+        grabObject = null;
+        UIManager.Instance.DeactivateBoxInfo();
     }
 }

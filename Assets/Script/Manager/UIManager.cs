@@ -12,12 +12,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text saveText;
     [SerializeField] GameObject newGameButton;
     [SerializeField] GameObject loadButton;
+
     [SerializeField] GameObject tablet;
 
     [SerializeField] GameObject pauseMenu;
 
     [SerializeField] GameObject grabDropIcon;
     [SerializeField] Text grabDropText;
+
+    [SerializeField] GameObject boxInfo;
+    [SerializeField] Text destinationText;
+    [SerializeField] Text companyText;
+    [SerializeField] Text contentText;
+
     #endregion
     public static UIManager Instance { get; private set; }
     void Start()
@@ -53,6 +60,19 @@ public class UIManager : MonoBehaviour
     {
         if (grabDropIcon != null)
             grabDropIcon.SetActive(false);
+    }
+
+    public void ActivateBoxInfo(string destination, string company, string content)
+    {
+        boxInfo.SetActive(true);
+        destinationText.text = destination;
+        companyText.text = company;
+        contentText.text = content;
+    }
+    public void DeactivateBoxInfo()
+    {
+        if (boxInfo != null)
+            boxInfo.SetActive(false);
     }
 
     public void ButtonNewGame(int file)

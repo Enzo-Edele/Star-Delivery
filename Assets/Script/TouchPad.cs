@@ -20,6 +20,7 @@ public class TouchPad : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(screen);
         destiantion.text =      "Destination : " + spacecraft[screen].spacecraftDestination;
         packages.text =         "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
         estimatedTime.text =    "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
@@ -30,15 +31,11 @@ public class TouchPad : MonoBehaviour
         
         if (screen != 0)                    leftArrow.gameObject.SetActive(true);
         else                                leftArrow.gameObject.SetActive(false);
+        
     }
 
-    public void LeftArrow()
+    public void Arrow(int direction)
     {
-        screen -= 1;
-    }
-    
-    public void RightArrow()
-    {
-        screen += 1;
+        screen += direction;
     }
 }

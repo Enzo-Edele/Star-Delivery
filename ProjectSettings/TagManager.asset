@@ -7,6 +7,8 @@ TagManager:
   - Box
   - Drop
   - Diffuse
+  - Crusher
+  - Spacecraft
   layers:
   - Default
   - TransparentFX

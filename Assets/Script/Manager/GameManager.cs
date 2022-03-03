@@ -7,10 +7,17 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public CinemachineVirtualCamera cam;
+
+    public bool lockPlayer;
+
+    public List<string> validDestination;
+    public List<string> invalidDestination;
+
     public static GameManager Instance { get; private set; }
     void Start()
     {
         Instance = this;
+        lockPlayer = false;
     }
 
     void Update()
