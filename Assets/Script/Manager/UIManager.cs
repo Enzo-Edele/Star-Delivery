@@ -29,10 +29,12 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown("a") && tablet.gameObject.activeSelf == false)
         {
+            Cursor.lockState = CursorLockMode.Confined;
             tablet.gameObject.SetActive(true);
         }
         else if (Input.GetKeyDown("a"))
         {
+            Cursor.lockState = CursorLockMode.Locked;
             tablet.gameObject.SetActive(false);
         }
     }

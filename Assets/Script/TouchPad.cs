@@ -12,6 +12,7 @@ public class TouchPad : MonoBehaviour
     public Text spacecraftNumber;
     public Button launch;
     public Image spacecraftVisu;
+
     public int screen = 0;
 
     public Button leftArrow;
@@ -19,10 +20,9 @@ public class TouchPad : MonoBehaviour
 
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        destiantion.text = "Destination : " + spacecraft[screen].spacecraftDestination;
-        packages.text = "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
-        estimatedTime.text = "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
+        destiantion.text =      "Destination : " + spacecraft[screen].spacecraftDestination;
+        packages.text =         "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
+        estimatedTime.text =    "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
         spacecraftNumber.text = "Spacecraft n°" + (screen + 1);
 
         if (spacecraft.Count != screen + 1) rightArrow.gameObject.SetActive(true);        
