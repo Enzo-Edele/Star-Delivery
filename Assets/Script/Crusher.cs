@@ -6,9 +6,6 @@ public class Crusher : MonoBehaviour
 {
     public void RecieveBox(GameObject box)
     {
-        if(box.GetComponent<Box>().isArmed)
-            Debug.Log("boom");
-        else
-            Destroy(box);
+        box.GetComponent<Box>().Crusher();
     }
 }

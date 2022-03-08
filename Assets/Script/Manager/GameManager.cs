@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public bool lockPlayer;
 
     public List<string> validDestination;
+    public List<string> validDestinationLevel;
     public List<string> invalidDestination;
+    public List<string> invalidDestinationLevel;
 
     public static GameManager Instance { get; private set; }
     void Start()

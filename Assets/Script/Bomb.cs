@@ -20,7 +20,6 @@ public class Bomb : MonoBehaviour
     {
         bCollider.enabled = true;
     }
-
     public void DeactiveCollider()
     {
         if (bCollider != null)

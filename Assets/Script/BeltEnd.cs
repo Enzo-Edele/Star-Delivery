@@ -7,6 +7,6 @@ public class BeltEnd : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Box")
-            collision.gameObject.GetComponent<Box>().ReachEndBelt();
+            collision.gameObject.GetComponent<Box>().Belt();
     }
 }

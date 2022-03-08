@@ -9,18 +9,13 @@ public class Box : MonoBehaviour
     public string destination= "test";
     string company = "Amazoon";
     string content = "Stuff";
-    //destination (faire une liste de nom dans un manager)
 
     void Start()
     {
         if (Random.Range(0, 100) < 50)
-        {
             destination = GameManager.Instance.validDestination[Random.Range(0, GameManager.Instance.validDestination.Count)];
-        }
         else
-        {
-            destination = GameManager.Instance.invalidDestination[Random.Range(0, GameManager.Instance.invalidDestination.Count)];
-        }
+            destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
         isArmed = false;
         if(Random.Range(0, 100) < 20) //mettre une variable ?manager? pour la proba de bombe
         {
@@ -34,14 +29,38 @@ public class Box : MonoBehaviour
         UIManager.Instance.ActivateBoxInfo(destination, company, content);
     }
 
-    public void ReachEndBelt()
+    public void Belt()
     {
+        if(isArmed)
+            Debug.Log("boom non traité");
+        bool isValid = false;
+        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
+            if (destination == GameManager.Instance.validDestinationLevel[i]) 
+                isValid = true;
+        if(isValid)
+            Debug.Log("valid non traité");
+        else
+            Debug.Log("pas valid non traité");
         Destroy(gameObject);
     }
-
     public void Diffuse()
     {
         bomb.SetActive(false);
         isArmed = false;
+    }
+    public void Crusher()
+    {
+        if (isArmed)
+            Debug.Log("Boom");
+        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
+            if (destination == GameManager.Instance.validDestinationLevel[i]) 
+                Debug.Log("valid détruit");
+        Destroy(gameObject);
+    }
+    public void Navette()
+    {
+        if (isArmed)
+            Debug.Log("Boom");
+        Destroy(gameObject);
     }
 }

@@ -42,8 +42,6 @@ public class DiffuseTable : MonoBehaviour
         bombScript = null;
     }
 
-    //mettre dans un manager et pensé a lock mouvement du perso
-
     void DiffuseMod()
     {
         bomb.transform.parent = null;
