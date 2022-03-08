@@ -13,7 +13,7 @@ public class Bomb : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        parent.GetComponent<Box>().Diffuse();
+        parent.GetComponent<LucileBox>().Diffuse();
     }
 
     public void ActiveCollider()

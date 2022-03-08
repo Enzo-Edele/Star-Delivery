@@ -20,7 +20,6 @@ public class TouchPad : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(screen);
         destiantion.text =      "Destination : " + spacecraft[screen].spacecraftDestination;
         packages.text =         "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
         estimatedTime.text =    "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
