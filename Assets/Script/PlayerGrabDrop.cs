@@ -73,7 +73,7 @@ public class PlayerGrabDrop : MonoBehaviour
             dropAreaSpacecraft = null;
         }
 
-        if (Input.GetMouseButtonDown(0) && grabableObject != null)
+        if (Input.GetMouseButtonDown(0) && grabableObject != null && !GameManager.Instance.lockPlayer)
         {
             if(grabableObject.transform.parent != null)
             {
