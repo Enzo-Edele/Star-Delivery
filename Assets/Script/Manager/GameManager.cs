@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public List<string> invalidDestinationLevel;
 
     public static GameManager Instance { get; private set; }
-    void Start()
+    void Awake()
     {
         Instance = this;
         lockPlayer = false;
