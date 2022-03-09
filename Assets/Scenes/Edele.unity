@@ -7887,6 +7887,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
+      propertyPath: box
+      value: 
+      objectReference: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
     - target: {fileID: 3016147888315727900, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: m_Name
       value: StartBelt
