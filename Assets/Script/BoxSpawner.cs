@@ -7,11 +7,14 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField]GameObject box;
 
     [SerializeField] float timeMin, timeMax;
+    [SerializeField] int percentageBomb, percentageGood;
     float timer;
 
     void Start()
     {
         timer = timeMin;
+        GameManager.Instance.percentageBomb = percentageBomb;
+        GameManager.Instance.percentageValid = percentageGood;
     }
 
     void Update()

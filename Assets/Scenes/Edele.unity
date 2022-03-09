@@ -4495,6 +4495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   lockPlayer: 0
+  percentageBomb: 0
+  percentageValid: 0
   validDestination:
   - Mars
   - Moon
@@ -7891,6 +7893,14 @@ PrefabInstance:
       propertyPath: box
       value: 
       objectReference: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
+    - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
+      propertyPath: percentageBomb
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
+      propertyPath: percentageGood
+      value: 65
+      objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727900, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: m_Name
       value: StartBelt
