@@ -12,12 +12,12 @@ public class Box : MonoBehaviour
 
     void Start()
     {
-        if (Random.Range(0, 100) < 50)
+        if (Random.Range(0, 100) < GameManager.Instance.percentageValid)
             destination = GameManager.Instance.validDestination[Random.Range(0, GameManager.Instance.validDestination.Count)];
         else
             destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
         isArmed = false;
-        if(Random.Range(0, 100) < 20) //mettre une variable ?manager? pour la proba de bombe
+        if(Random.Range(0, 100) < GameManager.Instance.percentageBomb) //mettre une variable ?manager? pour la proba de bombe
         {
             bomb.SetActive(true);
             isArmed = true;

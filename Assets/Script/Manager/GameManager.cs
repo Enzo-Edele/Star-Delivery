@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 
     public bool lockPlayer;
 
+    public int percentageBomb;
+    public int percentageValid;
+
     public List<string> validDestination;
     public List<string> validDestinationLevel;
     public List<string> invalidDestination;
