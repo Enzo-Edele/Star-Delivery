@@ -6,7 +6,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    public CinemachineVirtualCamera cam;
+    public int levelUnlock;
 
     public bool lockPlayer;
 

@@ -12,9 +12,7 @@ public class BoxSpawner : MonoBehaviour
 
     void Start()
     {
-        timer = timeMin;
-        GameManager.Instance.percentageBomb = percentageBomb;
-        GameManager.Instance.percentageValid = percentageGood;
+        StartLevel();
     }
 
     void Update()
@@ -28,5 +26,12 @@ public class BoxSpawner : MonoBehaviour
             timer = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
         }
+    }
+
+    void StartLevel()
+    {
+        timer = timeMin;
+        GameManager.Instance.percentageBomb = percentageBomb;
+        GameManager.Instance.percentageValid = percentageGood;
     }
 }

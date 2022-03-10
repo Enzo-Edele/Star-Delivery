@@ -13,7 +13,7 @@ public class Box : MonoBehaviour
     void Start()
     {
         if (Random.Range(0, 100) < GameManager.Instance.percentageValid)
-            destination = GameManager.Instance.validDestination[Random.Range(0, GameManager.Instance.validDestination.Count)];
+            destination = GameManager.Instance.validDestinationLevel[Random.Range(0, GameManager.Instance.validDestinationLevel.Count)];
         else
             destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
         isArmed = false;

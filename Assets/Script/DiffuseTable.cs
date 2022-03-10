@@ -11,10 +11,6 @@ public class DiffuseTable : MonoBehaviour
     GameObject bombedBox;
     Bomb bombScript;
     //trouver un moyen de bypass la bombe
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
