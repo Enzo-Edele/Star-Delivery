@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TouchPad : MonoBehaviour
 {
+    public static TouchPad Instance { get; private set; }
+
     public List<Spacecraft> spacecraft;
     public Text destiantion;
     public Text packages;
@@ -20,6 +22,7 @@ public class TouchPad : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         StarLevel();
     }
 
@@ -64,5 +67,11 @@ public class TouchPad : MonoBehaviour
 
         for (int i = 0; i < spacecraft.Count; i++)
             GameManager.Instance.validDestination.Add(memory[i]);
+    }
+
+    public void Launch()
+    {
+        Debug.Log(spacecraft[screen]);
+        spacecraft[screen].Launch();
     }
 }
