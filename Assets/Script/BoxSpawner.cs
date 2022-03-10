@@ -33,5 +33,6 @@ public class BoxSpawner : MonoBehaviour
         timer = timeMin;
         GameManager.Instance.percentageBomb = percentageBomb;
         GameManager.Instance.percentageValid = percentageGood;
+        TouchPad.Instance.StarLevel();
     }
 }

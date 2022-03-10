@@ -2363,6 +2363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b6134d66f07c9488589c053eddc906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderInList: 0
+  spacecraft: {fileID: 0}
   packages: 0
   maximumCharge: 20
   estimatedTime: 20
@@ -3545,6 +3547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b6134d66f07c9488589c053eddc906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderInList: 0
+  spacecraft: {fileID: 0}
   packages: 0
   maximumCharge: 20
   estimatedTime: 20
@@ -5712,6 +5716,7 @@ MonoBehaviour:
   saveText: {fileID: 1334255056}
   newGameButton: {fileID: 2079964069}
   loadButton: {fileID: 296548076}
+  endLevel: {fileID: 0}
   tablet: {fileID: 322905595}
   pauseMenu: {fileID: 502046681}
   grabDropIcon: {fileID: 1152633987}

@@ -13,7 +13,7 @@ public class Spacecraft : MonoBehaviour
     public string spacecraftDestination = "test";
     public TMP_Text destinationText; //set up tout ca avec une fct
 
-    private void Start()
+    private void Awake()
     {
         spacecraft = this.gameObject.transform.parent.gameObject;
         orderInList = TouchPad.Instance.spacecraft.Count;

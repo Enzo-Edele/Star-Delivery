@@ -20,7 +20,7 @@ public class TouchPad : MonoBehaviour
     public Button leftArrow;
     public Button rightArrow;
 
-    void Start()
+    void Awake()
     {
         Instance = this;
         StarLevel();
@@ -28,10 +28,13 @@ public class TouchPad : MonoBehaviour
 
     void Update()
     {
-        destiantion.text =      "Destination : " + spacecraft[screen].spacecraftDestination;
-        packages.text =         "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
-        estimatedTime.text =    "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
-        spacecraftNumber.text = "Spacecraft n°" + (screen + 1);
+        if (spacecraft.Count > 0)
+        {
+            destiantion.text = "Destination : " + spacecraft[screen].spacecraftDestination;
+            packages.text = "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
+            estimatedTime.text = "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
+            spacecraftNumber.text = "Spacecraft n°" + (screen + 1);
+        }
 
         if (spacecraft.Count != screen + 1) rightArrow.gameObject.SetActive(true);        
         else                                rightArrow.gameObject.SetActive(false);
