@@ -9,10 +9,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip mainMenuMusic;
     [SerializeField] AudioClip firstLevelmusic;
 
-    [SerializeField] AudioSource barks;
-    [SerializeField] AudioClip soundUn;
-
-
+    [SerializeField] List<AudioSource> playingEffect;
+    [SerializeField] List<float> timerEffect;
     public static SoundManager Instance { get; private set; }
     void Start()
     {
@@ -20,10 +18,22 @@ public class SoundManager : MonoBehaviour
         StartMusic(mainMenuMusic);
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown("m"))
             ChangeMusic(firstLevelmusic);
+        for(int i = 0; i < playingEffect.Count; i++)
+        {
+            if (timerEffect[i] < 0)
+            {
+                AudioSource delete = playingEffect[i];
+                playingEffect.RemoveAt(i);
+                Destroy(delete);
+                timerEffect.RemoveAt(i);
+            }
+            else
+                timerEffect[i] -= Time.deltaTime;
+        }
     }
 
     void StartMusic(AudioClip clip)
@@ -36,5 +46,15 @@ public class SoundManager : MonoBehaviour
     {
         music.clip = clip;
         music.Play();
+    }
+
+    public void PlaySoundEffect(AudioClip clip)
+    {
+        AudioSource effect = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        playingEffect.Add(effect);
+        effect.clip = clip;
+        effect.volume = 0.25f;
+        timerEffect.Add(effect.clip.length);
+        effect.Play();
     }
 }

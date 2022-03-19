@@ -10,6 +10,7 @@ public class PlayerGrabDrop : MonoBehaviour
     GameObject grabableObject;
     GameObject grabObject;
     GameObject dropAreaBelt;
+    GameObject dropAreaRay;
     GameObject dropAreaDiffuse;
     GameObject dropAreaCrusher;
     GameObject dropAreaSpacecraft;
@@ -20,7 +21,7 @@ public class PlayerGrabDrop : MonoBehaviour
         
     }
 
-    void Update()
+    void Update() //mettre pls raycast
     {
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z),
             transform.forward * interactRange,
@@ -56,18 +57,18 @@ public class PlayerGrabDrop : MonoBehaviour
                 UIManager.Instance.ActivateIconDrop();
                 dropAreaSpacecraft = hit.transform.gameObject;
             }
-            /*else if (hit.transform.gameObject.tag != "Box" && hit.transform.gameObject.tag != "Drop")
+            else if (hit.transform.gameObject.tag == "Ray" && grabObject != null)
             {
-                UIManager.Instance.DeactivateIconGrab();
-                grabableObject = null;
-                dropArea = null;
-            }*/
+                UIManager.Instance.ActivateIconDrop();
+                dropAreaRay = hit.transform.gameObject;
+            }
         }
         else
         {
             UIManager.Instance.DeactivateIconGrab();
             grabableObject = null;
             dropAreaBelt = null;
+            dropAreaRay = null;
             dropAreaDiffuse = null;
             dropAreaCrusher = null;
             dropAreaSpacecraft = null;
@@ -107,6 +108,12 @@ public class PlayerGrabDrop : MonoBehaviour
         {
             dropAreaCrusher.GetComponent<Crusher>().RecieveBox(grabObject);
             Drop(dropAreaCrusher);
+        }
+
+        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaRay != null)
+        {
+            dropAreaRay.GetComponent<InspectionTable>().RecieveBox(grabObject);
+            Drop(dropAreaRay);
         }
     }
 

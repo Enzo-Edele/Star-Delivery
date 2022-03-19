@@ -109,5 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 2365105433931491901, guid: adc60abfdb8215443955f052b26db0dc, type: 3}
+  alarm: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
   timeMin: 3
   timeMax: 6
+  percentageBomb: 0
+  percentageGood: 0

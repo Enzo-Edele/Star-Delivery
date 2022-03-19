@@ -22,6 +22,8 @@ public class DiffuseTable : MonoBehaviour
         {
             DiffuseMod();
         }
+        if(Input.GetKeyDown("p"))
+            BoxInspector.Instance.HideInspector();
     }
 
     public void RecieveBox(GameObject box)

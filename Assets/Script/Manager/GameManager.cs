@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         lockPlayer = false;
+        Debug.Log("gameManager");
     }
 
     void Update()

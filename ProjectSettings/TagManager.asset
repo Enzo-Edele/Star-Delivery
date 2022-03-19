@@ -9,6 +9,7 @@ TagManager:
   - Diffuse
   - Crusher
   - Spacecraft
+  - Ray
   layers:
   - Default
   - TransparentFX
