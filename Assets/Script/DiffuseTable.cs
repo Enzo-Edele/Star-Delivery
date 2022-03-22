@@ -22,7 +22,7 @@ public class DiffuseTable : MonoBehaviour
         {
             DiffuseMod();
         }
-        if(Input.GetKeyDown("p"))
+        if(Input.GetKeyDown("b"))
             BoxInspector.Instance.HideInspector();
     }
 

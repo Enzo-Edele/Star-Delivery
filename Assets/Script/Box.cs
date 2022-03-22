@@ -25,16 +25,6 @@ public class Box : MonoBehaviour
         }
     }
 
-    public bool GetData()
-    {
-        return isArmed;
-    }
-
-    public void SetData(bool armed)
-    {
-        isArmed = armed;
-    }
-
     public void DisplayInfo()
     {
         UIManager.Instance.ActivateBoxInfo(destination, company, content);
@@ -43,7 +33,10 @@ public class Box : MonoBehaviour
     public void Belt()
     {
         if (isArmed)
+        {
             SoundManager.Instance.PlaySoundEffect(explosion);
+            Debug.Log("bombe non traité");
+        }
         bool isValid = false;
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 

@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text saveText;
     [SerializeField] GameObject newGameButton;
     [SerializeField] GameObject loadButton;
+    [SerializeField] GameObject levelMenu;
     [SerializeField] GameObject endLevel;
 
     [SerializeField] GameObject tablet;
@@ -45,6 +46,10 @@ public class UIManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             tablet.gameObject.SetActive(false);
+        }
+        if (Input.GetKeyDown("p") && tablet.gameObject.activeSelf == false)
+        {
+            ActivatePauseMenu();
         }
     }
     public void ActivateMainMenu()
@@ -81,6 +86,17 @@ public class UIManager : MonoBehaviour
     public void ActivatePauseMenu()
     {
         pauseMenu.SetActive(true);
+        GameManager.Instance.lockPlayer = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    public void ActivateLevelMenu()
+    {
+        levelMenu.SetActive(true);
+    }
+    public void DeactivateLevelMenu()
+    {
+        if (levelMenu != null)
+            levelMenu.SetActive(false);
     }
     public void DeactivatePauseMenu()
     {
@@ -138,8 +154,8 @@ public class UIManager : MonoBehaviour
     }
     public void ButtonStartNewGame(int file)
     {
-        //level select
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ActivateLevelMenu();
+        //launchTuto
         DeactivateNewGameSaveMenu();
     }
     public void ButtonLoad(int file)
@@ -156,6 +172,12 @@ public class UIManager : MonoBehaviour
             Debug.Log("Load");
         }
     }
+    public void ButtonSelectLevel(int level)
+    {
+        DeactivateLevelMenu();
+        //SceneManager.LoadScene(level);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void ButtonResume()
     {
         DeactivatePauseMenu();
@@ -164,7 +186,7 @@ public class UIManager : MonoBehaviour
     {
         DeactivatePauseMenu();
         ActivateMainMenu();
-        //faire quitter niveau en cour
+        SceneManager.LoadScene(1);//maybe un script scene manager
     }
     public void ButtonQuit()
     {
