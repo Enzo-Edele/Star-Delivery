@@ -12,8 +12,12 @@ public class TouchPad : MonoBehaviour
     public Text packages;
     public Text estimatedTime;
     public Text spacecraftNumber;
+    public Text time;
     public Button launch;
     public Image spacecraftVisu;
+
+    public GameObject launchPanel;
+    public GameObject timePanel;
 
     public int screen = 0;
 
@@ -30,9 +34,9 @@ public class TouchPad : MonoBehaviour
     {
         if (spacecraft.Count > 0)
         {
-            destiantion.text = "Destination : " + spacecraft[screen].spacecraftDestination;
-            packages.text = "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
-            estimatedTime.text = "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
+            destiantion.text =      "Destination : " + spacecraft[screen].spacecraftDestination;
+            packages.text =         "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
+            estimatedTime.text =    "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
             spacecraftNumber.text = "Spacecraft n°" + (screen + 1);
         }
 
@@ -41,6 +45,9 @@ public class TouchPad : MonoBehaviour
         
         if (screen != 0)                    leftArrow.gameObject.SetActive(true);
         else                                leftArrow.gameObject.SetActive(false);
+
+        launchPanel.SetActive(!spacecraft[screen].delivered);
+        timePanel.SetActive(spacecraft[screen].delivered);
     }
 
     public void Arrow(int direction)
@@ -73,8 +80,7 @@ public class TouchPad : MonoBehaviour
     }
 
     public void Launch()
-    {
-        Debug.Log(spacecraft[screen]);
-        spacecraft[screen].Launch();
+    {       
+        StartCoroutine(spacecraft[screen].LaunchCoroutine());
     }
 }
