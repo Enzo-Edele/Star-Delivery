@@ -40,11 +40,13 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown("a") && tablet.gameObject.activeSelf == false)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            GameManager.Instance.lockPlayer = true;
             tablet.gameObject.SetActive(true);
         }
         else if (Input.GetKeyDown("a"))
         {
             Cursor.lockState = CursorLockMode.Locked;
+            GameManager.Instance.lockPlayer = false;
             tablet.gameObject.SetActive(false);
         }
         if (Input.GetKeyDown("p") && tablet.gameObject.activeSelf == false)
@@ -89,19 +91,20 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.lockPlayer = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
+    public void DeactivatePauseMenu()
+    {
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
+    }
     public void ActivateLevelMenu()
     {
         levelMenu.SetActive(true);
+        //checker progression
     }
     public void DeactivateLevelMenu()
     {
         if (levelMenu != null)
             levelMenu.SetActive(false);
-    }
-    public void DeactivatePauseMenu()
-    {
-        if (pauseMenu != null)
-            pauseMenu.SetActive(false);
     }
     public void ActivateEndLevel()
     {
@@ -155,21 +158,13 @@ public class UIManager : MonoBehaviour
     public void ButtonStartNewGame(int file)
     {
         DeactivateNewGameSaveMenu();
-        //launchTuto
+        GameManager.Instance.SetUpStartValue();
+        GameManager.Instance.Save(file);
+        SceneManager.LoadScene("Tuto");
     }
     public void ButtonLoad(int file)
     {
-        string path = Application.persistentDataPath + "/data" + file + ".save";
-        if (File.Exists(path))
-        {
-            SaveData data = SaveSysteme.LoadData(file);/*
-            level = data.level;
-            for (int i = 0; i < data.highScoreList.Length; i++)
-            {
-                HighScoreList[i] = (data.highScoreList[i]);
-            }*/
-            Debug.Log("Load");
-        }
+        GameManager.Instance.Load(file);
         DeactivateNewGameSaveMenu();
         ActivateLevelMenu();
     }
@@ -177,11 +172,18 @@ public class UIManager : MonoBehaviour
     {
         DeactivateLevelMenu();
         //SceneManager.LoadScene(level);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(level);
     }
     public void ButtonResume()
     {
         DeactivatePauseMenu();
+        GameManager.Instance.lockPlayer = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    public void ButtonLevelSelect()
+    {
+        DeactivatePauseMenu();
+        ActivateLevelMenu();
     }
     public void ButtonMainMenuResume()
     {
@@ -192,5 +194,6 @@ public class UIManager : MonoBehaviour
     public void ButtonQuit()
     {
         Application.Quit();
+        Debug.Log("Quit");
     }
 }

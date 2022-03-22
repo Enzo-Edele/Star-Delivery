@@ -54,9 +54,11 @@ public class TouchPad : MonoBehaviour
         
         if (screen != 0)                    leftArrow.gameObject.SetActive(true);
         else                                leftArrow.gameObject.SetActive(false);
-
-        launchPanel.SetActive(!spacecraft[screen].delivered);
-        timePanel.SetActive(spacecraft[screen].delivered);
+        if (spacecraft.Count > 0)
+        {
+            launchPanel.SetActive(!spacecraft[screen].delivered);
+            timePanel.SetActive(spacecraft[screen].delivered);
+        }
     }
 
     public void Arrow(int direction)
