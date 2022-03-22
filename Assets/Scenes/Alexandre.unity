@@ -1525,9 +1525,9 @@ MonoBehaviour:
   percentageBomb: 0
   percentageValid: 0
   validDestination:
-  - Venus
-  - Venus
-  - Venus
+  - Earth
+  - Moon
+  - Altair
   - Venus
   - Mars
   validDestinationLevel: []
@@ -2720,7 +2720,7 @@ MonoBehaviour:
   packages: {fileID: 1301607855}
   estimatedTime: {fileID: 1406773889}
   spacecraftNumber: {fileID: 1667925281}
-  time: {fileID: 0}
+  time: {fileID: 1858315581}
   launch: {fileID: 713982341}
   spacecraftVisu: {fileID: 1764758391}
   launchPanel: {fileID: 1779610550}
@@ -3762,6 +3762,7 @@ MonoBehaviour:
   estimatedTime: 20
   spacecraftDestination: Earth
   delivered: 0
+  deliveredTime: 0
   destinationText: {fileID: 435686400}
 --- !u!65 &1209257458
 BoxCollider:
@@ -7529,6 +7530,7 @@ MonoBehaviour:
   estimatedTime: 20
   spacecraftDestination: Moon
   delivered: 0
+  deliveredTime: 0
   destinationText: {fileID: 1307705767}
 --- !u!65 &1973457698
 BoxCollider:

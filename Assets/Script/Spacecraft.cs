@@ -14,6 +14,7 @@ public class Spacecraft : MonoBehaviour
     public string spacecraftDestination = "test";
     public bool delivered;
     private bool full;
+    public float deliveredTime;
     public TMP_Text destinationText; //set up tout ca avec une fct
 
     private void Awake()

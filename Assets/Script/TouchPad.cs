@@ -38,6 +38,15 @@ public class TouchPad : MonoBehaviour
             packages.text =         "Packages : " + spacecraft[screen].packages + " / " + spacecraft[screen].maximumCharge;
             estimatedTime.text =    "Estimated Time : " + spacecraft[screen].estimatedTime + "s";
             spacecraftNumber.text = "Spacecraft n°" + (screen + 1);
+
+            if (spacecraft[screen].delivered)
+            {
+                time.text =         "Time : " + Mathf.Round(spacecraft[screen].estimatedTime + (spacecraft[screen].deliveredTime - Time.time)) + "s";
+            }
+            else
+            {
+                spacecraft[screen].deliveredTime = Time.time;
+            }
         }
 
         if (spacecraft.Count != screen + 1) rightArrow.gameObject.SetActive(true);        
@@ -82,5 +91,6 @@ public class TouchPad : MonoBehaviour
     public void Launch()
     {       
         StartCoroutine(spacecraft[screen].LaunchCoroutine());
+        spacecraft[screen].packages = 0;
     }
 }
