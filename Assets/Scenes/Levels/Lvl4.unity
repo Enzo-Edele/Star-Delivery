@@ -944,8 +944,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b7429c4570d21439baaa039a82fc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  levelUnlock: 0
   lockPlayer: 0
+  percentageBomb: 0
+  percentageValid: 0
   validDestination:
   - Mars
   - Moon
@@ -1036,7 +1038,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450371384
 GameObject:
@@ -1150,8 +1152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 2365105433931491901, guid: adc60abfdb8215443955f052b26db0dc, type: 3}
+  alarm: {fileID: 0}
   timeMin: 6
   timeMax: 6
+  percentageBomb: 0
+  percentageGood: 0
 --- !u!65 &475000140
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1724,8 +1729,8 @@ MonoBehaviour:
   music: {fileID: 584787091}
   mainMenuMusic: {fileID: 8300000, guid: 3693126338975594fb8df409e116d5f6, type: 3}
   firstLevelmusic: {fileID: 8300000, guid: 30d4d30c1dd8cd945aee8e835de88396, type: 3}
-  barks: {fileID: 0}
-  soundUn: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
+  playingEffect: []
+  timerEffect: []
 --- !u!4 &584787093
 Transform:
   m_ObjectHideFlags: 0
@@ -4811,7 +4816,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1201094632
 GameObject:
@@ -6827,6 +6832,8 @@ MonoBehaviour:
   saveText: {fileID: 602113375}
   newGameButton: {fileID: 1341786130}
   loadButton: {fileID: 833628543}
+  levelMenu: {fileID: 0}
+  endLevel: {fileID: 0}
   tablet: {fileID: 640834881}
   pauseMenu: {fileID: 796350391}
   grabDropIcon: {fileID: 201223880}
@@ -7162,8 +7169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 2365105433931491901, guid: adc60abfdb8215443955f052b26db0dc, type: 3}
+  alarm: {fileID: 0}
   timeMin: 12
   timeMax: 12
+  percentageBomb: 0
+  percentageGood: 0
 --- !u!65 &1921379155
 BoxCollider:
   m_ObjectHideFlags: 0

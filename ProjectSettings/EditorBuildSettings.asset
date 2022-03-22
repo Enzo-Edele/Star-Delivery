@@ -12,6 +12,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Levels/Tuto.unity
+    guid: 42ce75158e0144145a86c1ad9700a1da
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl1.unity
+    guid: c73f346d561d3534793d42d001ef2838
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl2.unity
+    guid: 211db5c107df17f4198434ba15737b99
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl3.unity
+    guid: 7833f2095c3dce445a6398ca5bf7b499
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl4.unity
+    guid: 9a4087d1884ec25409681f67a2260351
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl5.unity
+    guid: 921e4c3df86c04f46bf6d0d6173168e0
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl6.unity
+    guid: 092daa03be5469643b7ef689a24f5dbd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lvl7.unity
+    guid: 9622ff99785294149aafe34bac255daa
+  - enabled: 1
     path: Assets/Scenes/Edele.unity
     guid: 0f35465211b8422478ceb25874abe393
   m_configObjects: {}

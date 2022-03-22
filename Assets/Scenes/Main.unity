@@ -262,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &44093345
 AudioListener:
   m_ObjectHideFlags: 0
@@ -994,8 +994,8 @@ MonoBehaviour:
   music: {fileID: 273531058}
   mainMenuMusic: {fileID: 8300000, guid: 3693126338975594fb8df409e116d5f6, type: 3}
   firstLevelmusic: {fileID: 8300000, guid: 30d4d30c1dd8cd945aee8e835de88396, type: 3}
-  barks: {fileID: 0}
-  soundUn: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
+  playingEffect: []
+  timerEffect: []
 --- !u!4 &273531060
 Transform:
   m_ObjectHideFlags: 0
@@ -5022,6 +5022,8 @@ MonoBehaviour:
   saveText: {fileID: 530253405}
   newGameButton: {fileID: 1374040944}
   loadButton: {fileID: 817416127}
+  levelMenu: {fileID: 0}
+  endLevel: {fileID: 0}
   tablet: {fileID: 1148220344}
   pauseMenu: {fileID: 1451585533}
   grabDropIcon: {fileID: 1933351336}

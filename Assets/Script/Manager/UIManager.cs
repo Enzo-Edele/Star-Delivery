@@ -154,9 +154,8 @@ public class UIManager : MonoBehaviour
     }
     public void ButtonStartNewGame(int file)
     {
-        ActivateLevelMenu();
-        //launchTuto
         DeactivateNewGameSaveMenu();
+        //launchTuto
     }
     public void ButtonLoad(int file)
     {
@@ -171,8 +170,10 @@ public class UIManager : MonoBehaviour
             }*/
             Debug.Log("Load");
         }
+        DeactivateNewGameSaveMenu();
+        ActivateLevelMenu();
     }
-    public void ButtonSelectLevel(int level)
+    public void ButtonSelectLevel(string level)
     {
         DeactivateLevelMenu();
         //SceneManager.LoadScene(level);
@@ -186,7 +187,7 @@ public class UIManager : MonoBehaviour
     {
         DeactivatePauseMenu();
         ActivateMainMenu();
-        SceneManager.LoadScene(1);//maybe un script scene manager
+        SceneManager.LoadScene("Main");
     }
     public void ButtonQuit()
     {
