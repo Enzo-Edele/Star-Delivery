@@ -41,11 +41,27 @@ public class TouchPad : MonoBehaviour
 
             if (spacecraft[screen].delivered)
             {
-                time.text =         "Time : " + Mathf.Round(spacecraft[screen].estimatedTime + (spacecraft[screen].deliveredTime - Time.time)) + "s";
+                time.text = "Time : " + Mathf.Round(spacecraft[screen].estimatedTime + (spacecraft[screen].deliveredTime - Time.time)) + "s";
             }
             else
             {
                 spacecraft[screen].deliveredTime = Time.time;
+            }
+
+            if (spacecraft[screen].packages > spacecraft[screen].maximumCharge)
+            {
+                if (spacecraft[screen].packages == (spacecraft[screen].overload + spacecraft[screen].maximumCharge))
+                {
+                    packages.color = new Color(1, 0, 0, 1);
+                }
+                else
+                {
+                    packages.color = new Color(1, 0.85f, 0, 1);
+                }
+            }
+            else
+            {
+                packages.color = new Color(1, 1, 1, 1);
             }
         }
 
@@ -54,6 +70,7 @@ public class TouchPad : MonoBehaviour
         
         if (screen != 0)                    leftArrow.gameObject.SetActive(true);
         else                                leftArrow.gameObject.SetActive(false);
+
         if (spacecraft.Count > 0)
         {
             launchPanel.SetActive(!spacecraft[screen].delivered);

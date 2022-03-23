@@ -11,7 +11,7 @@ public class Spacecraft : MonoBehaviour
     public int maximumCharge = 10;
     public int overload = 5;
     public float estimatedTime = 20;
-    public string spacecraftDestination = "test";
+    public string spacecraftDestination;
     public bool delivered;
     private bool full;
     public float deliveredTime;
@@ -23,14 +23,6 @@ public class Spacecraft : MonoBehaviour
         spacecraft = this.gameObject.transform.parent.gameObject;
         orderInList = TouchPad.Instance.spacecraft.Count;
         TouchPad.Instance.spacecraft.Add(this);
-    }
-
-    private void Update()
-    {
-        if (packages >= (maximumCharge + overload))
-        {
-            full = true;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,6 +37,14 @@ public class Spacecraft : MonoBehaviour
             packages++;
             box.Navette();
         }
+        if (packages >= (maximumCharge + overload))
+        {
+            full = true;
+        }
+        if (packages > maximumCharge)
+        {
+            estimatedTime += 2;
+        }
     }
 
     public IEnumerator LaunchCoroutine()
@@ -52,6 +52,7 @@ public class Spacecraft : MonoBehaviour
         delivered = true;
         spacecraft.SetActive(false); //anim décollage
         yield return new WaitForSeconds(estimatedTime);
+        estimatedTime = 20;
         spacecraft.SetActive(true);  //anim atterrisage
         delivered = false;
     }
