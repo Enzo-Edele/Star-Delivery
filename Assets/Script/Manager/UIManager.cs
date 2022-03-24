@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject newGameButton;
     [SerializeField] GameObject loadButton;
     [SerializeField] GameObject levelMenu;
+    [SerializeField] List<Button> LevelButtons;
+    [SerializeField] List<Text> highScores;
     [SerializeField] GameObject endLevel;
 
     [SerializeField] GameObject tablet;
@@ -151,6 +153,15 @@ public class UIManager : MonoBehaviour
     void CheckCampainProgress()
     {
         //loop des High Score & bouton interractible
+    }
+    void ExitCampain()
+    {
+        for (int i = 0; i < LevelButtons.Count; i++)
+        {
+            if (i < GameManager.Instance.levelUnlock)
+                LevelButtons[i].interactable = true;
+            highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
+        }
     }
 
     public void ButtonNewGameMenu()

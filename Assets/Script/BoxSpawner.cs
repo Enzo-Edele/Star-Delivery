@@ -28,7 +28,7 @@ public class BoxSpawner : MonoBehaviour
             timerBoxes = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
             SoundManager.Instance.PlaySoundEffect(alarm);
-        }
+        }/*
         if (timerLevel > 0)
             timerLevel -= Time.deltaTime;
         else
@@ -37,7 +37,7 @@ public class BoxSpawner : MonoBehaviour
                 GameManager.Instance.levelUnlock++;
             GameManager.Instance.EndLevel();
             UIManager.Instance.ActivateEndLevel();
-        }
+        }*/
     }
 
     void StartLevel()
