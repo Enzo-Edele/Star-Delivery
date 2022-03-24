@@ -39,13 +39,13 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("a") && tablet.gameObject.activeSelf == false)
+        if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false)
         {
             Cursor.lockState = CursorLockMode.Confined;
             GameManager.Instance.lockPlayer = true;
             tablet.gameObject.SetActive(true);
         }
-        else if (Input.GetKeyDown("a"))
+        else if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.Locked;
             GameManager.Instance.lockPlayer = false;
@@ -87,17 +87,6 @@ public class UIManager : MonoBehaviour
         if (loadButton != null)
             loadButton.SetActive(false);
     }
-    public void ActivatePauseMenu()
-    {
-        pauseMenu.SetActive(true);
-        GameManager.Instance.lockPlayer = true;
-        Cursor.lockState = CursorLockMode.Confined;
-    }
-    public void DeactivatePauseMenu()
-    {
-        if (pauseMenu != null)
-            pauseMenu.SetActive(false);
-    }
     public void ActivateLevelMenu()
     {
         levelMenu.SetActive(true);
@@ -109,16 +98,16 @@ public class UIManager : MonoBehaviour
         if (levelMenu != null)
             levelMenu.SetActive(false);
     }
-    public void ActivateEndLevel()
+    public void ActivatePauseMenu()
     {
-        endLevel.SetActive(true);
+        pauseMenu.SetActive(true);
         GameManager.Instance.lockPlayer = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
-    public void DeactivateEndLevel()
+    public void DeactivatePauseMenu()
     {
-        if (endLevel != null)
-            endLevel.SetActive(false);
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
     }
     public void ActivateIconGrab()
     {
@@ -148,6 +137,18 @@ public class UIManager : MonoBehaviour
         if (boxInfo != null)
             boxInfo.SetActive(false);
     }
+    public void ActivateEndLevel()
+    {
+        endLevel.SetActive(true);
+        GameManager.Instance.lockPlayer = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    public void DeactivateEndLevel()
+    {
+        if (endLevel != null)
+            endLevel.SetActive(false);
+    }
+    //variante success and fail
 
     public void CheckCampainProgress()
     {
@@ -155,7 +156,7 @@ public class UIManager : MonoBehaviour
         {
             if (i < GameManager.Instance.levelUnlock)
                 LevelButtons[i].interactable = true;
-            //highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
+            highScores[i].text = GameManager.Instance.highScoreList[i].ToString() + " Packages";
         }
     }
     void ExitCampain()
@@ -163,7 +164,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < LevelButtons.Count; i++)
         {
             LevelButtons[i].interactable = false;
-            //highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
+            highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
         }
     }
 
@@ -189,7 +190,6 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.Load(file);
         DeactivateNewGameSaveMenu();
-        Debug.Log(GameManager.Instance.levelUnlock);
         if (GameManager.Instance.levelUnlock > 0)
             ActivateLevelMenu();
         else
@@ -222,7 +222,6 @@ public class UIManager : MonoBehaviour
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateMainMenu();
-        ExitCampain();
         SceneManager.LoadScene("Main");
     }
     public void ButtonQuit()

@@ -48,8 +48,9 @@ public class GameManager : MonoBehaviour
     {
         gameState = currentState;
         switch (gameState)
-        { 
-        
+        {
+            case GameStates.GameOver:
+                break;
         }
     }
 
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
     public void Save(int file)
     {
         SaveSysteme.Save(this, file);
+        Debug.Log("save to file : " + file);
     }
 
     public void Load(int file)
@@ -78,7 +80,7 @@ public class GameManager : MonoBehaviour
         if (File.Exists(path))
         {
             SaveData data = SaveSysteme.LoadData(file);
-            file = data.file;
+            this.file = data.file;
             tutoDone = data.tutoDone;
             levelUnlock = data.levelUnlock;
             for (int i = 0; i < data.highScoreList.Length; i++)
@@ -89,7 +91,7 @@ public class GameManager : MonoBehaviour
             {
                 boxScoreList[i] = (data.boxScoreList[i]);
             }
-            Debug.Log("load");
+            Debug.Log("load file : "+ file);
         }
     }
 
@@ -107,11 +109,12 @@ public class GameManager : MonoBehaviour
     {
         if (levelUnlock > 0)
         {
-            Debug.Log("pas tuto");
-            if (packageSent > highScoreList[SceneManager.GetActiveScene().buildIndex - 3])
+            if (packageSent > highScoreList[SceneManager.GetActiveScene().buildIndex - 3]) {
                 highScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
+                Debug.Log("set highscore to : " + packageSent);
+            }
         }
-        if (!(packageSent < objective) && levelUnlock == highScoreList[SceneManager.GetActiveScene().buildIndex - 2])
+        if (!(packageSent < objective) && levelUnlock == SceneManager.GetActiveScene().buildIndex - 2)
         {
             levelUnlock++;
             Debug.Log("win");
@@ -119,7 +122,6 @@ public class GameManager : MonoBehaviour
         else if (packageSent < objective)
             Debug.Log("fail");
         packageSent = 0;
-        UIManager.Instance.CheckCampainProgress();
         UIManager.Instance.ActivateEndLevel();
         Save(file);
     }
