@@ -71,9 +71,11 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateSaveMenu()
     {
+        //if tuto fait
         saveMenu.SetActive(true);
         saveText.text = "Load";
         loadButton.SetActive(true);
+        //else on load tuto
     }
     public void DeactivateNewGameSaveMenu()
     {
@@ -99,7 +101,7 @@ public class UIManager : MonoBehaviour
     public void ActivateLevelMenu()
     {
         levelMenu.SetActive(true);
-        //checker progression
+        CheckCampainProgress();
     }
     public void DeactivateLevelMenu()
     {
@@ -109,6 +111,8 @@ public class UIManager : MonoBehaviour
     public void ActivateEndLevel()
     {
         endLevel.SetActive(true);
+        GameManager.Instance.lockPlayer = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     public void DeactivateEndLevel()
     {
@@ -144,6 +148,11 @@ public class UIManager : MonoBehaviour
             boxInfo.SetActive(false);
     }
 
+    void CheckCampainProgress()
+    {
+        //loop des High Score & bouton interractible
+    }
+
     public void ButtonNewGameMenu()
     {
         DeactivateMainMenu();
@@ -171,7 +180,6 @@ public class UIManager : MonoBehaviour
     public void ButtonSelectLevel(string level)
     {
         DeactivateLevelMenu();
-        //SceneManager.LoadScene(level);
         SceneManager.LoadScene(level);
     }
     public void ButtonResume()
@@ -184,6 +192,11 @@ public class UIManager : MonoBehaviour
     {
         DeactivatePauseMenu();
         ActivateLevelMenu();
+    }
+    public void ButtonNextLevel()
+    {
+        DeactivateEndLevel();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void ButtonMainMenuResume()
     {

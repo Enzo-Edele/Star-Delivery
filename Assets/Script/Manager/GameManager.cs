@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 using System.IO;
 
+
 public class GameManager : MonoBehaviour
 {
-    public bool tutorial;
+    public int tutoDone;
     public int levelUnlock;
     public List<int> highScoreList = new List<int>();
     public List<int> boxScoreList = new List<int>();
@@ -21,12 +23,14 @@ public class GameManager : MonoBehaviour
     public List<string> invalidDestination;
     public List<string> invalidDestinationLevel;
 
+    int packageSent;
+    int objective;
+
     public static GameManager Instance { get; private set; }
     void Awake()
     {
         Instance = this;
         lockPlayer = false;
-        Debug.Log("gameManager");
     }
 
     void Update()
@@ -36,8 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void SetUpStartValue()
     {
-        tutorial = false;
-        levelUnlock = 0; //virée tuto et juste check si levelUnlock = 0
+        levelUnlock = 0;
         for (int i = 0; i < 7; i++)
         {
             highScoreList.Add(0);
@@ -52,11 +55,10 @@ public class GameManager : MonoBehaviour
 
     public void Load(int file)
     {
-        string path = Application.persistentDataPath + "/data.save";
+        string path = Application.persistentDataPath + "/data" + file + ".save";
         if (File.Exists(path))
         {
             SaveData data = SaveSysteme.LoadData(file);
-            tutorial = data.tuto;
             levelUnlock = data.levelUnlock;
             for (int i = 0; i < data.highScoreList.Length; i++)
             {
@@ -68,5 +70,19 @@ public class GameManager : MonoBehaviour
             }
             Debug.Log("load");
         }
+    }
+
+    public void SpacecraftDeliver(int qty)
+    {
+        packageSent += qty;
+    }
+    public void EndLevel()
+    {
+        if(levelUnlock > 0)
+            if(packageSent > highScoreList[SceneManager.GetActiveScene().buildIndex - 3])
+                highScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
+        if (!(packageSent < objective) && levelUnlock == highScoreList[SceneManager.GetActiveScene().buildIndex - 2])
+            levelUnlock++;
+        packageSent = 0;
     }
 }

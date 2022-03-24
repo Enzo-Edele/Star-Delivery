@@ -7,9 +7,12 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField]GameObject box;
     [SerializeField] AudioClip alarm;
 
+    [SerializeField] int objective;
     [SerializeField] float timeMin, timeMax;
     [SerializeField] int percentageBomb, percentageGood;
-    float timer;
+    float timerBoxes;
+    [SerializeField]float timeLevel;
+    float timerLevel;
 
     void Start()
     {
@@ -18,21 +21,29 @@ public class BoxSpawner : MonoBehaviour
 
     void Update()
     {
-        if(timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
+        if(timerBoxes > 0)
+            timerBoxes -= Time.deltaTime;
         else
         {
-            timer = Random.Range(timeMin, timeMax);
+            timerBoxes = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
             SoundManager.Instance.PlaySoundEffect(alarm);
+        }
+        if (timerLevel > 0)
+            timerLevel -= Time.deltaTime;
+        else
+        {
+            if (objective == 2)
+                GameManager.Instance.levelUnlock++;
+            GameManager.Instance.EndLevel();
+            UIManager.Instance.ActivateEndLevel();
         }
     }
 
     void StartLevel()
     {
-        timer = timeMin;
+        timerBoxes = timeMin;
+        timerLevel = timeLevel;
         GameManager.Instance.percentageBomb = percentageBomb;
         GameManager.Instance.percentageValid = percentageGood;
         TouchPad.Instance.StarLevel();
