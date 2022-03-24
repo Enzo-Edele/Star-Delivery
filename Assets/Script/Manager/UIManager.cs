@@ -73,11 +73,9 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateSaveMenu()
     {
-        //if tuto fait
         saveMenu.SetActive(true);
         saveText.text = "Load";
         loadButton.SetActive(true);
-        //else on load tuto
     }
     public void DeactivateNewGameSaveMenu()
     {
@@ -103,6 +101,7 @@ public class UIManager : MonoBehaviour
     public void ActivateLevelMenu()
     {
         levelMenu.SetActive(true);
+        ExitCampain();
         CheckCampainProgress();
     }
     public void DeactivateLevelMenu()
@@ -150,17 +149,21 @@ public class UIManager : MonoBehaviour
             boxInfo.SetActive(false);
     }
 
-    void CheckCampainProgress()
-    {
-        //loop des High Score & bouton interractible
-    }
-    void ExitCampain()
+    public void CheckCampainProgress()
     {
         for (int i = 0; i < LevelButtons.Count; i++)
         {
             if (i < GameManager.Instance.levelUnlock)
                 LevelButtons[i].interactable = true;
-            highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
+            //highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
+        }
+    }
+    void ExitCampain()
+    {
+        for (int i = 0; i < LevelButtons.Count; i++)
+        {
+            LevelButtons[i].interactable = false;
+            //highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
         }
     }
 
@@ -169,7 +172,7 @@ public class UIManager : MonoBehaviour
         DeactivateMainMenu();
         ActivateNewGameMenu();
     }
-    public void ButtonLoadMenu()
+    public void ButtonSaveMenu()
     {
         DeactivateMainMenu();
         DeactivateEndLevel();
@@ -178,15 +181,19 @@ public class UIManager : MonoBehaviour
     public void ButtonStartNewGame(int file)
     {
         DeactivateNewGameSaveMenu();
-        GameManager.Instance.SetUpStartValue();
+        GameManager.Instance.SetUpStartValue(file);
         GameManager.Instance.Save(file);
         SceneManager.LoadScene("Tuto");
     }
-    public void ButtonLoad(int file)
+    public void ButtonLevelMenu(int file)
     {
         GameManager.Instance.Load(file);
         DeactivateNewGameSaveMenu();
-        ActivateLevelMenu();
+        Debug.Log(GameManager.Instance.levelUnlock);
+        if (GameManager.Instance.levelUnlock > 0)
+            ActivateLevelMenu();
+        else
+            SceneManager.LoadScene("Tuto");
     }
     public void ButtonSelectLevel(string level)
     {
@@ -199,9 +206,10 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.lockPlayer = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    public void ButtonLevelSelect()
+    public void ButtonSelectLevelResume()
     {
         DeactivatePauseMenu();
+        DeactivateEndLevel();
         ActivateLevelMenu();
     }
     public void ButtonNextLevel()
@@ -212,7 +220,9 @@ public class UIManager : MonoBehaviour
     public void ButtonMainMenuResume()
     {
         DeactivatePauseMenu();
+        DeactivateEndLevel();
         ActivateMainMenu();
+        ExitCampain();
         SceneManager.LoadScene("Main");
     }
     public void ButtonQuit()

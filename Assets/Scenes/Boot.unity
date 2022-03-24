@@ -1597,7 +1597,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 732272512}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ButtonLoadMenu
+        m_MethodName: ButtonSaveMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2628,7 +2628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 732272512}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ButtonLoad
+        m_MethodName: ButtonLevelMenu
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3807,7 +3807,14 @@ MonoBehaviour:
   newGameButton: {fileID: 1116353123}
   loadButton: {fileID: 57065426}
   levelMenu: {fileID: 1773749430}
-  LevelButtons: []
+  LevelButtons:
+  - {fileID: 1747413831}
+  - {fileID: 142797082}
+  - {fileID: 1090245776}
+  - {fileID: 2039748347}
+  - {fileID: 839967336}
+  - {fileID: 691322520}
+  - {fileID: 1294335534}
   highScores: []
   endLevel: {fileID: 718113256}
   tablet: {fileID: 1645485008}
@@ -5596,7 +5603,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 732272512}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ButtonLoad
+        m_MethodName: ButtonLevelMenu
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5729,7 +5736,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 732272512}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ButtonLevelSelect
+        m_MethodName: ButtonSelectLevelResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7068,7 +7075,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 732272512}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ButtonLevelSelect
+        m_MethodName: ButtonSelectLevelResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7782,7 +7789,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 732272512}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ButtonLoad
+        m_MethodName: ButtonLevelMenu
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8016,6 +8023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b7429c4570d21439baaa039a82fc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  file: 0
   tutoDone: 0
   levelUnlock: 0
   highScoreList: 
@@ -8039,6 +8047,8 @@ MonoBehaviour:
   - Bordeciel
   - 4546B
   invalidDestinationLevel: []
+  packageSent: 0
+  objective: 0
 --- !u!1 &1581536266
 GameObject:
   m_ObjectHideFlags: 0
