@@ -53,7 +53,8 @@ public class Spacecraft : MonoBehaviour
     public IEnumerator LaunchCoroutine()
     {
         delivered = true;
-        
+        GameManager.Instance.SpacecraftDeliver(packages);
+        packages = 0;
         spacecraft.SetActive(false); //anim décollage
         yield return new WaitForSeconds(estimatedTime);
         estimatedTime = 20;

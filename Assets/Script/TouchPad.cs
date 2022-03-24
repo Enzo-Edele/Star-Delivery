@@ -110,6 +110,5 @@ public class TouchPad : MonoBehaviour
     public void Launch()
     {       
         StartCoroutine(spacecraft[screen].LaunchCoroutine());
-        spacecraft[screen].packages = 0;
     }
 }
