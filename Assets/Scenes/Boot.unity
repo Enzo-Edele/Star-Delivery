@@ -2238,8 +2238,8 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 10, y: 50}
-  m_Constraint: 2
-  m_ConstraintCount: 2
+  m_Constraint: 1
+  m_ConstraintCount: 4
 --- !u!1 &464107915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,6 +3807,8 @@ MonoBehaviour:
   newGameButton: {fileID: 1116353123}
   loadButton: {fileID: 57065426}
   levelMenu: {fileID: 1773749430}
+  LevelButtons: []
+  highScores: []
   endLevel: {fileID: 718113256}
   tablet: {fileID: 1645485008}
   pauseMenu: {fileID: 1250939331}
@@ -8014,6 +8016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b7429c4570d21439baaa039a82fc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutoDone: 0
   levelUnlock: 0
   highScoreList: 
   boxScoreList: 

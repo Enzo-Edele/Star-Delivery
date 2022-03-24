@@ -8,7 +8,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    public int tutoDone;
+    public bool tutoDone;
     public int levelUnlock;
     public List<int> highScoreList = new List<int>();
     public List<int> boxScoreList = new List<int>();
@@ -40,12 +40,14 @@ public class GameManager : MonoBehaviour
 
     public void SetUpStartValue()
     {
+        tutoDone = false;
         levelUnlock = 0;
         for (int i = 0; i < 7; i++)
         {
             highScoreList.Add(0);
             boxScoreList.Add(0);
         }
+
     }
 
     public void Save(int file)
@@ -55,10 +57,12 @@ public class GameManager : MonoBehaviour
 
     public void Load(int file)
     {
+        SetUpStartValue();
         string path = Application.persistentDataPath + "/data" + file + ".save";
         if (File.Exists(path))
         {
             SaveData data = SaveSysteme.LoadData(file);
+            tutoDone = data.tutoDone;
             levelUnlock = data.levelUnlock;
             for (int i = 0; i < data.highScoreList.Length; i++)
             {
