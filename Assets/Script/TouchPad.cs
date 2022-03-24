@@ -65,11 +65,27 @@ public class TouchPad : MonoBehaviour
             }
         }
 
-        if (spacecraft.Count != screen + 1) rightArrow.gameObject.SetActive(true);        
-        else                                rightArrow.gameObject.SetActive(false);
+        if (spacecraft.Count != screen + 1)
+        {
+            rightArrow.gameObject.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown("d"))
+            {
+                Arrow(1);
+            }
+        }
+        else rightArrow.gameObject.SetActive(false);
         
-        if (screen != 0)                    leftArrow.gameObject.SetActive(true);
-        else                                leftArrow.gameObject.SetActive(false);
+        if (screen != 0)
+        {
+            leftArrow.gameObject.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown("q"))
+            {
+                Arrow(-1);
+            }
+        }
+        else leftArrow.gameObject.SetActive(false);
+
+
 
         if (spacecraft.Count > 0)
         {
