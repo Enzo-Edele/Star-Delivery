@@ -13,6 +13,7 @@ public class BoxSpawner : MonoBehaviour
     float timerBoxes;
     [SerializeField]float timeLevel;
     float timerLevel;
+    bool endLevel;
 
     void Start()
     {
@@ -28,24 +29,22 @@ public class BoxSpawner : MonoBehaviour
             timerBoxes = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
             SoundManager.Instance.PlaySoundEffect(alarm);
-        }/*
+        }
         if (timerLevel > 0)
             timerLevel -= Time.deltaTime;
-        else
+        else if (!endLevel)
         {
-            if (objective == 2)
-                GameManager.Instance.levelUnlock++;
             GameManager.Instance.EndLevel();
-            UIManager.Instance.ActivateEndLevel();
-        }*/
+            endLevel = true;
+        }
     }
 
     void StartLevel()
     {
         timerBoxes = timeMin;
         timerLevel = timeLevel;
-        GameManager.Instance.percentageBomb = percentageBomb;
-        GameManager.Instance.percentageValid = percentageGood;
+        endLevel = false;
+        GameManager.Instance.StartLevel(percentageBomb, percentageGood, objective);
         TouchPad.Instance.StarLevel();
     }
 }

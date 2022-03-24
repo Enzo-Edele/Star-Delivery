@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 97412b1d7310efc4da27c74a55b0e917, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2941,19 +2941,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: objective
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: timeLevel
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: percentageBomb
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: percentageGood
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727900, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: m_Name

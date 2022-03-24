@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 14a510f2e9695824c9651fe6cd201dc0, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -3149,11 +3149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  alarm: {fileID: 0}
-  timeMin: 3
-  timeMax: 6
-  percentageBomb: 0
-  percentageGood: 0
+  alarm: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
+  objective: 4
+  timeMin: 8
+  timeMax: 12
+  percentageBomb: 10
+  percentageGood: 80
+  timeLevel: 60
 --- !u!65 &800793476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4553,7 +4555,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b7429c4570d21439baaa039a82fc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutoDone: 0
   levelUnlock: 0
+  highScoreList: 
+  boxScoreList: 
   lockPlayer: 0
   percentageBomb: 0
   percentageValid: 0
@@ -4731,8 +4736,11 @@ MonoBehaviour:
   packages: {fileID: 799435178}
   estimatedTime: {fileID: 136263428}
   spacecraftNumber: {fileID: 163356438}
+  time: {fileID: 0}
   launch: {fileID: 1109009643}
   spacecraftVisu: {fileID: 899221067}
+  launchPanel: {fileID: 0}
+  timePanel: {fileID: 0}
   screen: 0
   leftArrow: {fileID: 72400161}
   rightArrow: {fileID: 206894011}
@@ -4754,6 +4762,8 @@ MonoBehaviour:
   newGameButton: {fileID: 2133889073}
   loadButton: {fileID: 2113544769}
   levelMenu: {fileID: 0}
+  LevelButtons: []
+  highScores: []
   endLevel: {fileID: 0}
   tablet: {fileID: 163395352}
   pauseMenu: {fileID: 1214219688}
