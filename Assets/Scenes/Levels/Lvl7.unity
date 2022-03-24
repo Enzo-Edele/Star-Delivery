@@ -4520,13 +4520,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  alarm: {fileID: 0}
+  alarm: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
   objective: 0
   timeMin: 8
   timeMax: 8
   percentageBomb: 5
   percentageGood: 90
-  timeLevel: 0
+  timeLevel: 999
 --- !u!65 &785994450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5513,13 +5513,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  alarm: {fileID: 0}
+  alarm: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
   objective: 0
   timeMin: 12
   timeMax: 12
   percentageBomb: 5
   percentageGood: 90
-  timeLevel: 0
+  timeLevel: 999
 --- !u!65 &936006173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7896,7 +7896,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179780895}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d892f8d06642c4699644732e721007, type: 3}
   m_Name: 
@@ -9876,7 +9876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab9ccf6abcce454aa3bb599591c0c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 250
+  mouseSensitivity: 350
   playerBody: {fileID: 958706696}
 --- !u!114 &1484469957
 MonoBehaviour:
