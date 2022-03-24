@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public bool tuto;
+    public int tutoDone;
     public int levelUnlock;
     public int[] highScoreList = new int[GameManager.Instance.highScoreList.Count];
     public int[] boxScoreList = new int[GameManager.Instance.boxScoreList.Count];
@@ -13,7 +13,7 @@ public class SaveData
 
     public SaveData(GameManager gameData)
     {
-        tuto = gameData.tutorial;
+        tutoDone = gameData.tutoDone;
         levelUnlock = gameData.levelUnlock;
         for (int i = 0; i < gameData.highScoreList.Count; i++)
         {
