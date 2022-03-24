@@ -15,6 +15,7 @@ public class Spacecraft : MonoBehaviour
     public bool delivered;
     private bool full;
     public float deliveredTime;
+    private float sendScore = 0;
     public TMP_Text destinationText; //set up tout ca avec une fct
 
     private void Awake()
@@ -35,6 +36,8 @@ public class Spacecraft : MonoBehaviour
         else if (!full)
         { 
             packages++;
+            sendScore += 100;
+            if (box.isFragile) sendScore += 50;
             box.Navette();
         }
         if (packages >= (maximumCharge + overload))
@@ -50,6 +53,7 @@ public class Spacecraft : MonoBehaviour
     public IEnumerator LaunchCoroutine()
     {
         delivered = true;
+        
         spacecraft.SetActive(false); //anim décollage
         yield return new WaitForSeconds(estimatedTime);
         estimatedTime = 20;

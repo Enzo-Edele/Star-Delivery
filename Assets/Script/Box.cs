@@ -7,9 +7,10 @@ public class Box : MonoBehaviour
     [SerializeField] AudioClip explosion;
     public GameObject bomb;
     public bool isArmed { get; private set; }
-    public string destination= "test";
+    public string destination = "test";
     string company = "Amazoon";
     string content = "Stuff";
+    public bool isFragile;
 
     void Start()
     {
