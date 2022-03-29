@@ -15,13 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Tuto.unity
     guid: 42ce75158e0144145a86c1ad9700a1da
   - enabled: 1
-    path: Assets/Scenes/Levels/Lvl1.unity
+    path: Assets/Scenes/Levels/Lvl2.unity
     guid: c73f346d561d3534793d42d001ef2838
   - enabled: 1
-    path: Assets/Scenes/Levels/Lvl2.unity
+    path: Assets/Scenes/Levels/Lvl3.unity
     guid: 211db5c107df17f4198434ba15737b99
   - enabled: 1
-    path: Assets/Scenes/Levels/Lvl3.unity
+    path: Assets/Scenes/Levels/Lvl1.unity
     guid: 7833f2095c3dce445a6398ca5bf7b499
   - enabled: 1
     path: Assets/Scenes/Levels/Lvl4.unity
