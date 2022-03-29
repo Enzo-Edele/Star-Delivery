@@ -5,7 +5,6 @@ using UnityEngine;
 public class BoxSpawner : MonoBehaviour
 {
     [SerializeField]GameObject box;
-    [SerializeField] AudioClip alarm;
 
     [SerializeField] int objective;
     [SerializeField] float timeMin, timeMax;
@@ -28,7 +27,7 @@ public class BoxSpawner : MonoBehaviour
         {
             timerBoxes = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
-            SoundManager.Instance.Play(alarm);
+            SoundManager.Instance.Play("alarm");
         }
         if (timerLevel > 0)
             timerLevel -= Time.deltaTime;

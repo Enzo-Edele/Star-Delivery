@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    [SerializeField] AudioClip explosion;
     public GameObject bomb;
     public bool isArmed { get; private set; }
     public string destination = "test";
@@ -38,7 +37,7 @@ public class Box : MonoBehaviour
     {
         if (isArmed)
         {
-            SoundManager.Instance.Play(explosion);
+            SoundManager.Instance.Play("explosion");
             Debug.Log("bombe non traité");
         }
         bool isValid = false;
@@ -61,7 +60,7 @@ public class Box : MonoBehaviour
     public void Crusher()
     {
         if (isArmed)
-            SoundManager.Instance.Play(explosion);
+            SoundManager.Instance.Play("explosion");
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 Debug.Log("valid détruit");
@@ -71,7 +70,7 @@ public class Box : MonoBehaviour
     public void Navette()
     {
         if (isArmed)
-            SoundManager.Instance.Play(explosion);
+            SoundManager.Instance.Play("explosion");
         Destroy(gameObject);
     }
 }

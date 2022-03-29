@@ -1,60 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]AudioSource music;
-    AudioClip currentClip;
-    [SerializeField] AudioClip mainMenuMusic;
-    [SerializeField] AudioClip firstLevelmusic;
+    public Sound[] sounds;
 
-    [SerializeField] List<AudioSource> playingEffect;
-    [SerializeField] List<float> timerEffect;
     public static SoundManager Instance { get; private set; }
-    void Start()
+    private void Awake()
     {
         Instance = this;
-        StartMusic(mainMenuMusic);
-    }
 
-    void Update()
-    {
-        if (Input.GetKeyDown("m"))
-            ChangeMusic(firstLevelmusic);
-        for(int i = 0; i < playingEffect.Count; i++)
+        foreach(Sound s in sounds)
         {
-            if (timerEffect[i] < 0)
-            {
-                AudioSource delete = playingEffect[i];
-                playingEffect.RemoveAt(i);
-                Destroy(delete);
-                timerEffect.RemoveAt(i);
-            }
-            else
-                timerEffect[i] -= Time.deltaTime;
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume;
+
+            s.source.loop = s.loop;
         }
     }
 
-    void StartMusic(AudioClip clip)
+    public void Play(string name)
     {
-        music.clip = clip;
-        music.Play();
-    }
-
-    void ChangeMusic(AudioClip clip) //maybe une coroutine
-    {
-        music.clip = clip;
-        music.Play();
-    }
-
-    public void PlaySoundEffect(AudioClip clip)
-    {
-        AudioSource effect = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
-        playingEffect.Add(effect);
-        effect.clip = clip;
-        effect.volume = 0.25f;
-        timerEffect.Add(effect.clip.length);
-        effect.Play();
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("sound name not find : " + name);
+            return;
+        }
+        s.source.Play();
     }
 }
