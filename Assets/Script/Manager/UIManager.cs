@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text saveText;
     [SerializeField] GameObject newGameButton;
     [SerializeField] GameObject loadButton;
+    [SerializeField] List<Button> loadButtons;
     [SerializeField] GameObject levelMenu;
     [SerializeField] List<Button> LevelButtons;
     [SerializeField] List<Text> highScores;
@@ -73,6 +74,7 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateSaveMenu()
     {
+        CheckSaveExist();
         saveMenu.SetActive(true);
         saveText.text = "Load";
         loadButton.SetActive(true);
@@ -150,6 +152,16 @@ public class UIManager : MonoBehaviour
     }
     //variante success and fail
 
+    public void CheckSaveExist()
+    {
+        for (int i = 0; i < loadButtons.Count; i++)
+        {
+            loadButtons[i].interactable = false;
+            string path = Application.persistentDataPath + "/data" + (i + 1) + ".save";
+            if (File.Exists(path))
+                loadButtons[i].interactable = true;
+        }
+    }
     public void CheckCampainProgress()
     {
         for (int i = 0; i < LevelButtons.Count; i++)
@@ -168,25 +180,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ButtonNewGameMenu()
+    public void ButtonNewGameMenu()//main menu -> new game menu
     {
         DeactivateMainMenu();
         ActivateNewGameMenu();
     }
-    public void ButtonSaveMenu()
+    public void ButtonSaveMenu()//main menu/end level -> load menu
     {
         DeactivateMainMenu();
         DeactivateEndLevel();
         ActivateSaveMenu();
     }
-    public void ButtonStartNewGame(int file)
+    public void ButtonStartNewGame(int file)//new game menu -> Tuto + create save to file X
     {
         DeactivateNewGameSaveMenu();
         GameManager.Instance.SetUpStartValue(file);
         GameManager.Instance.Save(file);
         SceneManager.LoadScene("Tuto");
     }
-    public void ButtonLevelMenu(int file)
+    public void ButtonLevelMenu(int file)//load menu -> level select menu of file X OR tuto if tuto not completed
     {
         GameManager.Instance.Load(file);
         DeactivateNewGameSaveMenu();
@@ -195,36 +207,36 @@ public class UIManager : MonoBehaviour
         else
             SceneManager.LoadScene("Tuto");
     }
-    public void ButtonSelectLevel(string level)
+    public void ButtonSelectLevel(string level)//level select menu -> level X
     {
         DeactivateLevelMenu();
         SceneManager.LoadScene(level);
     }
-    public void ButtonResume()
+    public void ButtonResume()//pause menu -> level
     {
         DeactivatePauseMenu();
         GameManager.Instance.lockPlayer = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    public void ButtonSelectLevelResume()
+    public void ButtonNextLevel()//level _> level + 1
+    {
+        DeactivateEndLevel();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//condition pour last level
+    }
+    public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
     {
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateLevelMenu();
     }
-    public void ButtonNextLevel()
-    {
-        DeactivateEndLevel();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-    public void ButtonMainMenuResume()
+    public void ButtonMainMenuResume()//pause menu/end level menu -> main menu
     {
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateMainMenu();
         SceneManager.LoadScene("Main");
     }
-    public void ButtonQuit()
+    public void ButtonQuit()//exit app
     {
         Application.Quit();
         Debug.Log("Quit");

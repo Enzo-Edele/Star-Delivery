@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 14a510f2e9695824c9651fe6cd201dc0, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9787b696dac49bd468c3552efd432440, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -3902,8 +3902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  alarm: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
-  objective: 4
+  objective: 3
   timeMin: 8
   timeMax: 12
   percentageBomb: 10
@@ -8278,11 +8277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4b08f19ee5f5418c305b73b1e9948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 1465033750}
-  mainMenuMusic: {fileID: 8300000, guid: 3693126338975594fb8df409e116d5f6, type: 3}
-  firstLevelmusic: {fileID: 8300000, guid: 30d4d30c1dd8cd945aee8e835de88396, type: 3}
-  playingEffect: []
-  timerEffect: []
+  sounds: []
 --- !u!1 &1474252112
 GameObject:
   m_ObjectHideFlags: 0
@@ -11260,6 +11255,7 @@ MonoBehaviour:
   saveText: {fileID: 1586155811}
   newGameButton: {fileID: 877626892}
   loadButton: {fileID: 2088023110}
+  loadButtons: []
   levelMenu: {fileID: 1297994931}
   LevelButtons:
   - {fileID: 14473083}
