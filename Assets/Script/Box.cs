@@ -11,6 +11,8 @@ public class Box : MonoBehaviour
     string company = "Amazoon";
     string content = "Stuff";
     public bool isFragile;
+    public bool isSus;
+    //faire enum pour type de colis
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class Box : MonoBehaviour
         else
             destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
         isArmed = false;
+        isSus = false;
         if(Random.Range(0, 100) < GameManager.Instance.percentageBomb) //mettre une variable ?manager? pour la proba de bombe
         {
             bomb.SetActive(true);
@@ -35,7 +38,7 @@ public class Box : MonoBehaviour
     {
         if (isArmed)
         {
-            SoundManager.Instance.PlaySoundEffect(explosion);
+            SoundManager.Instance.Play(explosion);
             Debug.Log("bombe non traité");
         }
         bool isValid = false;
@@ -48,24 +51,27 @@ public class Box : MonoBehaviour
             Debug.Log("pas valid non traité");
         Destroy(gameObject);
     }
+
     public void Diffuse()
     {
         bomb.SetActive(false);
         isArmed = false;
     }
+
     public void Crusher()
     {
         if (isArmed)
-            SoundManager.Instance.PlaySoundEffect(explosion);
+            SoundManager.Instance.Play(explosion);
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 Debug.Log("valid détruit");
         Destroy(gameObject);
     }
+
     public void Navette()
     {
         if (isArmed)
-            SoundManager.Instance.PlaySoundEffect(explosion);
+            SoundManager.Instance.Play(explosion);
         Destroy(gameObject);
     }
 }
