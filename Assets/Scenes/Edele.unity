@@ -3296,6 +3296,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
+      propertyPath: timeLevel
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016147888315727889, guid: ec670c18ca66ebf4c8629231676f1533, type: 3}
       propertyPath: percentageBomb
       value: 10
       objectReference: {fileID: 0}

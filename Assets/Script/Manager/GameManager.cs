@@ -49,6 +49,12 @@ public class GameManager : MonoBehaviour
         gameState = currentState;
         switch (gameState)
         {
+            case GameStates.InMenu:
+                break;
+            case GameStates.InGame:
+                break;
+            case GameStates.Pause:
+                break;
             case GameStates.GameOver:
                 break;
         }
