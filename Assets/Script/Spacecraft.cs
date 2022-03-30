@@ -8,6 +8,7 @@ public class Spacecraft : MonoBehaviour
     public Material spacecraftMaterial;
     public float orderInList;
     public GameObject spacecraft;
+    public Coroutine launchCo;
     public int packages = 0;
     public int maximumCharge = 10;
     public int overload = 5;

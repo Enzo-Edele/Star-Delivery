@@ -127,13 +127,16 @@ public class TouchPad : MonoBehaviour
     {
         for (int i = 0; i < spacecraft.Count; i++)
         {
-            spacecraft[i].StopAllCoroutines();
+            if (spacecraft[i].launchCo != null)
+            {
+                StopCoroutine(spacecraft[i].launchCo);
+            }
         }
         spacecraft.Clear();
     }
 
     public void Launch()
     {       
-        StartCoroutine(spacecraft[screen].LaunchCoroutine());
+        spacecraft[screen].launchCo = StartCoroutine(spacecraft[screen].LaunchCoroutine());
     }
 }
