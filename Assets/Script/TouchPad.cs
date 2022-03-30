@@ -123,6 +123,12 @@ public class TouchPad : MonoBehaviour
             GameManager.Instance.validDestination.Add(memory[i]);
     }
 
+    public void EndLevel()
+    {
+        if(spacecraft.Count > 0)
+            spacecraft.Clear();
+    }
+
     public void Launch()
     {       
         StartCoroutine(spacecraft[screen].LaunchCoroutine());

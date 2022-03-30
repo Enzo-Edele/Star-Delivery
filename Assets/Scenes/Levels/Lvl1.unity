@@ -6776,7 +6776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3c28779ce9fed4faab6200edf7ab9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 2365105433931491901, guid: adc60abfdb8215443955f052b26db0dc, type: 3}
+  box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 2
   timeMin: 5
   timeMax: 8

@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text companyText;
     [SerializeField] Text contentText;
 
+    [SerializeField] TouchPad pad;
     #endregion
     public static UIManager Instance { get; private set; }
     void Awake()
@@ -42,20 +43,29 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false)
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            GameManager.Instance.lockPlayer = true;
-            tablet.gameObject.SetActive(true);
+            ActivateTablet();
         }
         else if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape))
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            GameManager.Instance.lockPlayer = false;
-            tablet.gameObject.SetActive(false);
+            DeactivateTablet();
         }
         if (Input.GetKeyDown("p") && tablet.gameObject.activeSelf == false)
         {
             ActivatePauseMenu();
         }
+    }
+
+    public void ActivateTablet()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        GameManager.Instance.lockPlayer = true;
+        tablet.gameObject.SetActive(true);
+    }
+    public void DeactivateTablet()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        GameManager.Instance.lockPlayer = false;
+        tablet.gameObject.SetActive(false);
     }
     public void ActivateMainMenu()
     {
@@ -141,6 +151,9 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateEndLevel()
     {
+        DeactivateTablet();
+        DeactivatePauseMenu();
+        pad.EndLevel();
         endLevel.SetActive(true);
         GameManager.Instance.lockPlayer = true;
         Cursor.lockState = CursorLockMode.Confined;
