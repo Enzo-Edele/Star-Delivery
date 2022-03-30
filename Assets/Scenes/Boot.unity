@@ -3034,7 +3034,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 2492066751122302301, guid: 9d34b37d390e8654b86ba07b7cafa13f, type: 3}
     m_PressedSprite: {fileID: 7345069925634636614, guid: 70b798b9a111ea74abfee79352bc25ad, type: 3}
     m_SelectedSprite: {fileID: -2758448031277389751, guid: 3652faf09282c2b409db53774d837222, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -4658025909570535072, guid: e2ab592ce5b1bf54687cdaa708498b92, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3389,6 +3389,7 @@ MonoBehaviour:
   - {fileID: 960902554}
   - {fileID: 287409717}
   endLevel: {fileID: 718113256}
+  endLevelNextLevelButton: {fileID: 678956296}
   tablet: {fileID: 1645485008}
   pauseMenu: {fileID: 1250939331}
   grabDropIcon: {fileID: 1982204232}
@@ -5146,7 +5147,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 2492066751122302301, guid: 9d34b37d390e8654b86ba07b7cafa13f, type: 3}
     m_PressedSprite: {fileID: 7345069925634636614, guid: 70b798b9a111ea74abfee79352bc25ad, type: 3}
     m_SelectedSprite: {fileID: -2758448031277389751, guid: 3652faf09282c2b409db53774d837222, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -4658025909570535072, guid: e2ab592ce5b1bf54687cdaa708498b92, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -5731,7 +5732,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 2492066751122302301, guid: 9d34b37d390e8654b86ba07b7cafa13f, type: 3}
     m_PressedSprite: {fileID: 7345069925634636614, guid: 70b798b9a111ea74abfee79352bc25ad, type: 3}
     m_SelectedSprite: {fileID: -2758448031277389751, guid: 3652faf09282c2b409db53774d837222, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -4658025909570535072, guid: e2ab592ce5b1bf54687cdaa708498b92, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted

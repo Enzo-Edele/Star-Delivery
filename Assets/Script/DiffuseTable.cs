@@ -46,7 +46,7 @@ public class DiffuseTable : MonoBehaviour
         bombScript.ActiveCollider();
         cam.Priority = 15;
         Cursor.lockState = CursorLockMode.Confined;
-        GameManager.Instance.lockPlayer = true;
+        GameManager.Instance.LockPlayer();
         //maybe deactive UI
     }
 
@@ -56,6 +56,6 @@ public class DiffuseTable : MonoBehaviour
         bombScript.DeactiveCollider();
         cam.Priority = 5;
         Cursor.lockState = CursorLockMode.Locked;
-        GameManager.Instance.lockPlayer = false;
+        GameManager.Instance.UnlockPlayer();
     }
 }

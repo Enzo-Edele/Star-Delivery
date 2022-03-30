@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public List<int> boxScoreList = new List<int>();
 
     public bool lockPlayer;
+    public bool gameIsPause;
 
     public int percentageBomb;
     public int percentageValid;
@@ -50,12 +51,18 @@ public class GameManager : MonoBehaviour
         switch (gameState)
         {
             case GameStates.InMenu:
+                UnpauseGame();
+                LockPlayer();
                 break;
             case GameStates.InGame:
+                UnpauseGame();
                 break;
             case GameStates.Pause:
+                PauseGame();
                 break;
             case GameStates.GameOver:
+                UnpauseGame();
+                LockPlayer();
                 break;
         }
     }
@@ -101,11 +108,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LockPlayer()
+    {
+        lockPlayer = true;
+    }
+    public void UnlockPlayer()
+    {
+        lockPlayer = false;
+    }
+    public void PauseGame()
+    {
+        lockPlayer = true;
+        gameIsPause = true;
+    }
+    public void UnpauseGame()
+    {
+        lockPlayer = false;
+        gameIsPause = false;
+    }
+
     public void StartLevel(int percentageBomb, int percentageValid, int objective)
     {
         this.percentageBomb = percentageBomb;
         this.percentageValid = percentageValid;
         this.objective = objective;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void SpacecraftDeliver(int qty)
     {
@@ -113,6 +140,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndLevel()
     {
+        bool success = false;
         if (levelUnlock > 0)
         {
             if (packageSent > highScoreList[SceneManager.GetActiveScene().buildIndex - 3]) {
@@ -123,12 +151,13 @@ public class GameManager : MonoBehaviour
         if (!(packageSent < objective) && levelUnlock == SceneManager.GetActiveScene().buildIndex - 2)
         {
             levelUnlock++;
+            success = true;
             Debug.Log("win");
         }
         else if (packageSent < objective)
             Debug.Log("fail");
         packageSent = 0;
-        UIManager.Instance.ActivateEndLevel();
+        UIManager.Instance.ActivateEndLevel(success);
         Save(file);
     }
 }

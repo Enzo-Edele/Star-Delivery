@@ -20,14 +20,14 @@ public class BoxInspector : MonoBehaviour, IDragHandler
         if (inspected != null)
             inspected = null;
         inspected = Instantiate(box, new Vector3(100, 100, 100), Quaternion.identity);
-        GameManager.Instance.lockPlayer = true;
+        GameManager.Instance.LockPlayer();
         Cursor.lockState = CursorLockMode.Confined;
     }
     public void HideInspector()
     {
         if(screen != null)
             screen.SetActive(false);
-        GameManager.Instance.lockPlayer = false;
+        GameManager.Instance.UnlockPlayer();
         Cursor.lockState = CursorLockMode.Locked;
     }
 

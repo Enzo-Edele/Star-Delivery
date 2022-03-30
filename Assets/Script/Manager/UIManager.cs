@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Button> LevelButtons;
     [SerializeField] List<Text> highScores;
     [SerializeField] GameObject endLevel;
+    [SerializeField] Button endLevelNextLevelButton;
 
     [SerializeField] GameObject tablet;
 
@@ -58,17 +59,18 @@ public class UIManager : MonoBehaviour
     public void ActivateTablet()
     {
         Cursor.lockState = CursorLockMode.Confined;
-        GameManager.Instance.lockPlayer = true;
+        GameManager.Instance.LockPlayer();
         tablet.gameObject.SetActive(true);
     }
     public void DeactivateTablet()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        GameManager.Instance.lockPlayer = false;
+        GameManager.Instance.UnlockPlayer();
         tablet.gameObject.SetActive(false);
     }
     public void ActivateMainMenu()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         mainMenu.SetActive(true);
     }
     public void DeactivateMainMenu()
@@ -78,12 +80,14 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateNewGameMenu()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         saveMenu.SetActive(true);
         saveText.text = "New Game";
         newGameButton.SetActive(true);
     }
     public void ActivateSaveMenu()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         CheckSaveExist();
         saveMenu.SetActive(true);
         saveText.text = "Load";
@@ -101,23 +105,26 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateLevelMenu()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         levelMenu.SetActive(true);
         ExitCampain();
         CheckCampainProgress();
     }
     public void DeactivateLevelMenu()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         if (levelMenu != null)
             levelMenu.SetActive(false);
     }
     public void ActivatePauseMenu()
     {
         pauseMenu.SetActive(true);
-        GameManager.Instance.lockPlayer = true;
+        GameManager.Instance.LockPlayer();
         Cursor.lockState = CursorLockMode.Confined;
     }
     public void DeactivatePauseMenu()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         if (pauseMenu != null)
             pauseMenu.SetActive(false);
     }
@@ -149,17 +156,23 @@ public class UIManager : MonoBehaviour
         if (boxInfo != null)
             boxInfo.SetActive(false);
     }
-    public void ActivateEndLevel()
+    public void ActivateEndLevel(bool success)
     {
         DeactivateTablet();
         DeactivatePauseMenu();
         pad.EndLevel();
         endLevel.SetActive(true);
-        GameManager.Instance.lockPlayer = true;
+        GameManager.Instance.LockPlayer();
         Cursor.lockState = CursorLockMode.Confined;
+        endLevelNextLevelButton.interactable = false;
+        if(success)
+            endLevelNextLevelButton.interactable = true;
     }
     public void DeactivateEndLevel()
     {
+        GameManager.Instance.UnlockPlayer();
+        Cursor.lockState = CursorLockMode.Locked;
+        endLevelNextLevelButton.interactable = true;
         if (endLevel != null)
             endLevel.SetActive(false);
     }
@@ -228,13 +241,13 @@ public class UIManager : MonoBehaviour
     public void ButtonResume()//pause menu -> level
     {
         DeactivatePauseMenu();
-        GameManager.Instance.lockPlayer = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        GameManager.Instance.UnlockPlayer();
     }
     public void ButtonNextLevel()//level _> level + 1
     {
         DeactivateEndLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//condition pour last level
+        GameManager.Instance.UnlockPlayer(); //David Goodenough
     }
     public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
     {

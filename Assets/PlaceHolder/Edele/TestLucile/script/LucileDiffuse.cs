@@ -57,7 +57,7 @@ public class LucileDiffuse : MonoBehaviour
         bomb.transform.parent = null;
         bombScript.ActiveCollider();
         cam.Priority = 15;
-        GameManager.Instance.lockPlayer = true;
+        GameManager.Instance.LockPlayer();
         //maybe deactive UI
     }
 
@@ -66,6 +66,6 @@ public class LucileDiffuse : MonoBehaviour
         bomb.transform.parent = bombedBox.transform;
         bombScript.DeactiveCollider();
         cam.Priority = 5;
-        GameManager.Instance.lockPlayer = false;
+        GameManager.Instance.UnlockPlayer();
     }
 }
