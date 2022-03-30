@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3086999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2569897629157193755, guid: 1e94d2aff22771a4bbf22b4f15effafa, type: 3}
+  m_PrefabInstance: {fileID: 985034620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &45301160
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b6134d66f07c9488589c053eddc906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spacecraftMaterial: {fileID: 0}
   orderInList: 0
-  spacecraft: {fileID: 0}
+  spacecraft: {fileID: 1772609820}
   packages: 0
   maximumCharge: 20
   overload: 5
@@ -1885,6 +1891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spacecraft
       objectReference: {fileID: 0}
+    - target: {fileID: 2569897629320907481, guid: 1e94d2aff22771a4bbf22b4f15effafa, type: 3}
+      propertyPath: spacecraft
+      value: 
+      objectReference: {fileID: 3086999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e94d2aff22771a4bbf22b4f15effafa, type: 3}
 --- !u!1 &1048985735
@@ -2591,8 +2601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b6134d66f07c9488589c053eddc906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spacecraftMaterial: {fileID: 0}
   orderInList: 0
-  spacecraft: {fileID: 0}
+  spacecraft: {fileID: 1048985735}
   packages: 0
   maximumCharge: 20
   overload: 5

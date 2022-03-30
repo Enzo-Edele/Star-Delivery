@@ -307,10 +307,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b6134d66f07c9488589c053eddc906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spacecraftMaterial: {fileID: 0}
+  orderInList: 0
+  spacecraft: {fileID: 2569897629157193755}
   packages: 0
   maximumCharge: 20
+  overload: 5
   estimatedTime: 20
   spacecraftDestination: Mars
+  delivered: 0
+  deliveredTime: 0
   destinationText: {fileID: 2569897630596934591}
 --- !u!1 &2569897630596934577
 GameObject:

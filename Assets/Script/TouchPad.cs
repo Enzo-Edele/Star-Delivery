@@ -125,8 +125,11 @@ public class TouchPad : MonoBehaviour
 
     public void EndLevel()
     {
-        if(spacecraft.Count > 0)
-            spacecraft.Clear();
+        for (int i = 0; i < spacecraft.Count; i++)
+        {
+            spacecraft[i].StopAllCoroutines();
+        }
+        spacecraft.Clear();
     }
 
     public void Launch()

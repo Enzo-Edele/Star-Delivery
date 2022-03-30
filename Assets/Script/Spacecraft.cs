@@ -5,6 +5,7 @@ using TMPro;
 
 public class Spacecraft : MonoBehaviour
 {
+    public Material spacecraftMaterial;
     public float orderInList;
     public GameObject spacecraft;
     public int packages = 0;
@@ -20,6 +21,7 @@ public class Spacecraft : MonoBehaviour
 
     private void Awake()
     {
+        spacecraftMaterial = spacecraft.GetComponent<Renderer>().material;
         delivered = false;
         spacecraft = this.gameObject.transform.parent.gameObject;
         orderInList = TouchPad.Instance.spacecraft.Count;
@@ -55,10 +57,10 @@ public class Spacecraft : MonoBehaviour
         delivered = true;
         GameManager.Instance.SpacecraftDeliver(packages);
         packages = 0;
-        spacecraft.SetActive(false); //anim décollage
+        spacecraftMaterial.color = Color.blue;//anim décollage
         yield return new WaitForSeconds(estimatedTime);
         estimatedTime = 20;
-        spacecraft.SetActive(true);  //anim atterrisage
+        spacecraftMaterial.color = Color.red;//anim atterrisage
         delivered = false;
     }
 }
