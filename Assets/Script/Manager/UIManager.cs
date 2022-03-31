@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject tablet;
 
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionMenu;
 
     [SerializeField] GameObject grabDropIcon;
     [SerializeField] Text grabDropText;
@@ -34,6 +35,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text contentText;
 
     [SerializeField] TouchPad pad;
+
+    bool wasPaused;
     #endregion
     public static UIManager Instance { get; private set; }
     void Awake()
@@ -43,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false && pauseMenu.activeSelf == false)
+        if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false && pauseMenu.activeSelf == false && endLevel.activeSelf == false)
         {
             ActivateTablet();
             GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
@@ -65,7 +68,6 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateMainMenu() //main menu
     {
-        //Cursor.lockState = CursorLockMode.Confined;
         mainMenu.SetActive(true);
     }
     public void DeactivateMainMenu()
@@ -75,14 +77,12 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateNewGameMenu() //menu new game
     {
-        //Cursor.lockState = CursorLockMode.Confined;
         saveMenu.SetActive(true);
         saveText.text = "New Game";
         newGameButton.SetActive(true);
     }
     public void ActivateSaveMenu() //load menu
     {
-        //Cursor.lockState = CursorLockMode.Confined;
         CheckSaveExist();
         saveMenu.SetActive(true);
         saveText.text = "Load";
@@ -99,14 +99,12 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateLevelMenu() //slect level menu
     {
-        //Cursor.lockState = CursorLockMode.Confined;
         levelMenu.SetActive(true);
         ExitCampain();
         CheckCampainProgress();
     }
     public void DeactivateLevelMenu()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
         levelMenu.SetActive(false);
     }
     public void ActivatePauseMenu() //pause menu
@@ -116,8 +114,15 @@ public class UIManager : MonoBehaviour
     }
     public void DeactivatePauseMenu()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
+    }
+    public void ActivateOptionMenu() //pause menu
+    {
+        optionMenu.SetActive(true);
+    }
+    public void DeactivateOptionMenu()
+    {
+        optionMenu.SetActive(false);
     }
     public void ActivateIconGrab() //icon grab possible
     {
@@ -229,6 +234,21 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(level);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
+    public void ButtonOption(bool paused)//pause menu/main menu -> option
+    {
+        DeactivateMainMenu();
+        DeactivatePauseMenu();
+        ActivateOptionMenu();
+        wasPaused = paused;
+    }
+    public void ButtonExitOption()//pause menu/main menu -> option
+    {
+        DeactivateOptionMenu();
+        if (wasPaused)
+            ActivatePauseMenu();
+        else
+            ActivateMainMenu();
+    }
     public void ButtonResume()//pause menu -> level
     {
         DeactivatePauseMenu();
@@ -266,5 +286,10 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit");
+    }
+
+    public void SliderMooseSensitivity(float sensitivity)
+    {
+        GameManager.Instance.mouseSensitivity = sensitivity;
     }
 }
