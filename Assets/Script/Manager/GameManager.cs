@@ -20,13 +20,15 @@ public class GameManager : MonoBehaviour
     public int percentageBomb;
     public int percentageValid;
 
+    public float mouseSensitivity;
+
     public List<string> validDestination;
     public List<string> validDestinationLevel;
     public List<string> invalidDestination;
     public List<string> invalidDestinationLevel;
 
     [SerializeField] int packageSent;
-    [SerializeField]int objective;
+    [SerializeField] int objective;
 
     public enum GameStates
     {
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("p") && (gameState == GameStates.InGame || gameState == GameStates.InMenu)) {
+        if (Input.GetKeyDown("p") && gameState == GameStates.InGame) {
             UIManager.Instance.ActivatePauseMenu();
             ChangeGameState(GameStates.Pause);
         }
