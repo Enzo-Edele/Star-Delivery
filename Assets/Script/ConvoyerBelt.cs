@@ -16,7 +16,10 @@ public class ConvoyerBelt : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidBody.position += (transform.forward * -1) * speed * Time.fixedDeltaTime;
-        rigidBody.MovePosition(position);
+        if (!GameManager.Instance.gameIsPause)
+        {
+            rigidBody.position += (transform.forward * -1) * speed * Time.fixedDeltaTime;
+            rigidBody.MovePosition(position);
+        }
     }
 }

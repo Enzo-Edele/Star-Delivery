@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Button> LevelButtons;
     [SerializeField] List<Text> highScores;
     [SerializeField] GameObject endLevel;
-    [SerializeField] Button endLevelNextLevelButton;
+    [SerializeField] GameObject retryButton;
+    [SerializeField] GameObject endLevelNextLevelButton;
 
     [SerializeField] GameObject tablet;
 
@@ -42,35 +43,29 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false)
+        if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false && pauseMenu.activeSelf == false)
         {
             ActivateTablet();
+            GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
         }
-        else if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape))
+        else if ((Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape)) && tablet.gameObject.activeSelf == true && pauseMenu.activeSelf == false)
         {
             DeactivateTablet();
-        }
-        if (Input.GetKeyDown("p") && tablet.gameObject.activeSelf == false)
-        {
-            ActivatePauseMenu();
+            GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
         }
     }
 
-    public void ActivateTablet()
+    public void ActivateTablet() //tablette 
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        GameManager.Instance.LockPlayer();
         tablet.gameObject.SetActive(true);
     }
     public void DeactivateTablet()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        GameManager.Instance.UnlockPlayer();
         tablet.gameObject.SetActive(false);
     }
-    public void ActivateMainMenu()
+    public void ActivateMainMenu() //main menu
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
         mainMenu.SetActive(true);
     }
     public void DeactivateMainMenu()
@@ -78,16 +73,16 @@ public class UIManager : MonoBehaviour
         if (mainMenu != null)
             mainMenu.SetActive(false);
     }
-    public void ActivateNewGameMenu()
+    public void ActivateNewGameMenu() //menu new game
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
         saveMenu.SetActive(true);
         saveText.text = "New Game";
         newGameButton.SetActive(true);
     }
-    public void ActivateSaveMenu()
+    public void ActivateSaveMenu() //load menu
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
         CheckSaveExist();
         saveMenu.SetActive(true);
         saveText.text = "Load";
@@ -95,53 +90,48 @@ public class UIManager : MonoBehaviour
     }
     public void DeactivateNewGameSaveMenu()
     {
-        if (saveMenu != null)
-            saveMenu.SetActive(false);
+        saveMenu.SetActive(false);
         saveText.text = "";
         if (newGameButton != null)
             newGameButton.SetActive(false);
         if (loadButton != null)
             loadButton.SetActive(false);
     }
-    public void ActivateLevelMenu()
+    public void ActivateLevelMenu() //slect level menu
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
         levelMenu.SetActive(true);
         ExitCampain();
         CheckCampainProgress();
     }
     public void DeactivateLevelMenu()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        if (levelMenu != null)
-            levelMenu.SetActive(false);
+        //Cursor.lockState = CursorLockMode.Locked;
+        levelMenu.SetActive(false);
     }
-    public void ActivatePauseMenu()
+    public void ActivatePauseMenu() //pause menu
     {
+        DeactivateTablet();
         pauseMenu.SetActive(true);
-        GameManager.Instance.LockPlayer();
-        Cursor.lockState = CursorLockMode.Confined;
     }
     public void DeactivatePauseMenu()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        if (pauseMenu != null)
-            pauseMenu.SetActive(false);
+        //Cursor.lockState = CursorLockMode.Locked;
+        pauseMenu.SetActive(false);
     }
-    public void ActivateIconGrab()
+    public void ActivateIconGrab() //icon grab possible
     {
         grabDropIcon.SetActive(true);
         grabDropText.text = "Grab";
     }
-    public void ActivateIconDrop()
+    public void ActivateIconDrop() //icon drop possible
     {
         grabDropIcon.SetActive(true);
         grabDropText.text = "Drop";
     }
     public void DeactivateIconGrab()
     {
-        if (grabDropIcon != null)
-            grabDropIcon.SetActive(false);
+        grabDropIcon.SetActive(false);
     }
 
     public void ActivateBoxInfo(string destination, string company, string content)
@@ -153,30 +143,26 @@ public class UIManager : MonoBehaviour
     }
     public void DeactivateBoxInfo()
     {
-        if (boxInfo != null)
-            boxInfo.SetActive(false);
+        boxInfo.SetActive(false);
     }
-    public void ActivateEndLevel(bool success)
+    public void ActivateEndLevel(bool success) //end level menu
     {
         DeactivateTablet();
         DeactivatePauseMenu();
         pad.EndLevel();
         endLevel.SetActive(true);
-        GameManager.Instance.LockPlayer();
-        Cursor.lockState = CursorLockMode.Confined;
-        endLevelNextLevelButton.interactable = false;
-        if(success)
-            endLevelNextLevelButton.interactable = true;
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
+        if (success)
+            endLevelNextLevelButton.SetActive(true);
+        else
+            retryButton.SetActive(true);
     }
     public void DeactivateEndLevel()
     {
-        GameManager.Instance.UnlockPlayer();
-        Cursor.lockState = CursorLockMode.Locked;
-        endLevelNextLevelButton.interactable = true;
-        if (endLevel != null)
-            endLevel.SetActive(false);
+        endLevel.SetActive(false);
+        retryButton.SetActive(false);
+        endLevelNextLevelButton.SetActive(false);
     }
-    //variante success and fail
 
     public void CheckSaveExist()
     {
@@ -223,6 +209,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SetUpStartValue(file);
         GameManager.Instance.Save(file);
         SceneManager.LoadScene("Tuto");
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
     public void ButtonLevelMenu(int file)//load menu -> level select menu of file X OR tuto if tuto not completed
     {
@@ -231,35 +218,48 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.levelUnlock > 0)
             ActivateLevelMenu();
         else
+        {
             SceneManager.LoadScene("Tuto");
+            GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
+        }
     }
     public void ButtonSelectLevel(string level)//level select menu -> level X
     {
         DeactivateLevelMenu();
         SceneManager.LoadScene(level);
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
     public void ButtonResume()//pause menu -> level
     {
         DeactivatePauseMenu();
-        GameManager.Instance.UnlockPlayer();
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
-    public void ButtonNextLevel()//level _> level + 1
+    public void ButtonRetry()
+    {
+        DeactivateEndLevel();
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void ButtonNextLevel()//level -> level + 1
     {
         DeactivateEndLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//condition pour last level
-        GameManager.Instance.UnlockPlayer(); //David Goodenough
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame); //David Goodenough
     }
     public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
     {
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateLevelMenu();
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
+        SceneManager.LoadScene("Main");
     }
     public void ButtonMainMenuResume()//pause menu/end level menu -> main menu
     {
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateMainMenu();
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
         SceneManager.LoadScene("Main");
     }
     public void ButtonQuit()//exit app

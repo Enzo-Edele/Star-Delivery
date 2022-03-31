@@ -42,7 +42,15 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        lockPlayer = false;
+        ChangeGameState(GameStates.InMenu);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("p") && (gameState == GameStates.InGame || gameState == GameStates.InMenu)) {
+            UIManager.Instance.ActivatePauseMenu();
+            ChangeGameState(GameStates.Pause);
+        }
     }
 
     public void ChangeGameState(GameStates currentState)
@@ -53,16 +61,24 @@ public class GameManager : MonoBehaviour
             case GameStates.InMenu:
                 UnpauseGame();
                 LockPlayer();
+                Cursor.lockState = CursorLockMode.Confined;
+                Debug.Log("InMenu");
                 break;
             case GameStates.InGame:
                 UnpauseGame();
+                Cursor.lockState = CursorLockMode.Locked;
+                Debug.Log("InGame");
                 break;
             case GameStates.Pause:
                 PauseGame();
+                Cursor.lockState = CursorLockMode.Confined;
+                Debug.Log("Pause");
                 break;
             case GameStates.GameOver:
                 UnpauseGame();
                 LockPlayer();
+                Cursor.lockState = CursorLockMode.Locked;
+                Debug.Log("GameOver");
                 break;
         }
     }

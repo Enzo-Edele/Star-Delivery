@@ -21,17 +21,17 @@ public class BoxSpawner : MonoBehaviour
 
     void Update()
     {
-        if(timerBoxes > 0)
+        if(timerBoxes > 0 && !GameManager.Instance.gameIsPause)
             timerBoxes -= Time.deltaTime;
-        else
+        else if(!GameManager.Instance.gameIsPause)
         {
             timerBoxes = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
             SoundManager.Instance.Play("alarm");
         }
-        if (timerLevel > 0)
+        if (timerLevel > 0 && !GameManager.Instance.gameIsPause)
             timerLevel -= Time.deltaTime;
-        else if (!endLevel)
+        else if (!endLevel && !GameManager.Instance.gameIsPause)
         {
             GameManager.Instance.EndLevel();
             endLevel = true;

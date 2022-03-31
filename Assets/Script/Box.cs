@@ -38,16 +38,16 @@ public class Box : MonoBehaviour
         if (isArmed)
         {
             SoundManager.Instance.Play("explosion");
-            Debug.Log("bombe non traité");
+            //Debug.Log("bombe non traité");
         }
         bool isValid = false;
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 isValid = true;
-        if(isValid)
+        /*if(isValid)
             Debug.Log("valid non traité");
         else
-            Debug.Log("pas valid non traité");
+            Debug.Log("pas valid non traité");*/
         Destroy(gameObject);
     }
 
@@ -61,9 +61,9 @@ public class Box : MonoBehaviour
     {
         if (isArmed)
             SoundManager.Instance.Play("explosion");
-        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
+        /*for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
-                Debug.Log("valid détruit");
+                Debug.Log("valid détruit");*/
         Destroy(gameObject);
     }
 
