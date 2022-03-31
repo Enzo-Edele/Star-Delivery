@@ -46,13 +46,21 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("e") && tablet.gameObject.activeSelf == false && pauseMenu.activeSelf == false && endLevel.activeSelf == false)
-        {
+        if (Input.GetKeyDown("e") && 
+            tablet.gameObject.activeSelf == false && 
+            pauseMenu.activeSelf == false && 
+            endLevel.activeSelf == false && 
+            optionMenu.activeSelf == false &&
+            GameManager.GameState == GameManager.GameStates.InGame
+        ) {
             ActivateTablet();
             GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
         }
-        else if ((Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape)) && tablet.gameObject.activeSelf == true && pauseMenu.activeSelf == false)
-        {
+        else if ((Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape)) && 
+            tablet.gameObject.activeSelf == true && 
+            pauseMenu.activeSelf == false && 
+            optionMenu.activeSelf == false
+        ) {
             DeactivateTablet();
             GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
         }
@@ -154,6 +162,7 @@ public class UIManager : MonoBehaviour
     {
         DeactivateTablet();
         DeactivatePauseMenu();
+        DeactivateOptionMenu();
         pad.EndLevel();
         endLevel.SetActive(true);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
@@ -268,6 +277,8 @@ public class UIManager : MonoBehaviour
     }
     public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
     {
+        if(pauseMenu.activeSelf == true)
+            GameManager.Instance.EndLevel();
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateLevelMenu();
@@ -276,6 +287,8 @@ public class UIManager : MonoBehaviour
     }
     public void ButtonMainMenuResume()//pause menu/end level menu -> main menu
     {
+        if (pauseMenu.activeSelf == true)
+            GameManager.Instance.EndLevel();
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateMainMenu();

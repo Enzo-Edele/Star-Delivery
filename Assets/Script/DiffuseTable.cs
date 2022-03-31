@@ -14,15 +14,15 @@ public class DiffuseTable : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("f"))
+        if(Input.GetKeyDown("f") && GameManager.GameState == GameManager.GameStates.InGame)
         {
             QuitDiffuseMod();
         }
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r") && GameManager.GameState == GameManager.GameStates.InGame)
         {
             DiffuseMod();
         }
-        if(Input.GetKeyDown("b"))
+        if(Input.GetKeyDown("b") && GameManager.GameState == GameManager.GameStates.InGame)
             BoxInspector.Instance.HideInspector();
     }
 
