@@ -7868,6 +7868,11 @@ MonoBehaviour:
   - Earth
   - Venus
   - Altair
+  - Terra
+  - Kamino
+  - Coruscant
+  - Luthall
+  - Babylon5
   validDestinationLevel: []
   invalidDestination:
   - Elonia
@@ -7877,6 +7882,12 @@ MonoBehaviour:
   - Kolechie
   - Bordeciel
   - 4546B
+  - Jakku
+  - coruscent
+  - Raptorya
+  - Caf
+  - Piltover
+  - "Tr\xE9sor Publique"
   invalidDestinationLevel: []
   packageSent: 0
   objective: 0

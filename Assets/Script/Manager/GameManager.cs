@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public void ChangeGameState(GameStates currentState)
     {
         gameState = currentState;
+        GameState = gameState;
         switch (gameState)
         {
             case GameStates.InMenu:
