@@ -14,6 +14,8 @@ public class BoxSpawner : MonoBehaviour
     float timerLevel;
     bool endLevel;
 
+    [SerializeField]bool isSecond;
+
     void Start()
     {
         StartLevel();
@@ -31,8 +33,9 @@ public class BoxSpawner : MonoBehaviour
         }
         if (timerLevel > 0 && !GameManager.Instance.gameIsPause)
             timerLevel -= Time.deltaTime;
-        else if (!endLevel && !GameManager.Instance.gameIsPause)
+        else if (!endLevel && !GameManager.Instance.gameIsPause && !isSecond)
         {
+            Debug.Log("time's up");
             GameManager.Instance.EndLevel();
             endLevel = true;
         }

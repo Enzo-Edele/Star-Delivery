@@ -167,11 +167,14 @@ public class GameManager : MonoBehaviour
                 Debug.Log("set highscore to : " + packageSent);
             }
         }
-        if (!(packageSent < objective) && levelUnlock == SceneManager.GetActiveScene().buildIndex - 2)
+        if (!(packageSent < objective))
         {
-            levelUnlock++;
             success = true;
             Debug.Log("win");
+            if (levelUnlock == SceneManager.GetActiveScene().buildIndex - 2) {
+                levelUnlock++;
+                Debug.Log("Unlock level : " + levelUnlock);
+            }
         }
         else if (packageSent < objective)
             Debug.Log("fail");

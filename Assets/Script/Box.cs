@@ -44,10 +44,10 @@ public class Box : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 isValid = true;
-        if(isValid)
+        /*if(isValid)
             Debug.Log("valid non traité");
         else
-            Debug.Log("pas valid non traité");
+            Debug.Log("pas valid non traité");*/
         Destroy(gameObject);
     }
 
