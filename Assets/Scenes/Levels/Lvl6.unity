@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 163644976}
   - component: {fileID: 163644975}
   - component: {fileID: 163644974}
+  - component: {fileID: 163644978}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -311,6 +312,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &163644978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163644973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6c28b5488d1244cb7378750dd4c117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XRay: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &184987154
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3c28779ce9fed4faab6200edf7ab9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 2365105433931491901, guid: adc60abfdb8215443955f052b26db0dc, type: 3}
+  box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 1
   timeMin: 6
   timeMax: 6

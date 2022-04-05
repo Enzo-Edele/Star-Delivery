@@ -20,7 +20,10 @@ public class Box : MonoBehaviour
         else
             destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
         isArmed = false;
-        isSus = false;
+
+        if (Random.Range(0, 2) == 1) isSus = true;
+        else                         isSus = false;
+
         if(Random.Range(0, 100) < GameManager.Instance.percentageBomb) //mettre une variable ?manager? pour la proba de bombe
         {
             bomb.SetActive(true);
