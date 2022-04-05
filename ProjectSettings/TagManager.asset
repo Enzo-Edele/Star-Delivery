@@ -10,6 +10,7 @@ TagManager:
   - Crusher
   - Spacecraft
   - Ray
+  - Button
   layers:
   - Default
   - TransparentFX

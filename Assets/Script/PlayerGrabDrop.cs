@@ -6,6 +6,7 @@ public class PlayerGrabDrop : MonoBehaviour
 {
     [SerializeField] Vector3 direction;
     float interactRange = 3;
+    bool canBePushed;
     [SerializeField] RaycastHit hit;
     GameObject grabableObject;
     GameObject grabObject;
@@ -62,10 +63,15 @@ public class PlayerGrabDrop : MonoBehaviour
                 UIManager.Instance.ActivateIconDrop();
                 dropAreaRay = hit.transform.gameObject;
             }
+            else if (hit.transform.gameObject.tag == "Button")
+            {
+                canBePushed = true;
+            }
         }
         else
         {
             UIManager.Instance.DeactivateIconGrab();
+            canBePushed = false;
             grabableObject = null;
             dropAreaBelt = null;
             dropAreaRay = null;
@@ -114,6 +120,11 @@ public class PlayerGrabDrop : MonoBehaviour
         {
             dropAreaRay.GetComponent<InspectionTable>().RecieveBox(grabObject);
             Drop(dropAreaRay);
+        }
+
+        if (Input.GetMouseButtonDown(0) && canBePushed == true)
+        {
+            Launcher.Instance.Launch();
         }
     }
 
