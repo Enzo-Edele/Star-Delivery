@@ -196,7 +196,7 @@ public class UIManager : MonoBehaviour
         {
             if (i < GameManager.Instance.levelUnlock)
                 LevelButtons[i].interactable = true;
-            highScores[i].text = GameManager.Instance.highScoreList[i].ToString() + " Packages";
+            highScores[i].text = GameManager.Instance.boxScoreList[i].ToString() + " Packages";
         }
     }
     void ExitCampain()
@@ -204,7 +204,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < LevelButtons.Count; i++)
         {
             LevelButtons[i].interactable = false;
-            highScores[i].text = GameManager.Instance.highScoreList[i].ToString();
+            highScores[i].text = GameManager.Instance.boxScoreList[i].ToString();
         }
     }
 

@@ -7954,6 +7954,8 @@ MonoBehaviour:
   file: 0
   tutoDone: 0
   levelUnlock: 0
+  boxesObjective: 3
+  totalBoxes: 0
   highScoreList: 
   boxScoreList: 
   lockPlayer: 0

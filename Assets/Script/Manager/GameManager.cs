@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public int file;
     public bool tutoDone;
     public int levelUnlock;
+    public int boxesObjective;
+    public int totalBoxes;
     public List<int> highScoreList = new List<int>();
     public List<int> boxScoreList = new List<int>();
 
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour
             this.file = data.file;
             tutoDone = data.tutoDone;
             levelUnlock = data.levelUnlock;
+            totalBoxes = data.totalBoxes;
             for (int i = 0; i < data.highScoreList.Length; i++)
             {
                 highScoreList[i] = (data.highScoreList[i]);
@@ -157,13 +160,19 @@ public class GameManager : MonoBehaviour
     {
         packageSent += qty;
     }
+    void UpdateTotalBoxes()
+    {
+        for (int i = 0; i < boxScoreList.Count; i++)
+            totalBoxes += boxScoreList[i];
+    }
     public void EndLevel()
     {
         bool success = false;
         if (levelUnlock > 0)
         {
-            if (packageSent > highScoreList[SceneManager.GetActiveScene().buildIndex - 3]) {
-                highScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
+            if (packageSent > boxScoreList[SceneManager.GetActiveScene().buildIndex - 3]) { //attention ce if empêche de mettre un cheat pour changer levelUnlock pendant tuto
+                boxScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
+                UpdateTotalBoxes();
                 Debug.Log("set highscore to : " + packageSent);
             }
         }
@@ -171,10 +180,12 @@ public class GameManager : MonoBehaviour
         {
             success = true;
             Debug.Log("win");
-            if (levelUnlock == SceneManager.GetActiveScene().buildIndex - 2) {
+            if (levelUnlock == SceneManager.GetActiveScene().buildIndex - 2 && !(levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2)) {
                 levelUnlock++;
                 Debug.Log("Unlock level : " + levelUnlock);
             }
+            if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex -2 && boxesObjective < totalBoxes)
+                Debug.Log("credit, vous êtes employé du mois vous avez battu glados intensité 5, go get a life now.");
         }
         else if (packageSent < objective)
             Debug.Log("fail");

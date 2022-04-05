@@ -8,6 +8,7 @@ public class SaveData
     public int file;
     public bool tutoDone;
     public int levelUnlock;
+    public int totalBoxes;
     public int[] highScoreList = new int[GameManager.Instance.highScoreList.Count];
     public int[] boxScoreList = new int[GameManager.Instance.boxScoreList.Count];
 
@@ -17,6 +18,7 @@ public class SaveData
         file = gameData.file;
         tutoDone = gameData.tutoDone;
         levelUnlock = gameData.levelUnlock;
+        totalBoxes = gameData.totalBoxes;
         for (int i = 0; i < gameData.highScoreList.Count; i++)
         {
             highScoreList[i] = gameData.highScoreList[i];
