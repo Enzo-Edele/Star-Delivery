@@ -160,6 +160,7 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateEndLevel(bool success) //end level menu
     {
+        Debug.Log("end level active");
         DeactivateTablet();
         DeactivatePauseMenu();
         DeactivateOptionMenu();
@@ -173,6 +174,7 @@ public class UIManager : MonoBehaviour
     }
     public void DeactivateEndLevel()
     {
+        Debug.Log("end level deactive");
         endLevel.SetActive(false);
         retryButton.SetActive(false);
         endLevelNextLevelButton.SetActive(false);
