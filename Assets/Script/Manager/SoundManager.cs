@@ -36,4 +36,15 @@ public class SoundManager : MonoBehaviour
         }
         s.source.Play();
     }
+    public float PlayTime(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("sound name not find : " + name);
+            return 0;
+        }
+        s.source.Play();
+        return s.source.time;
+    }
 }

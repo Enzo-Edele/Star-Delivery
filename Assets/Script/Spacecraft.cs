@@ -25,8 +25,8 @@ public class Spacecraft : MonoBehaviour
         spacecraftMaterial = spacecraft.GetComponent<Renderer>().material;
         delivered = false;
         spacecraft = this.gameObject.transform.parent.gameObject;
-        orderInList = TouchPad.Instance.spacecraft.Count;
-        TouchPad.Instance.spacecraft.Add(this);
+        orderInList = GameManager.Instance.spacecraft.Count;
+        GameManager.Instance.spacecraft.Add(this);
     }
 
     private void OnCollisionEnter(Collision collision)

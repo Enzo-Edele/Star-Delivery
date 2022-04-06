@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int packageSent;
     [SerializeField] int objective;
 
+    public List<Spacecraft> spacecraft;
+
     public enum GameStates
     {
         InMenu,
@@ -155,6 +157,26 @@ public class GameManager : MonoBehaviour
         this.percentageValid = percentageValid;
         this.objective = objective;
         Cursor.lockState = CursorLockMode.Locked;
+
+        invalidDestinationLevel.Clear();
+        validDestinationLevel.Clear();
+        List<string> memory = new List<string>();
+        for (int i = 0; i < spacecraft.Count; i++)
+        {
+            int rnd = Random.Range(0, validDestination.Count);
+            spacecraft[i].spacecraftDestination = validDestination[rnd];
+            validDestinationLevel.Add(validDestination[rnd]);
+            memory.Add(validDestination[rnd]);
+            validDestination.RemoveAt(rnd);
+        }
+
+        for (int i = 0; i < invalidDestination.Count; i++)
+            invalidDestinationLevel.Add(invalidDestination[i]);
+        for (int i = 0; i < validDestination.Count; i++)
+            invalidDestinationLevel.Add(validDestination[i]);
+
+        for (int i = 0; i < spacecraft.Count; i++)
+            validDestination.Add(memory[i]);
     }
     public void SpacecraftDeliver(int qty)
     {
@@ -190,7 +212,10 @@ public class GameManager : MonoBehaviour
         else if (packageSent < objective)
             Debug.Log("fail");
         packageSent = 0;
+
+        spacecraft.Clear();
         UIManager.Instance.ActivateEndLevel(success);
+
         Save(file);
     }
 }

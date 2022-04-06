@@ -3587,7 +3587,6 @@ GameObject:
   - component: {fileID: 732272514}
   - component: {fileID: 732272513}
   - component: {fileID: 732272512}
-  - component: {fileID: 732272511}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -3623,19 +3622,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &732272511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732272509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b89919bea34e94c98062e9fb6db352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spacecraft: []
 --- !u!114 &732272512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3686,7 +3672,6 @@ MonoBehaviour:
   destinationText: {fileID: 1318947417}
   companyText: {fileID: 1928777966}
   contentText: {fileID: 1801211983}
-  pad: {fileID: 732272511}
 --- !u!114 &732272513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7016,6 +7001,7 @@ MonoBehaviour:
   invalidDestinationLevel: []
   packageSent: 0
   objective: 0
+  spacecraft: []
 --- !u!1 &1581536266
 GameObject:
   m_ObjectHideFlags: 0

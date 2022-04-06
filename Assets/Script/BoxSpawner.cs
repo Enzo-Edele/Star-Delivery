@@ -47,6 +47,5 @@ public class BoxSpawner : MonoBehaviour
         timerLevel = timeLevel;
         endLevel = false;
         GameManager.Instance.StartLevel(percentageBomb, percentageGood, objective);
-        TouchPad.Instance.StarLevel();
     }
 }
