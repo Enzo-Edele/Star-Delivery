@@ -12,7 +12,7 @@ public class TouchPad : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        StarLevel();
+        //StarLevel();
     }
 
     public void StarLevel()
@@ -24,7 +24,6 @@ public class TouchPad : MonoBehaviour
         {
             int rnd = Random.Range(0, GameManager.Instance.validDestination.Count);
             spacecraft[i].spacecraftDestination = GameManager.Instance.validDestination[rnd];
-            spacecraft[i].destinationText.text = GameManager.Instance.validDestination[rnd]; 
             GameManager.Instance.validDestinationLevel.Add(GameManager.Instance.validDestination[rnd]);
             memory.Add(GameManager.Instance.validDestination[rnd]);
             GameManager.Instance.validDestination.RemoveAt(rnd);

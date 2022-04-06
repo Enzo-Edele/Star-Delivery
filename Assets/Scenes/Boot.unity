@@ -4226,6 +4226,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4b08f19ee5f5418c305b73b1e9948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutoSounds:
+  - name: Intro
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Colis
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Adresse
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Navette-Tablette
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: "D\xE9poseNavette"
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Envoie
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Fragile
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Stockage
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Destroy
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Bomb
+    clip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    volume: 0
+    loop: 0
+    source: {fileID: 0}
   sounds:
   - name: alarm
     clip: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
@@ -6935,7 +6996,7 @@ MonoBehaviour:
   - Terra
   - Kamino
   - Coruscant
-  - Luthall
+  - Lothal
   - Babylon5
   validDestinationLevel: []
   invalidDestination:

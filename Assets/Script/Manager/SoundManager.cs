@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    public Sound[] tutoSounds;
     public Sound[] sounds;
 
     public static SoundManager Instance { get; private set; }

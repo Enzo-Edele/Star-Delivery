@@ -44,36 +44,6 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown("e") && 
-            tablet.gameObject.activeSelf == false && 
-            pauseMenu.activeSelf == false && 
-            endLevel.activeSelf == false && 
-            optionMenu.activeSelf == false &&
-            GameManager.GameState == GameManager.GameStates.InGame
-        ) {
-            ActivateTablet();
-            GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
-        }
-        else if ((Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Escape)) && 
-            tablet.gameObject.activeSelf == true && 
-            pauseMenu.activeSelf == false && 
-            optionMenu.activeSelf == false
-        ) {
-            DeactivateTablet();
-            GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
-        }
-    }
-
-    public void ActivateTablet() //tablette 
-    {
-        tablet.gameObject.SetActive(true);
-    }
-    public void DeactivateTablet()
-    {
-        tablet.gameObject.SetActive(false);
-    }
     public void ActivateMainMenu() //main menu
     {
         mainMenu.SetActive(true);
@@ -117,7 +87,6 @@ public class UIManager : MonoBehaviour
     }
     public void ActivatePauseMenu() //pause menu
     {
-        DeactivateTablet();
         pauseMenu.SetActive(true);
     }
     public void DeactivatePauseMenu()
@@ -161,7 +130,6 @@ public class UIManager : MonoBehaviour
     public void ActivateEndLevel(bool success) //end level menu
     {
         Debug.Log("end level active");
-        DeactivateTablet();
         DeactivatePauseMenu();
         DeactivateOptionMenu();
         pad.EndLevel();
