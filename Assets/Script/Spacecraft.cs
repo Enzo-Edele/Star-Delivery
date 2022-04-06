@@ -53,7 +53,7 @@ public class Spacecraft : MonoBehaviour
         }
     }
 
-    public IEnumerator LaunchCoroutine() //stopper coroutine fin du niveau
+    public IEnumerator LaunchCoroutine()
     {
         delivered = true;
         GameManager.Instance.SpacecraftDeliver(packages);
