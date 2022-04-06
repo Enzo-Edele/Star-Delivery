@@ -9,7 +9,7 @@ public class PlayerGrabDrop : MonoBehaviour
     bool canBePushed;
     [SerializeField] RaycastHit hit;
     GameObject grabableObject;
-    GameObject grabObject;
+    public GameObject grabObject;
     GameObject dropAreaBelt;
     GameObject dropAreaRay;
     GameObject dropAreaDiffuse;
