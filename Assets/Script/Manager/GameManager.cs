@@ -216,8 +216,12 @@ public class GameManager : MonoBehaviour
                 levelUnlock++;
                 Debug.Log("Unlock level : " + levelUnlock);
             }
-            if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex -2 && boxesObjective < totalBoxes)
+            if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2 && boxesObjective < totalBoxes)
+            {
                 Debug.Log("credit, vous êtes employé du mois vous avez battu glados intensité 5, go get a life now.");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                UIManager.Instance.DeactivateEndLevel();
+            }
         }
         else if (packageSent < objective)
             Debug.Log("fail");

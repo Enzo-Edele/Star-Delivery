@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Lvl7.unity
     guid: 9622ff99785294149aafe34bac255daa
   - enabled: 1
+    path: Assets/Scenes/Levels/Credits.unity
+    guid: ca97f26567e191d40b5549204e4a595f
+  - enabled: 1
     path: Assets/Scenes/Edele.unity
     guid: 0f35465211b8422478ceb25874abe393
   - enabled: 1
