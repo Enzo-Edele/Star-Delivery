@@ -8,7 +8,7 @@ public class BoxSpawner : MonoBehaviour
 
     [SerializeField] int objective;
     [SerializeField] float timeMin, timeMax;
-    [SerializeField] int percentageBomb, percentageGood;
+    [SerializeField] int percentageBomb, percentageGood, percentageFragile, percentageSus;
     float timerBoxes;
     [SerializeField]float timeLevel;
     float timerLevel;
@@ -46,6 +46,6 @@ public class BoxSpawner : MonoBehaviour
         timerBoxes = timeMin;
         timerLevel = timeLevel;
         endLevel = false;
-        GameManager.Instance.StartLevel(percentageBomb, percentageGood, objective);
+        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective);
     }
 }

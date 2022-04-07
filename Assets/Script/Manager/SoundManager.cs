@@ -24,6 +24,16 @@ public class SoundManager : MonoBehaviour
 
             s.source.loop = s.loop;
         }
+        foreach (Sound s in tutoSounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+
+            s.source.volume = s.volume;
+
+            s.source.loop = s.loop;
+        }
     }
 
     public void Play(string name)
@@ -36,15 +46,15 @@ public class SoundManager : MonoBehaviour
         }
         s.source.Play();
     }
-    public float PlayTime(string name)
+    public float PlayTime(int i)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = tutoSounds[i];
         if (s == null)
         {
             Debug.Log("sound name not find : " + name);
             return 0;
         }
         s.source.Play();
-        return s.source.time;
+        return s.clip.length;
     }
 }

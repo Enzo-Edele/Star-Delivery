@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
     public bool lockPlayer;
     public bool gameIsPause;
 
-    public int percentageBomb;
     public int percentageValid;
+    public int percentageBomb;
+    public int percentageFragile;
+    public int percentageSus;
 
     public float mouseSensitivity;
 
@@ -69,23 +71,23 @@ public class GameManager : MonoBehaviour
                 UnpauseGame();
                 LockPlayer();
                 Cursor.lockState = CursorLockMode.Confined;
-                Debug.Log("InMenu");
+                //Debug.Log("InMenu");
                 break;
             case GameStates.InGame:
                 UnpauseGame();
                 Cursor.lockState = CursorLockMode.Locked;
-                Debug.Log("InGame");
+                //Debug.Log("InGame");
                 break;
             case GameStates.Pause:
                 PauseGame();
                 Cursor.lockState = CursorLockMode.Confined;
-                Debug.Log("Pause");
+                //Debug.Log("Pause");
                 break;
             case GameStates.GameOver:
                 UnpauseGame();
                 LockPlayer();
                 Cursor.lockState = CursorLockMode.Locked;
-                Debug.Log("GameOver");
+                //Debug.Log("GameOver");
                 break;
         }
     }
@@ -151,10 +153,12 @@ public class GameManager : MonoBehaviour
         gameIsPause = false;
     }
 
-    public void StartLevel(int percentageBomb, int percentageValid, int objective)
+    public void StartLevel(int percentageBomb, int percentageValid, int percentageFragile, int percentageSus, int objective)
     {
         this.percentageBomb = percentageBomb;
         this.percentageValid = percentageValid;
+        this.percentageFragile = percentageFragile;
+        this.percentageSus = percentageSus;
         this.objective = objective;
         Cursor.lockState = CursorLockMode.Locked;
 
