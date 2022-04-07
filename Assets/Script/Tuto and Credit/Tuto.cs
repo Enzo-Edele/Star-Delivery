@@ -71,7 +71,10 @@ public class Tuto : MonoBehaviour
             Debug.Log("colis livré");
         }
         //Dialogue SOGLAD : explication information tablette + bouton lancement
-        //Détection navette lancé
+        if (spacecraft.delivered == true)//Détection navette lancé
+        {
+            Debug.Log("navette envoyé");
+        }
     }
 
     void TutoD()
