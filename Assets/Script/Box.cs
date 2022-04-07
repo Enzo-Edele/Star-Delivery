@@ -12,6 +12,7 @@ public class Box : MonoBehaviour
     public bool isFragile;
     public bool isBroken;
     public bool isSus;
+    public bool isStored;
 
     void Awake() //start
     {
@@ -29,6 +30,7 @@ public class Box : MonoBehaviour
             bomb.SetActive(true);
             isArmed = true;
         }
+        isStored = false;
     }
 
     public void ForceValue(bool valid, bool fragile, bool sus, bool bomb)

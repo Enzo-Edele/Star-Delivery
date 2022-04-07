@@ -10,12 +10,14 @@ public class PlayerGrabDrop : MonoBehaviour
     [SerializeField] RaycastHit hit;
     GameObject grabableObject;
     public GameObject grabObject;
-    GameObject dropAreaBelt;
+    Box grabObjectScript;
+    GameObject dropAreaRack;
     GameObject dropAreaRay;
     GameObject dropAreaDiffuse;
     GameObject dropAreaCrusher;
     GameObject dropAreaSpacecraft;
 
+    public PlayerMovement player;
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class PlayerGrabDrop : MonoBehaviour
             else if (hit.transform.gameObject.tag == "Drop" && grabObject != null)
             {
                 UIManager.Instance.ActivateIconDrop();
-                dropAreaBelt = hit.transform.gameObject;
+                dropAreaRack = hit.transform.gameObject;
             }
             else if (hit.transform.gameObject.tag == "Diffuse" && grabObject != null)
             {
@@ -73,7 +75,7 @@ public class PlayerGrabDrop : MonoBehaviour
             UIManager.Instance.DeactivateIconGrab();
             canBePushed = false;
             grabableObject = null;
-            dropAreaBelt = null;
+            dropAreaRack = null;
             dropAreaRay = null;
             dropAreaDiffuse = null;
             dropAreaCrusher = null;
@@ -82,11 +84,12 @@ public class PlayerGrabDrop : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && grabableObject != null && !GameManager.Instance.lockPlayer)
         {
-            if(grabableObject.transform.parent != null)
+            if (grabableObject.transform.parent != null)
             {
                 grabableObject.transform.parent.GetComponent<DiffuseTable>().RetrieveBox(); //essayer de virer ici aussi
             }
             grabObject = grabableObject;
+            grabObjectScript = grabObject.GetComponent<Box>();
             Rigidbody rBody = grabObject.GetComponent<Rigidbody>();
             rBody.velocity = Vector3.zero;
             rBody.angularVelocity = Vector3.zero;
@@ -96,12 +99,14 @@ public class PlayerGrabDrop : MonoBehaviour
             grabObject.transform.localPosition = new Vector3(0, -0.8f, 1.35f);
             rBody.useGravity = false;
             grabObject.GetComponent<BoxCollider>().enabled = false; //faire un tag BoxGrab et désactiver collision de ce tag
-            grabObject.GetComponent<Box>().DisplayInfo();
+            grabObjectScript.DisplayInfo();
+            grabObjectScript.isStored = false;
         }
 
-        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaBelt != null)
+        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaRack != null)
         {
-            Drop(dropAreaBelt);
+            grabObject.GetComponent<Box>().isStored = true;
+            Drop(dropAreaRack);
         }
 
         if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaDiffuse != null)
@@ -126,6 +131,14 @@ public class PlayerGrabDrop : MonoBehaviour
         {
             Launcher.Instance.Launch();
         }
+
+        if(grabObject != null)
+            if(grabObject.GetComponent<Box>().isFragile && player.isRunning == true)
+            {
+                grabObject.GetComponent<Box>().isBroken = true;
+                if(GameManager.Instance.levelUnlock == 0)
+                    Destroy(grabObject);
+            }
     }
 
     void Drop(GameObject dropArea)

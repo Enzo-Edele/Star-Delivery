@@ -10,7 +10,7 @@ public class TutoManager : MonoBehaviour
     [SerializeField] float timerMessage;
 
     [SerializeField] int doors;
-    [SerializeField]GameObject[] door;
+    [SerializeField] GameObject[] door;
 
     [SerializeField] TutoBoxSpawner spawner;
     [SerializeField] PlayerGrabDrop grab;
@@ -56,27 +56,28 @@ public class TutoManager : MonoBehaviour
             PlayAdvice();
         else if (step == 6)
             PlayAdvice();
-        else if(step == 9)
+        else if (step == 9)
             SpawnBox(true, true, false, false);
+        else if (step == 12)
+            SpawnBox(false, false, false, false);
+        else if (step == 14)
+            SpawnBox(true, false, false, true);
 
         if (grab.grabObject != null && step == 4)
-        {
             PlayAdvice();
-            Debug.Log("check grab");
-        }
         if(spacecraft.packages == 1 && step == 7)
-        {
             PlayAdvice();
-        }
         if(spacecraft.delivered == true && step == 8)
-        {
             PlayAdvice();
-        }
         if(grab.grabObject != null && step == 10)
-        {
-            Debug.Log("check grab");
             PlayAdvice();
-        }
+        if(spawner.package != null)
+            if(spawner.package.GetComponent<Box>().isStored && step == 11)
+                PlayAdvice();
+        if (spawner.package == null && step == 13)
+            PlayAdvice();
+        if (spawner.package == null && step == 15)
+            Debug.Log("tuto finito");
     }
 
     void PlayAdvice()

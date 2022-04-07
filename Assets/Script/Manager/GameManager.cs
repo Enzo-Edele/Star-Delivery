@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ActivatePauseMenu();
             ChangeGameState(GameStates.Pause);
         }
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            packageSent = objective;
+            levelUnlock = 7;
+            EndLevel();
+        }
     }
 
     public void ChangeGameState(GameStates currentState)

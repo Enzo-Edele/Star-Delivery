@@ -7,7 +7,7 @@ public class TutoBoxSpawner : MonoBehaviour
     [SerializeField] TutoManager tutoManager;
 
     [SerializeField] GameObject box;
-    [SerializeField] GameObject package;
+    public GameObject package;
 
     [SerializeField] int objective;
     [SerializeField] int percentageBomb, percentageGood, percentageFragile, percentageSus;
