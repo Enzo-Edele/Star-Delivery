@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
     public bool lockPlayer;
     public bool gameIsPause;
 
-    public int percentageBomb;
     public int percentageValid;
+    public int percentageBomb;
+    public int percentageFragile;
+    public int percentageSus;
 
     public float mouseSensitivity;
 
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] int packageSent;
     [SerializeField] int objective;
+
+    public List<Spacecraft> spacecraft;
 
     public enum GameStates
     {
@@ -67,23 +71,23 @@ public class GameManager : MonoBehaviour
                 UnpauseGame();
                 LockPlayer();
                 Cursor.lockState = CursorLockMode.Confined;
-                Debug.Log("InMenu");
+                //Debug.Log("InMenu");
                 break;
             case GameStates.InGame:
                 UnpauseGame();
                 Cursor.lockState = CursorLockMode.Locked;
-                Debug.Log("InGame");
+                //Debug.Log("InGame");
                 break;
             case GameStates.Pause:
                 PauseGame();
                 Cursor.lockState = CursorLockMode.Confined;
-                Debug.Log("Pause");
+                //Debug.Log("Pause");
                 break;
             case GameStates.GameOver:
                 UnpauseGame();
                 LockPlayer();
                 Cursor.lockState = CursorLockMode.Locked;
-                Debug.Log("GameOver");
+                //Debug.Log("GameOver");
                 break;
         }
     }
@@ -149,12 +153,34 @@ public class GameManager : MonoBehaviour
         gameIsPause = false;
     }
 
-    public void StartLevel(int percentageBomb, int percentageValid, int objective)
+    public void StartLevel(int percentageBomb, int percentageValid, int percentageFragile, int percentageSus, int objective)
     {
         this.percentageBomb = percentageBomb;
         this.percentageValid = percentageValid;
+        this.percentageFragile = percentageFragile;
+        this.percentageSus = percentageSus;
         this.objective = objective;
         Cursor.lockState = CursorLockMode.Locked;
+
+        invalidDestinationLevel.Clear();
+        validDestinationLevel.Clear();
+        List<string> memory = new List<string>();
+        for (int i = 0; i < spacecraft.Count; i++)
+        {
+            int rnd = Random.Range(0, validDestination.Count);
+            spacecraft[i].spacecraftDestination = validDestination[rnd];
+            validDestinationLevel.Add(validDestination[rnd]);
+            memory.Add(validDestination[rnd]);
+            validDestination.RemoveAt(rnd);
+        }
+
+        for (int i = 0; i < invalidDestination.Count; i++)
+            invalidDestinationLevel.Add(invalidDestination[i]);
+        for (int i = 0; i < validDestination.Count; i++)
+            invalidDestinationLevel.Add(validDestination[i]);
+
+        for (int i = 0; i < spacecraft.Count; i++)
+            validDestination.Add(memory[i]);
     }
     public void SpacecraftDeliver(int qty)
     {
@@ -190,7 +216,10 @@ public class GameManager : MonoBehaviour
         else if (packageSent < objective)
             Debug.Log("fail");
         packageSent = 0;
+
+        spacecraft.Clear();
         UIManager.Instance.ActivateEndLevel(success);
+
         Save(file);
     }
 }

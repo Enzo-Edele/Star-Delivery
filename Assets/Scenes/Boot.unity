@@ -3587,7 +3587,6 @@ GameObject:
   - component: {fileID: 732272514}
   - component: {fileID: 732272513}
   - component: {fileID: 732272512}
-  - component: {fileID: 732272511}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -3623,19 +3622,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &732272511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732272509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b89919bea34e94c98062e9fb6db352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spacecraft: []
 --- !u!114 &732272512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3686,7 +3672,6 @@ MonoBehaviour:
   destinationText: {fileID: 1318947417}
   companyText: {fileID: 1928777966}
   contentText: {fileID: 1801211983}
-  pad: {fileID: 732272511}
 --- !u!114 &732272513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4228,63 +4213,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutoSounds:
   - name: Intro
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 776c19af09765664f9b39d03384864af, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: Colis
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5e01a4f33e0d539409852cb93427c12e, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.3
     loop: 0
     source: {fileID: 0}
   - name: Adresse
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: f7bec07040d477e438361867f5ca92e9, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.05
     loop: 0
     source: {fileID: 0}
   - name: Navette-Tablette
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: a4470d03b76ee55449311941b329892a, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.05
     loop: 0
     source: {fileID: 0}
   - name: "D\xE9poseNavette"
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 359d12ab9b0679540b53063a3cea3cbd, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.005
     loop: 0
     source: {fileID: 0}
   - name: Envoie
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5819d99c2615ef743a5c314d36865cb7, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: Fragile
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c8ed783fd32b4f14c97887de24219e75, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: Stockage
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: e014b7791831a81459876e246f12b959, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: Destroy
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5f92337999ca4d44893dcb22ab9c22fc, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: Bomb
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1a875919e8bc9eb4eb1db8f7836afbba, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   sounds:
@@ -6984,8 +6969,10 @@ MonoBehaviour:
   boxScoreList: 
   lockPlayer: 0
   gameIsPause: 0
-  percentageBomb: 0
   percentageValid: 0
+  percentageBomb: 0
+  percentageFragile: 0
+  percentageSus: 0
   mouseSensitivity: 250
   validDestination:
   - Mars
@@ -7016,6 +7003,7 @@ MonoBehaviour:
   invalidDestinationLevel: []
   packageSent: 0
   objective: 0
+  spacecraft: []
 --- !u!1 &1581536266
 GameObject:
   m_ObjectHideFlags: 0

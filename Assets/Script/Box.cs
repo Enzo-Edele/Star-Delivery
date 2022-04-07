@@ -10,25 +10,40 @@ public class Box : MonoBehaviour
     string company = "Amazoon";
     string content = "Stuff";
     public bool isFragile;
+    public bool isBroken;
     public bool isSus;
-    //faire enum pour type de colis
 
-    void Start()
+    void Awake() //start
     {
         if (Random.Range(0, 100) < GameManager.Instance.percentageValid)
             destination = GameManager.Instance.validDestinationLevel[Random.Range(0, GameManager.Instance.validDestinationLevel.Count)];
         else
             destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
-        isArmed = false;
 
         if (Random.Range(0, 2) == 1) isSus = true;
         else                         isSus = false;
 
-        if(Random.Range(0, 100) < GameManager.Instance.percentageBomb) //mettre une variable ?manager? pour la proba de bombe
+        isArmed = false;
+        if (Random.Range(0, 100) < GameManager.Instance.percentageBomb) 
         {
             bomb.SetActive(true);
             isArmed = true;
         }
+    }
+
+    public void ForceValue(bool valid, bool fragile, bool sus, bool bomb)
+    {
+        if(!valid)
+            destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
+        else
+            destination = GameManager.Instance.validDestinationLevel[Random.Range(0, GameManager.Instance.validDestinationLevel.Count)];
+
+        this.bomb.SetActive(bomb);
+        isArmed = bomb;
+
+        isSus = sus;
+
+        isFragile = fragile;
     }
 
     public void DisplayInfo()
@@ -41,16 +56,15 @@ public class Box : MonoBehaviour
         if (isArmed)
         {
             SoundManager.Instance.Play("explosion");
-            //Debug.Log("bombe non traité");
         }
         bool isValid = false;
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 isValid = true;
-        /*if(isValid)
+        if(isValid)
             Debug.Log("valid non traité");
         else
-            Debug.Log("pas valid non traité");*/
+            Debug.Log("pas valid non traité");
         Destroy(gameObject);
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TouchPad : MonoBehaviour
+public class TouchPad : MonoBehaviour //plus utilisé
 {
     public static TouchPad Instance { get; private set; }
 
@@ -12,7 +12,6 @@ public class TouchPad : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        //StarLevel();
     }
 
     public void StarLevel()

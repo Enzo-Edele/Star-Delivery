@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
     public float speed = 12f;
+    public float walkSpeed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 3;
 
@@ -16,13 +17,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    public bool isRunning;
 
     void Update()
     {
         isGrounded = Physics.CheckSphere(groudCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
-        {
+        if (isGrounded && velocity.y < 0) {
             velocity.y = -2f;
         }
 
@@ -33,10 +34,26 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 move = transform.right * x + transform.forward * z;
 
-            controller.Move(move * speed * Time.deltaTime);
-
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                controller.Move(move * walkSpeed * Time.deltaTime);
+            }
+            else {
+                controller.Move(move * speed * Time.deltaTime);
+            }
+            if ((Input.GetKeyDown("z") ||
+               Input.GetKeyDown("s") ||
+               Input.GetKeyDown("q") ||
+               Input.GetKeyDown("d")) &&
+               !Input.GetKey(KeyCode.LeftShift))
             {
+                isRunning = true;
+            }
+            else
+            {
+                isRunning = false;
+            }
+
+            if (Input.GetButtonDown("Jump") && isGrounded) {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }

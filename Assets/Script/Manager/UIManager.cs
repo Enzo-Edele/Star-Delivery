@@ -34,8 +34,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text companyText;
     [SerializeField] Text contentText;
 
-    [SerializeField] TouchPad pad;
-
     bool wasPaused;
     #endregion
     public static UIManager Instance { get; private set; }
@@ -132,7 +130,6 @@ public class UIManager : MonoBehaviour
         Debug.Log("end level active");
         DeactivatePauseMenu();
         DeactivateOptionMenu();
-        pad.EndLevel();
         endLevel.SetActive(true);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
         if (success)
