@@ -2935,7 +2935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &572142204
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7004,6 +7004,13 @@ MonoBehaviour:
   packageSent: 0
   objective: 0
   spacecraft: []
+  valid: 0
+  invalid: 0
+  fragile: 0
+  sus: 0
+  normal: 0
+  bomb: 0
+  total: 0
 --- !u!1 &1581536266
 GameObject:
   m_ObjectHideFlags: 0

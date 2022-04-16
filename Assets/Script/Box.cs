@@ -13,24 +13,47 @@ public class Box : MonoBehaviour
     public bool isBroken;
     public bool isSus;
     public bool isStored;
+    int rnd;
 
     void Awake() //start
     {
         if (Random.Range(0, 100) < GameManager.Instance.percentageValid)
+        {
             destination = GameManager.Instance.validDestinationLevel[Random.Range(0, GameManager.Instance.validDestinationLevel.Count)];
+            GameManager.Instance.valid++;
+        }
         else
+        {
             destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
-
-        if (Random.Range(0, 2) == 1) isSus = true;
-        else                         isSus = false;
+            GameManager.Instance.invalid++;
+        }
+        rnd = Random.Range(0, 100);
+        if (rnd < GameManager.Instance.percentageFragile)
+        {
+            isFragile = true;
+            GameManager.Instance.fragile++;
+        }
+        else if (rnd < GameManager.Instance.percentageSus)
+        {
+            isSus = true;
+            GameManager.Instance.sus++;
+        }
+        else
+        {
+            GameManager.Instance.normal++;
+        }
 
         isArmed = false;
-        if (Random.Range(0, 100) < GameManager.Instance.percentageBomb) 
-        {
-            bomb.SetActive(true);
-            isArmed = true;
-        }
+        if(!isFragile)
+            if (Random.Range(0, 100) < GameManager.Instance.percentageBomb) 
+            {
+                bomb.SetActive(true);
+                isArmed = true;
+                GameManager.Instance.bomb++;
+            }
         isStored = false;
+        GameManager.Instance.total++;
+        GameManager.Instance.AverageCheck();
     }
 
     public void ForceValue(bool valid, bool fragile, bool sus, bool bomb)
@@ -63,10 +86,10 @@ public class Box : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 isValid = true;
-        if(isValid)
+        /*if(isValid)
             Debug.Log("valid non traité");
         else
-            Debug.Log("pas valid non traité");
+            Debug.Log("pas valid non traité");*/
         Destroy(gameObject);
     }
 

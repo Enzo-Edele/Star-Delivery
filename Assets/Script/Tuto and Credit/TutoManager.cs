@@ -22,7 +22,7 @@ public class TutoManager : MonoBehaviour
         doors = 0;
         PlayAdvice();
     }
-    /* step 0 : intro(0) explication déplacement
+    /* step 0 : intro(0) explication déplacement //mettre une lumiére pour pointer les élément clef
      * step 1 : ouverture porte(0)
      * step 2 : explication colis(1)
      * step 3 : close door(0)//via collider & spawn colis basique

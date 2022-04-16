@@ -36,6 +36,15 @@ public class GameManager : MonoBehaviour
 
     public List<Spacecraft> spacecraft;
 
+    //chack value
+    public int valid;
+    public int invalid;
+    public int fragile;
+    public int sus;
+    public int normal;
+    public int bomb;
+    public int total;
+
     public enum GameStates
     {
         InMenu,
@@ -231,5 +240,11 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.ActivateEndLevel(success);
 
         Save(file);
+    }
+
+    //test function
+    public void AverageCheck()
+    {
+        Debug.Log("valid : " + valid + " invalid : " + invalid + " fragile : " + fragile + " sus : " + sus + " normal : " + normal + " bombe : " + bomb + " total : " + total);
     }
 }
