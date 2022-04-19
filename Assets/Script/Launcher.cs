@@ -5,8 +5,6 @@ using TMPro;
 
 public class Launcher : MonoBehaviour
 {
-    public static Launcher Instance { get; private set; }
-
     public Spacecraft spacecraft;
 
     public TMP_Text destiantion;
@@ -16,11 +14,6 @@ public class Launcher : MonoBehaviour
 
     public GameObject launchPanel;
     public GameObject timePanel;
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     void Update()
     {

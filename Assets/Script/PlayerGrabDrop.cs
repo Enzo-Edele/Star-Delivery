@@ -16,6 +16,7 @@ public class PlayerGrabDrop : MonoBehaviour
     GameObject dropAreaDiffuse;
     GameObject dropAreaCrusher;
     GameObject dropAreaSpacecraft;
+    Launcher launcherScript;
 
     public PlayerMovement player;
 
@@ -67,13 +68,16 @@ public class PlayerGrabDrop : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "Button")
             {
+                UIManager.Instance.ActivateIconDrop();
                 canBePushed = true;
+                launcherScript = hit.transform.gameObject.GetComponent<Launcher>();
             }
         }
         else
         {
             UIManager.Instance.DeactivateIconGrab();
             canBePushed = false;
+            launcherScript = null;
             grabableObject = null;
             dropAreaRack = null;
             dropAreaRay = null;
@@ -127,9 +131,9 @@ public class PlayerGrabDrop : MonoBehaviour
             Drop(dropAreaRay);
         }
 
-        if (Input.GetMouseButtonDown(0) && canBePushed == true)
+        if (Input.GetMouseButtonDown(0) && canBePushed == true && launcherScript != null)
         {
-            Launcher.Instance.Launch();
+            launcherScript.Launch();
         }
 
         if(grabObject != null)
