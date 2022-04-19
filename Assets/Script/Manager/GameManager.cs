@@ -240,11 +240,24 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.ActivateEndLevel(success);
 
         Save(file);
+
+        ResetAverageCheck();
     }
 
     //test function
     public void AverageCheck()
     {
-        Debug.Log("valid : " + valid + " invalid : " + invalid + " fragile : " + fragile + " sus : " + sus + " normal : " + normal + " bombe : " + bomb + " total : " + total);
+        if(total % 10 == 0)
+            Debug.Log("valid : " + valid + " invalid : " + invalid + " fragile : " + fragile + " sus : " + sus + " normal : " + normal + " bombe : " + bomb + " total : " + total);
+    }
+    public void ResetAverageCheck()
+    {
+        valid = 0;
+        invalid = 0;
+        fragile = 0;
+        sus = 0;
+        normal = 0;
+        bomb = 0;
+        total = 0;
     }
 }
