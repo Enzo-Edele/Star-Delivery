@@ -20,8 +20,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject endLevel;
     [SerializeField] GameObject retryButton;
     [SerializeField] GameObject endLevelNextLevelButton;
-
-    [SerializeField] GameObject tablet;
+    [SerializeField] GameObject endLevelButtonLevel;
+    [SerializeField] GameObject endLevelButtonMain;
+    [SerializeField] GameObject endGameButton;
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionMenu;
@@ -127,22 +128,33 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateEndLevel(bool success) //end level menu
     {
-        Debug.Log("end level active");
         DeactivatePauseMenu();
         DeactivateOptionMenu();
         endLevel.SetActive(true);
-        GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
+        endLevelButtonLevel.SetActive(true);
+        endLevelButtonMain.SetActive(true);
         if (success)
             endLevelNextLevelButton.SetActive(true);
         else
             retryButton.SetActive(true);
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
+    }
+    public void ActivateEndGame()
+    {
+        DeactivatePauseMenu();
+        DeactivateOptionMenu();
+        endLevel.SetActive(true);
+        endGameButton.SetActive(true);
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
     }
     public void DeactivateEndLevel()
     {
-        Debug.Log("end level deactive");
         endLevel.SetActive(false);
         retryButton.SetActive(false);
         endLevelNextLevelButton.SetActive(false);
+        endLevelButtonLevel.SetActive(false);
+        endLevelButtonMain.SetActive(false);
+        endGameButton.SetActive(false);
     }
 
     public void CheckSaveExist()
@@ -239,7 +251,7 @@ public class UIManager : MonoBehaviour
     public void ButtonNextLevel()//level -> level + 1
     {
         DeactivateEndLevel();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);//condition pour last level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame); //David Goodenough
     }
     public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
@@ -261,6 +273,11 @@ public class UIManager : MonoBehaviour
         ActivateMainMenu();
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
         SceneManager.LoadScene("Main");
+    }
+    public void ButtonEndGame()
+    {
+        DeactivateEndLevel();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void ButtonQuit()//exit app
     {

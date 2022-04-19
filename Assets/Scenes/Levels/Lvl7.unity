@@ -1126,12 +1126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  objective: 1
+  objective: 0
   timeMin: 8
   timeMax: 8
   percentageBomb: 5
   percentageGood: 90
-  timeLevel: 90
+  percentageFragile: 0
+  percentageSus: 0
+  timeLevel: 5
   isSecond: 1
 --- !u!65 &785994450
 BoxCollider:
@@ -1382,12 +1384,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  objective: 1
+  objective: 0
   timeMin: 12
   timeMax: 12
   percentageBomb: 5
   percentageGood: 90
-  timeLevel: 90
+  percentageFragile: 0
+  percentageSus: 0
+  timeLevel: 5
   isSecond: 0
 --- !u!65 &936006173
 BoxCollider:
@@ -1610,6 +1614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 958706698}
   speed: 12
+  walkSpeed: 6
   gravity: -9.81
   jumpHeight: 1.5
   groudCheck: {fileID: 141522398}
@@ -1617,6 +1622,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isRunning: 0
 --- !u!143 &958706698
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2508,6 +2514,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  grabObject: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1484469956
 MonoBehaviour:
   m_ObjectHideFlags: 0

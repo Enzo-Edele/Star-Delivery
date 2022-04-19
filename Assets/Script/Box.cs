@@ -49,6 +49,7 @@ public class Box : MonoBehaviour
             {
                 bomb.SetActive(true);
                 isArmed = true;
+                isSus = true;
                 GameManager.Instance.bomb++;
             }
         isStored = false;

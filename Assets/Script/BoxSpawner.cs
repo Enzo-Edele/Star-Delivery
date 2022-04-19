@@ -7,9 +7,11 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField]GameObject box;
 
     [SerializeField] int objective;
+    public bool isOn;
     [SerializeField] float timeMin, timeMax;
     [SerializeField] int percentageBomb, percentageGood, percentageFragile, percentageSus;
     float timerBoxes;
+
     [SerializeField]float timeLevel;
     float timerLevel;
     bool endLevel;
@@ -23,9 +25,9 @@ public class BoxSpawner : MonoBehaviour
 
     void Update()
     {
-        if(timerBoxes > 0 && !GameManager.Instance.gameIsPause)
+        if(timerBoxes > 0 && !GameManager.Instance.gameIsPause && isOn)
             timerBoxes -= Time.deltaTime;
-        else if(!GameManager.Instance.gameIsPause)
+        else if(!GameManager.Instance.gameIsPause && isOn)
         {
             timerBoxes = Random.Range(timeMin, timeMax);
             Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
@@ -43,6 +45,7 @@ public class BoxSpawner : MonoBehaviour
 
     void StartLevel()
     {
+        isOn = true;
         timerBoxes = timeMin;
         timerLevel = timeLevel;
         endLevel = false;

@@ -17,6 +17,7 @@ public class PlayerGrabDrop : MonoBehaviour
     GameObject dropAreaCrusher;
     GameObject dropAreaSpacecraft;
     Launcher launcherScript;
+    ButtonStop buttonStop;
 
     public PlayerMovement player;
 
@@ -34,7 +35,9 @@ public class PlayerGrabDrop : MonoBehaviour
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z),
             transform.forward,
             out hit,
-            interactRange))
+            interactRange) &&
+            !GameManager.Instance.lockPlayer
+            )
         {
             if (hit.transform.gameObject.tag == "Box" && grabObject == null)
             {
@@ -72,18 +75,18 @@ public class PlayerGrabDrop : MonoBehaviour
                 canBePushed = true;
                 launcherScript = hit.transform.gameObject.GetComponent<Launcher>();
             }
+            else if (hit.transform.gameObject.tag == "ButtonStop")
+            {
+                UIManager.Instance.ActivateIconDrop();
+                canBePushed = true;
+                buttonStop = hit.transform.gameObject.GetComponent<ButtonStop>();
+            }
         }
+        else if (GameManager.Instance.lockPlayer)
+            NullRaycast();
         else
         {
-            UIManager.Instance.DeactivateIconGrab();
-            canBePushed = false;
-            launcherScript = null;
-            grabableObject = null;
-            dropAreaRack = null;
-            dropAreaRay = null;
-            dropAreaDiffuse = null;
-            dropAreaCrusher = null;
-            dropAreaSpacecraft = null;
+            NullRaycast();
         }
 
         if (Input.GetMouseButtonDown(0) && grabableObject != null && !GameManager.Instance.lockPlayer)
@@ -112,20 +115,17 @@ public class PlayerGrabDrop : MonoBehaviour
             grabObject.GetComponent<Box>().isStored = true;
             Drop(dropAreaRack);
         }
-
-        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaDiffuse != null)
+        else if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaDiffuse != null)
         {
             dropAreaDiffuse.GetComponent<DiffuseTable>().RecieveBox(grabObject);
             Drop(dropAreaDiffuse);
         }
-
-        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaCrusher != null)
+        else if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaCrusher != null)
         {
             dropAreaCrusher.GetComponent<Crusher>().RecieveBox(grabObject);
             Drop(dropAreaCrusher);
         }
-
-        if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaRay != null)
+        else if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaRay != null)
         {
             dropAreaRay.GetComponent<InspectionTable>().RecieveBox(grabObject);
             Drop(dropAreaRay);
@@ -135,8 +135,12 @@ public class PlayerGrabDrop : MonoBehaviour
         {
             launcherScript.Launch();
         }
+        if (Input.GetMouseButtonDown(0) && canBePushed == true && buttonStop != null)
+        {
+            buttonStop.stopBelt();
+        }
 
-        if(grabObject != null)
+        if (grabObject != null)
             if(grabObject.GetComponent<Box>().isFragile && player.isRunning == true)
             {
                 grabObject.GetComponent<Box>().isBroken = true;
@@ -157,5 +161,19 @@ public class PlayerGrabDrop : MonoBehaviour
         grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
         grabObject = null;
         UIManager.Instance.DeactivateBoxInfo();
+    }
+
+    void NullRaycast()
+    {
+        UIManager.Instance.DeactivateIconGrab();
+        canBePushed = false;
+        launcherScript = null;
+        buttonStop = null;
+        grabableObject = null;
+        dropAreaRack = null;
+        dropAreaRay = null;
+        dropAreaDiffuse = null;
+        dropAreaCrusher = null;
+        dropAreaSpacecraft = null;
     }
 }

@@ -6,17 +6,19 @@ public class ConvoyerBelt : MonoBehaviour
 {
     Rigidbody rigidBody;
     [SerializeField] float speed;
+    public bool isOn;
     Vector3 position;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         position = rigidBody.position;
+        isOn = true;
     }
 
     void FixedUpdate()
     {
-        if (!GameManager.Instance.gameIsPause)
+        if (!GameManager.Instance.gameIsPause && isOn)
         {
             rigidBody.position += (transform.forward * -1) * speed * Time.fixedDeltaTime;
             rigidBody.MovePosition(position);

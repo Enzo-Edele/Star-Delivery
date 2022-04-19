@@ -225,12 +225,6 @@ public class GameManager : MonoBehaviour
                 levelUnlock++;
                 Debug.Log("Unlock level : " + levelUnlock);
             }
-            if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2 && boxesObjective < totalBoxes)
-            {
-                Debug.Log("credit, vous êtes employé du mois vous avez battu glados intensité 5, go get a life now.");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                UIManager.Instance.DeactivateEndLevel();
-            }
         }
         else if (packageSent < objective)
             Debug.Log("fail");
@@ -238,6 +232,16 @@ public class GameManager : MonoBehaviour
 
         spacecraft.Clear();
         UIManager.Instance.ActivateEndLevel(success);
+
+        if (!(packageSent < objective))
+        {
+            if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2 && boxesObjective < totalBoxes)
+            {
+                Debug.Log("credit, vous êtes employé du mois vous avez battu glados intensité 5, go get a life now.");
+                UIManager.Instance.DeactivateEndLevel();
+                UIManager.Instance.ActivateEndGame();
+            }
+        }
 
         Save(file);
 
@@ -248,7 +252,7 @@ public class GameManager : MonoBehaviour
     public void AverageCheck()
     {
         if(total % 10 == 0)
-            Debug.Log("valid : " + valid + " invalid : " + invalid + " fragile : " + fragile + " sus : " + sus + " normal : " + normal + " bombe : " + bomb + " total : " + total);
+            Debug.Log("valid : " + valid + " invalid : " + invalid + " fragile : " + fragile + " sus : " + sus + " normal : " + normal + " bomb : " + bomb + " total : " + total);
     }
     public void ResetAverageCheck()
     {
