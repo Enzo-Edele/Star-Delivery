@@ -1482,9 +1482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spacecraft: {fileID: 155067068498511969}
-  destiantion: {fileID: 2417576386918431008}
-  packages: {fileID: 2417576386136883100}
-  estimatedTime: {fileID: 2417576387299697195}
-  time: {fileID: 2417576387249357263}
+  destinationTxt: {fileID: 2417576386918431008}
+  packagesTxt: {fileID: 2417576386136883100}
+  estimatedTimeTxt: {fileID: 2417576387299697195}
+  timeTxt: {fileID: 2417576387249357263}
   launchPanel: {fileID: 2417576386527625960}
   timePanel: {fileID: 2417576387309052608}
