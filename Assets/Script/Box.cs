@@ -81,25 +81,20 @@ public class Box : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
         {
             if (destination == GameManager.Instance.validDestinationLevel[i])
-                sticker = Instantiate(GameManager.Instance.stickers[0], stickerPosition, Quaternion.identity, transform);
+                sticker = Instantiate(GameManager.Instance.dictionnaryStickers[destination], stickerPosition, Quaternion.identity, transform);
         }
         for (int i = 0; i < GameManager.Instance.invalidDestinationLevel.Count; i++)
         {
             if (destination == GameManager.Instance.invalidDestinationLevel[i])
-                sticker = Instantiate(GameManager.Instance.stickers[1], stickerPosition, Quaternion.identity, transform);
+                sticker = Instantiate(GameManager.Instance.dictionnaryStickers["Error"], stickerPosition, Quaternion.identity, transform);
         }
         sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
         stickerPosition = transform.TransformPoint(Random.Range(-0.3f, 0.3f), 0.51f, Random.Range(-0.3f, 0.3f));
         if (isFragile)
         {
-            sticker = Instantiate(GameManager.Instance.stickers[2], stickerPosition, Quaternion.identity, transform);
+            sticker = Instantiate(GameManager.Instance.dictionnaryStickers["Fragile"], stickerPosition, Quaternion.identity, transform);
             sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
         }
-    }
-
-    public void DisplayInfo()
-    {
-        UIManager.Instance.ActivateBoxInfo(destination);
     }
 
     public void Belt()

@@ -30,9 +30,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject grabDropIcon;
     [SerializeField] Text grabDropText;
 
-    [SerializeField] GameObject boxInfo;
-    [SerializeField] Text destinationText;
-
     bool wasPaused;
     #endregion
     public static UIManager Instance { get; private set; }
@@ -113,15 +110,6 @@ public class UIManager : MonoBehaviour
         grabDropIcon.SetActive(false);
     }
 
-    public void ActivateBoxInfo(string destination)
-    {
-        boxInfo.SetActive(true);
-        destinationText.text = destination;
-    }
-    public void DeactivateBoxInfo()
-    {
-        boxInfo.SetActive(false);
-    }
     public void ActivateEndLevel(bool success) //end level menu
     {
         DeactivatePauseMenu();

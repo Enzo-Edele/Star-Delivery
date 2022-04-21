@@ -106,7 +106,6 @@ public class PlayerGrabDrop : MonoBehaviour
             grabObject.transform.localPosition = new Vector3(0, -0.8f, 1.35f);
             rBody.useGravity = false;
             grabObject.GetComponent<BoxCollider>().enabled = false; //faire un tag BoxGrab et désactiver collision de ce tag
-            grabObjectScript.DisplayInfo();
             grabObjectScript.isStored = false;
         }
 
@@ -161,7 +160,6 @@ public class PlayerGrabDrop : MonoBehaviour
         grabObject.transform.parent = null;
         grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
         grabObject = null;
-        UIManager.Instance.DeactivateBoxInfo();
     }
 
     void NullRaycast()
