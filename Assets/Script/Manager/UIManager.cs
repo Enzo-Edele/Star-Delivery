@@ -32,8 +32,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject boxInfo;
     [SerializeField] Text destinationText;
-    [SerializeField] Text companyText;
-    [SerializeField] Text contentText;
 
     bool wasPaused;
     #endregion
@@ -115,12 +113,10 @@ public class UIManager : MonoBehaviour
         grabDropIcon.SetActive(false);
     }
 
-    public void ActivateBoxInfo(string destination, string company, string content)
+    public void ActivateBoxInfo(string destination)
     {
         boxInfo.SetActive(true);
         destinationText.text = destination;
-        companyText.text = company;
-        contentText.text = content;
     }
     public void DeactivateBoxInfo()
     {

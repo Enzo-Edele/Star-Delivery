@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 45d77b37a2cac6344beaabf76f3f003b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -991,11 +991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4b08f19ee5f5418c305b73b1e9948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 273531058}
-  mainMenuMusic: {fileID: 8300000, guid: 3693126338975594fb8df409e116d5f6, type: 3}
-  firstLevelmusic: {fileID: 8300000, guid: 30d4d30c1dd8cd945aee8e835de88396, type: 3}
-  playingEffect: []
-  timerEffect: []
+  tutoSounds: []
+  sounds: []
 --- !u!4 &273531060
 Transform:
   m_ObjectHideFlags: 0
@@ -4996,15 +4993,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  destiantion: {fileID: 2120401483}
-  packages: {fileID: 151326751}
-  estimatedTime: {fileID: 1696495349}
-  spacecraftNumber: {fileID: 563348233}
-  launch: {fileID: 42694090}
-  spacecraftVisu: {fileID: 1135789093}
-  screen: 0
-  leftArrow: {fileID: 1641542972}
-  rightArrow: {fileID: 567933645}
 --- !u!114 &1810595110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5022,10 +5010,18 @@ MonoBehaviour:
   saveText: {fileID: 530253405}
   newGameButton: {fileID: 1374040944}
   loadButton: {fileID: 817416127}
+  loadButtons: []
   levelMenu: {fileID: 0}
+  LevelButtons: []
+  highScores: []
   endLevel: {fileID: 0}
-  tablet: {fileID: 1148220344}
+  retryButton: {fileID: 0}
+  endLevelNextLevelButton: {fileID: 0}
+  endLevelButtonLevel: {fileID: 0}
+  endLevelButtonMain: {fileID: 0}
+  endGameButton: {fileID: 0}
   pauseMenu: {fileID: 1451585533}
+  optionMenu: {fileID: 0}
   grabDropIcon: {fileID: 1933351336}
   grabDropText: {fileID: 1675539887}
   boxInfo: {fileID: 620870082}

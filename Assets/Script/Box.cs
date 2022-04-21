@@ -7,12 +7,11 @@ public class Box : MonoBehaviour
     public GameObject bomb;
     public bool isArmed { get; private set; }
     public string destination = "test";
-    string company = "Amazoon";
-    string content = "Stuff";
     public bool isFragile;
     public bool isBroken;
     public bool isSus;
     public bool isStored;
+
     int rnd;
 
     void Awake() //start
@@ -53,6 +52,9 @@ public class Box : MonoBehaviour
                 GameManager.Instance.bomb++;
             }
         isStored = false;
+
+        ApplyStickers();
+
         GameManager.Instance.total++;
         GameManager.Instance.AverageCheck();
     }
@@ -72,9 +74,32 @@ public class Box : MonoBehaviour
         isFragile = fragile;
     }
 
+    void ApplyStickers()
+    {
+        GameObject sticker = new GameObject();
+        Vector3 stickerPosition = transform.TransformPoint(Random.Range(-0.3f, 0.3f), 0.51f, Random.Range(-0.3f, 0.3f));
+        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
+        {
+            if (destination == GameManager.Instance.validDestinationLevel[i])
+                sticker = Instantiate(GameManager.Instance.stickers[0], stickerPosition, Quaternion.identity, transform);
+        }
+        for (int i = 0; i < GameManager.Instance.invalidDestinationLevel.Count; i++)
+        {
+            if (destination == GameManager.Instance.invalidDestinationLevel[i])
+                sticker = Instantiate(GameManager.Instance.stickers[1], stickerPosition, Quaternion.identity, transform);
+        }
+        sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
+        stickerPosition = transform.TransformPoint(Random.Range(-0.3f, 0.3f), 0.51f, Random.Range(-0.3f, 0.3f));
+        if (isFragile)
+        {
+            sticker = Instantiate(GameManager.Instance.stickers[2], stickerPosition, Quaternion.identity, transform);
+            sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
+        }
+    }
+
     public void DisplayInfo()
     {
-        UIManager.Instance.ActivateBoxInfo(destination, company, content);
+        UIManager.Instance.ActivateBoxInfo(destination);
     }
 
     public void Belt()

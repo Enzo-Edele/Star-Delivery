@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2365105432490028588}
   - component: {fileID: 3393403678540823441}
   - component: {fileID: 1308330334411836730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 2365105433931491900}
   - component: {fileID: 2365105433931491888}
   - component: {fileID: 2365105433931491891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoxOld
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -236,3 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 2365105432490028587}
+  destination: test
+  isFragile: 0
+  isBroken: 0
+  isSus: 0
+  isStored: 0

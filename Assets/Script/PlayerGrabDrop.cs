@@ -146,6 +146,7 @@ public class PlayerGrabDrop : MonoBehaviour
                 grabObject.GetComponent<Box>().isBroken = true;
                 if(GameManager.Instance.levelUnlock == 0)
                     Destroy(grabObject);
+                SoundManager.Instance.Play("FragileBreak");
             }
     }
 

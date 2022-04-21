@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 45d77b37a2cac6344beaabf76f3f003b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -175,6 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  grabObject: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &124355022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,10 +452,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 1
+  isOn: 0
   timeMin: 6
   timeMax: 6
   percentageBomb: 0
   percentageGood: 100
+  percentageFragile: 0
+  percentageSus: 0
   timeLevel: 30
   isSecond: 0
 --- !u!65 &475000140
@@ -977,6 +982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 781723624}
   speed: 12
+  walkSpeed: 6
   gravity: -9.81
   jumpHeight: 1.5
   groudCheck: {fileID: 1039945108}
@@ -984,6 +990,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isRunning: 0
 --- !u!143 &781723624
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2193,10 +2200,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 1
+  isOn: 0
   timeMin: 12
   timeMax: 12
   percentageBomb: 0
   percentageGood: 100
+  percentageFragile: 0
+  percentageSus: 0
   timeLevel: 30
   isSecond: 1
 --- !u!65 &1921379155

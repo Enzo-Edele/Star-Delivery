@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 45d77b37a2cac6344beaabf76f3f003b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2793,7 +2793,9 @@ MonoBehaviour:
   endLevel: {fileID: 919180499}
   retryButton: {fileID: 0}
   endLevelNextLevelButton: {fileID: 0}
-  tablet: {fileID: 1301336531}
+  endLevelButtonLevel: {fileID: 0}
+  endLevelButtonMain: {fileID: 0}
+  endGameButton: {fileID: 0}
   pauseMenu: {fileID: 56152603}
   optionMenu: {fileID: 0}
   grabDropIcon: {fileID: 2109005173}
@@ -2802,7 +2804,6 @@ MonoBehaviour:
   destinationText: {fileID: 1293764137}
   companyText: {fileID: 1813506963}
   contentText: {fileID: 219083329}
-  pad: {fileID: 0}
 --- !u!114 &353850363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5550,6 +5551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 969830213}
   speed: 12
+  walkSpeed: 6
   gravity: -9.81
   jumpHeight: 1.5
   groudCheck: {fileID: 96424374}
@@ -5557,6 +5559,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  isRunning: 0
 --- !u!143 &969830213
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5775,6 +5778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  grabObject: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1000390248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6391,8 +6396,10 @@ MonoBehaviour:
   boxScoreList: 
   lockPlayer: 0
   gameIsPause: 0
-  percentageBomb: 0
   percentageValid: 0
+  percentageBomb: 0
+  percentageFragile: 0
+  percentageSus: 0
   mouseSensitivity: 0
   validDestination:
   - Mars
@@ -6412,6 +6419,14 @@ MonoBehaviour:
   invalidDestinationLevel: []
   packageSent: 0
   objective: 0
+  spacecraft: []
+  valid: 0
+  invalid: 0
+  fragile: 0
+  sus: 0
+  normal: 0
+  bomb: 0
+  total: 0
 --- !u!1 &1112971766
 GameObject:
   m_ObjectHideFlags: 0
@@ -6552,6 +6567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e4b08f19ee5f5418c305b73b1e9948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutoSounds: []
   sounds: []
 --- !u!1 &1140658796
 GameObject:
@@ -9854,10 +9870,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box: {fileID: 2365105433931491901, guid: adc60abfdb8215443955f052b26db0dc, type: 3}
   objective: 2
+  isOn: 0
   timeMin: 3
   timeMax: 6
   percentageBomb: 15
   percentageGood: 75
+  percentageFragile: 0
+  percentageSus: 0
   timeLevel: 90
   isSecond: 0
 --- !u!65 &1701402718

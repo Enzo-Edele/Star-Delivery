@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public float mouseSensitivity;
 
+    public List<GameObject> stickers;
+
     public List<string> validDestination;
     public List<string> validDestinationLevel;
     public List<string> invalidDestination;
