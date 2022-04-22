@@ -12,6 +12,8 @@ public class Box : MonoBehaviour
     public bool isSus;
     public bool isStored;
 
+    List<GameObject> stickers = new List<GameObject>();
+
     int rnd;
 
     void Awake() //start
@@ -59,12 +61,14 @@ public class Box : MonoBehaviour
         GameManager.Instance.AverageCheck();
     }
 
-    public void ForceValue(bool valid, bool fragile, bool sus, bool bomb)
+    public void ForceValue(bool valid, bool fragile, bool sus, bool bomb, string destination)
     {
         if(!valid)
-            destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
+            this.destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
         else
-            destination = GameManager.Instance.validDestinationLevel[Random.Range(0, GameManager.Instance.validDestinationLevel.Count)];
+            this.destination = GameManager.Instance.validDestinationLevel[Random.Range(0, GameManager.Instance.validDestinationLevel.Count)];
+        if (destination != null)
+            this.destination = destination;
 
         this.bomb.SetActive(bomb);
         isArmed = bomb;
@@ -73,6 +77,7 @@ public class Box : MonoBehaviour
 
         isFragile = fragile;
 
+        DestroySticker();
         ApplyStickers();
     }
 
@@ -83,19 +88,37 @@ public class Box : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
         {
             if (destination == GameManager.Instance.validDestinationLevel[i])
+            {
                 sticker = Instantiate(GameManager.Instance.dictionnaryStickers[destination], stickerPosition, Quaternion.identity, transform);
+                stickers.Add(sticker);
+            }
         }
         for (int i = 0; i < GameManager.Instance.invalidDestinationLevel.Count; i++)
         {
             if (destination == GameManager.Instance.invalidDestinationLevel[i])
+            {
                 sticker = Instantiate(GameManager.Instance.dictionnaryStickers["Error"], stickerPosition, Quaternion.identity, transform);
+                stickers.Add(sticker);
+            }
         }
         sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
         stickerPosition = transform.TransformPoint(Random.Range(-0.3f, 0.3f), 0.51f, Random.Range(-0.3f, 0.3f));
         if (isFragile)
         {
             sticker = Instantiate(GameManager.Instance.dictionnaryStickers["Fragile"], stickerPosition, Quaternion.identity, transform);
+            stickers.Add(sticker);
             sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
+        }
+    }
+    void DestroySticker()
+    {
+        for(int i = 0; i < stickers.Count; i++)
+        {
+            Destroy(stickers[i]);
+        }
+        for (int i = 0; i < stickers.Count; i++)
+        {
+            stickers.RemoveAt(i);
         }
     }
 

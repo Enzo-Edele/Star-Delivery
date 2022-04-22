@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   grabObject: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 781723623}
 --- !u!114 &124355022
 MonoBehaviour:
   m_ObjectHideFlags: 0

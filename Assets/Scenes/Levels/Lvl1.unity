@@ -6668,8 +6668,8 @@ MonoBehaviour:
   box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 0
   isOn: 0
-  timeMin: 3
-  timeMax: 5
+  timeMin: 1
+  timeMax: 2
   percentageBomb: 0
   percentageGood: 80
   percentageFragile: 10
@@ -10453,7 +10453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   grabObject: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 2025466591}
 --- !u!114 &1823506821
 MonoBehaviour:
   m_ObjectHideFlags: 0

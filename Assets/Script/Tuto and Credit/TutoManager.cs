@@ -50,18 +50,18 @@ public class TutoManager : MonoBehaviour
         else if (step == 3)
         {
             CloseDoor();
-            SpawnBox(true, false, false, false);
+            SpawnBox(true, false, false, false, spacecraft.spacecraftDestination);
         }
         else if (step == 5)
             PlayAdvice();
         else if (step == 6)
             PlayAdvice();
         else if (step == 9)
-            SpawnBox(true, true, false, false);
+            SpawnBox(true, true, false, false, spacecraft.spacecraftDestination);
         else if (step == 12)
-            SpawnBox(false, false, false, false);
+            SpawnBox(false, false, false, false, null);
         else if (step == 14)
-            SpawnBox(true, false, false, true);
+            SpawnBox(true, false, false, true, spacecraft.spacecraftDestination);
 
         if (grab.grabObject != null && step == 4)
             PlayAdvice();
@@ -106,9 +106,9 @@ public class TutoManager : MonoBehaviour
         door[doors - 1].transform.position = position;
     }
 
-    void SpawnBox(bool valid, bool fragile, bool sus, bool bomb)
+    void SpawnBox(bool valid, bool fragile, bool sus, bool bomb, string destination)
     {
-        spawner.SpawnBox(valid, fragile, sus, bomb);
+        spawner.SpawnBox(valid, fragile, sus, bomb, destination);
         step++;
     }
 

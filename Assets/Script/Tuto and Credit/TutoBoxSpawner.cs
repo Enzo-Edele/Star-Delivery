@@ -31,10 +31,10 @@ public class TutoBoxSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnBox(bool valid, bool fragile, bool sus, bool bomb)
+    public void SpawnBox(bool valid, bool fragile, bool sus, bool bomb, string destination)
     {
         package = Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
-        package.GetComponent<Box>().ForceValue(valid, fragile, sus, bomb);
+        package.GetComponent<Box>().ForceValue(valid, fragile, sus, bomb, destination);
     }
 
     void StartLevel()
