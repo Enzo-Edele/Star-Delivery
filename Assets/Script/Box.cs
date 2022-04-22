@@ -72,6 +72,8 @@ public class Box : MonoBehaviour
         isSus = sus;
 
         isFragile = fragile;
+
+        ApplyStickers();
     }
 
     void ApplyStickers()

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 45d77b37a2cac6344beaabf76f3f003b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 369b9ebe3a62b904dbc19bd332b44086, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4660946, g: 0.4657923, b: 0.46188927, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2800,10 +2800,6 @@ MonoBehaviour:
   optionMenu: {fileID: 0}
   grabDropIcon: {fileID: 2109005173}
   grabDropText: {fileID: 1875668525}
-  boxInfo: {fileID: 639752109}
-  destinationText: {fileID: 1293764137}
-  companyText: {fileID: 1813506963}
-  contentText: {fileID: 219083329}
 --- !u!114 &353850363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6401,6 +6397,8 @@ MonoBehaviour:
   percentageFragile: 0
   percentageSus: 0
   mouseSensitivity: 0
+  stickers: []
+  stickersName: []
   validDestination:
   - Mars
   - Moon

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 45d77b37a2cac6344beaabf76f3f003b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 369b9ebe3a62b904dbc19bd332b44086, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -5024,10 +5024,6 @@ MonoBehaviour:
   optionMenu: {fileID: 0}
   grabDropIcon: {fileID: 1933351336}
   grabDropText: {fileID: 1675539887}
-  boxInfo: {fileID: 620870082}
-  destinationText: {fileID: 278712855}
-  companyText: {fileID: 87983737}
-  contentText: {fileID: 710887858}
 --- !u!114 &1810595111
 MonoBehaviour:
   m_ObjectHideFlags: 0
