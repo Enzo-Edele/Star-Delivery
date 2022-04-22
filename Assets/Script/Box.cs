@@ -83,7 +83,7 @@ public class Box : MonoBehaviour
 
     void ApplyStickers()
     {
-        GameObject sticker = new GameObject();
+        GameObject sticker = this.gameObject;
         Vector3 stickerPosition = transform.TransformPoint(Random.Range(-0.3f, 0.3f), 0.51f, Random.Range(-0.3f, 0.3f));
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
         {
