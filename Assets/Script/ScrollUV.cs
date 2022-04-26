@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class ScrollUV : MonoBehaviour
 {
-    public float scrollX = 0f;
-    public float scrollY = 0.5f;
-    Renderer renderer;
+    float scrollX;
+    float scrollY;
+    Renderer rendererBelt;
+    [SerializeField]ConvoyerBelt belt;
 
     void Awake()
     {
-        renderer = GetComponent<Renderer>();
-        renderer.material = new Material(renderer.material);
+        rendererBelt = GetComponent<Renderer>();
+        rendererBelt.material = new Material(rendererBelt.material);
+        scrollY = belt.speed / 2;
+        Vector2 scale = new Vector2(transform.localScale.x / 2, transform.localScale.z / 2);
+        rendererBelt.material.mainTextureScale = scale;
     }
     void Update()
     {
-        float offsetX = Time.time * scrollX;
-        float offsetY = Time.time * scrollY;
-        renderer.sharedMaterial.mainTextureOffset = new Vector2(offsetX, offsetY);
+        if (belt.isOn) {
+            float offsetX = Time.time * scrollX;
+            float offsetY = Time.time * scrollY;
+            rendererBelt.sharedMaterial.mainTextureOffset = new Vector2(offsetX, offsetY);
+        }
     }
 }

@@ -11,7 +11,7 @@ TagManager:
   - Spacecraft
   - Ray
   - Button
-  - ButtonStop
+  - ButtonAll
   layers:
   - Default
   - TransparentFX

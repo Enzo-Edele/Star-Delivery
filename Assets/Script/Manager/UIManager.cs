@@ -123,7 +123,7 @@ public class UIManager : MonoBehaviour
             retryButton.SetActive(true);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
     }
-    public void ActivateEndGame()
+    public void ActivateEndGame() //end level menu for success level 7
     {
         DeactivatePauseMenu();
         DeactivateOptionMenu();
@@ -141,7 +141,7 @@ public class UIManager : MonoBehaviour
         endGameButton.SetActive(false);
     }
 
-    public void CheckSaveExist()
+    public void CheckSaveExist() //make button for load interractible if the file already exists
     {
         for (int i = 0; i < loadButtons.Count; i++)
         {
@@ -185,20 +185,13 @@ public class UIManager : MonoBehaviour
         DeactivateNewGameSaveMenu();
         GameManager.Instance.SetUpStartValue(file);
         GameManager.Instance.Save(file);
-        SceneManager.LoadScene("Tuto");
-        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
+        ActivateLevelMenu();
     }
     public void ButtonLevelMenu(int file)//load menu -> level select menu of file X OR tuto if tuto not completed
     {
         GameManager.Instance.Load(file);
         DeactivateNewGameSaveMenu();
-        if (GameManager.Instance.levelUnlock > 0)
-            ActivateLevelMenu();
-        else
-        {
-            SceneManager.LoadScene("Tuto");
-            GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
-        }
+        ActivateLevelMenu();
     }
     public void ButtonSelectLevel(string level)//level select menu -> level X
     {

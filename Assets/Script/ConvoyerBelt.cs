@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConvoyerBelt : MonoBehaviour
 {
     Rigidbody rigidBody;
-    [SerializeField] float speed;
+    public float speed;
     public bool isOn;
     Vector3 position;
 

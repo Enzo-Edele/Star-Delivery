@@ -14,6 +14,7 @@ public class Launcher : MonoBehaviour
 
     public GameObject launchPanel;
     public GameObject timePanel;
+    public GameObject button;
 
     void Update()
     {
@@ -53,5 +54,14 @@ public class Launcher : MonoBehaviour
     public void Launch()
     {
         spacecraft.launchCo = StartCoroutine(spacecraft.LaunchCoroutine());
+        Vector3 pos = button.transform.localPosition;
+        pos.y -= 0.08f;
+        button.transform.localPosition = pos;
+    }
+    public void ButtonUp()
+    {
+        Vector3 pos = button.transform.localPosition;
+        pos.y += 0.08f;
+        button.transform.localPosition = pos;
     }
 }

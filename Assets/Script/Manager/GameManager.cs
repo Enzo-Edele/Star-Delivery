@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] int packageSent;
     [SerializeField] int objective;
+    public int lives;
 
     public List<Spacecraft> spacecraft;
 
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         this.file = file;
         tutoDone = false;
-        levelUnlock = 0;
+        levelUnlock = 1;
         for (int i = 0; i < 7; i++)
         {
             highScoreList.Add(0);
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
     public void Save(int file)
     {
         SaveSysteme.Save(this, file);
-        Debug.Log("save to file : " + file);
+        //Debug.Log("save to file : " + file);
     }
 
     public void Load(int file)
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
             {
                 boxScoreList[i] = (data.boxScoreList[i]);
             }
-            Debug.Log("load file : "+ file);
+            //Debug.Log("load file : "+ file);
         }
     }
 
@@ -187,6 +188,7 @@ public class GameManager : MonoBehaviour
         this.percentageFragile = percentageFragile;
         this.percentageSus = percentageSus;
         this.objective = objective;
+        this.lives = 3;
         Cursor.lockState = CursorLockMode.Locked;
 
         invalidDestinationLevel.Clear();
@@ -223,10 +225,13 @@ public class GameManager : MonoBehaviour
         bool success = false;
         if (levelUnlock > 0)
         {
-            if (packageSent > boxScoreList[SceneManager.GetActiveScene().buildIndex - 3]) { //attention ce if empêche de mettre un cheat pour changer levelUnlock pendant tuto
-                boxScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
-                UpdateTotalBoxes();
-                Debug.Log("set highscore to : " + packageSent);
+            if (SceneManager.GetActiveScene().buildIndex - 3 >= 0)
+            { //attention ce if permet de mettre un cheat pour changer levelUnlock pendant tuto et permet actualisation des scores
+                if (packageSent > boxScoreList[SceneManager.GetActiveScene().buildIndex - 3]) { 
+                    boxScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
+                    UpdateTotalBoxes();
+                    Debug.Log("set highscore to : " + packageSent);
+                }
             }
         }
         if (!(packageSent < objective))

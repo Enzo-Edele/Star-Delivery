@@ -132,10 +132,10 @@ public class Box : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 isValid = true;
-        /*if(isValid)
-            Debug.Log("valid non traité");
+        if (isValid)
+            SoundManager.Instance.Play("NotValid");
         else
-            Debug.Log("pas valid non traité");*/
+            SoundManager.Instance.Play("NotValid");
         Destroy(gameObject);
     }
 
@@ -149,9 +149,12 @@ public class Box : MonoBehaviour
     {
         if (isArmed)
             SoundManager.Instance.Play("explosion");
-        /*for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
-            if (destination == GameManager.Instance.validDestinationLevel[i]) 
-                Debug.Log("valid détruit");*/
+        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
+            if (destination == GameManager.Instance.validDestinationLevel[i])
+                SoundManager.Instance.Play("NotValid");
+        for (int i = 0; i < GameManager.Instance.invalidDestinationLevel.Count; i++)
+            if (destination == GameManager.Instance.invalidDestinationLevel[i])
+                SoundManager.Instance.Play("Valid");
         Destroy(gameObject);
     }
 

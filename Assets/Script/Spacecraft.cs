@@ -19,6 +19,7 @@ public class Spacecraft : MonoBehaviour
     public float deliveredTime;
     private float sendScore = 0;
     public TMP_Text destinationText; //set up tout ca avec une fct
+    [SerializeField] Launcher launcher;
 
     private void Awake()
     {
@@ -63,5 +64,6 @@ public class Spacecraft : MonoBehaviour
         estimatedTime = 20;
         spacecraftMaterial.color = Color.red;//anim atterrisage
         delivered = false;
+        launcher.ButtonUp();
     }
 }

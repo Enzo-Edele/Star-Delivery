@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonStop : MonoBehaviour
+public class ButtonAll : MonoBehaviour
 {
     [SerializeField] int timeStop;
     float timerStop;
@@ -12,11 +12,15 @@ public class ButtonStop : MonoBehaviour
     [SerializeField] List<ConvoyerBelt> belts;
     [SerializeField] BoxSpawner spawner;
 
+    [SerializeField] bool tuto;
+
+    [SerializeField] TutoBoxSpawner spawnerTuto;
+
     private void Update()
     {
         if (timerStop > 0)
             timerStop -= Time.deltaTime;
-        else if(timerStop != 0)
+        else if (timerStop != 0)
         {
             for (int i = 0; i < belts.Count; i++)
                 belts[i].isOn = true;
@@ -34,7 +38,15 @@ public class ButtonStop : MonoBehaviour
         }
     }
 
-    public void StopBelt()
+    public void Push()
+    {
+        if (tuto)
+            StartTuto();
+        else
+            StopBelt();
+    }
+
+    void StopBelt()
     {
         if (timerUse == 0)
         {
@@ -48,5 +60,13 @@ public class ButtonStop : MonoBehaviour
         pos.y -= 0.1f;
         gameObject.transform.localPosition = pos;
         SoundManager.Instance.Play("StopBelt");
+    }
+
+    void StartTuto()
+    {
+        spawnerTuto.StartLevel();
+        Vector3 pos = gameObject.transform.localPosition;
+        pos.y -= 0.08f;
+        gameObject.transform.localPosition = pos;
     }
 }

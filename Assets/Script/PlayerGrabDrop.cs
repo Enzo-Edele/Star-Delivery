@@ -17,7 +17,7 @@ public class PlayerGrabDrop : MonoBehaviour
     GameObject dropAreaCrusher;
     GameObject dropAreaSpacecraft;
     Launcher launcherScript;
-    ButtonStop buttonStop;
+    ButtonAll button;
 
     public PlayerMovement player;
 
@@ -75,11 +75,11 @@ public class PlayerGrabDrop : MonoBehaviour
                 canBePushed = true;
                 launcherScript = hit.transform.gameObject.GetComponent<Launcher>();
             }
-            else if (hit.transform.gameObject.tag == "ButtonStop")
+            else if (hit.transform.gameObject.tag == "ButtonAll")
             {
                 UIManager.Instance.ActivateIconDrop();
                 canBePushed = true;
-                buttonStop = hit.transform.gameObject.GetComponent<ButtonStop>();
+                button = hit.transform.gameObject.GetComponent<ButtonAll>();
             }
         }
         else if (GameManager.Instance.lockPlayer)
@@ -134,9 +134,9 @@ public class PlayerGrabDrop : MonoBehaviour
         {
             launcherScript.Launch();
         }
-        if (Input.GetMouseButtonDown(0) && canBePushed == true && buttonStop != null)
+        if (Input.GetMouseButtonDown(0) && canBePushed == true && button != null)
         {
-            buttonStop.stopBelt();
+            button.Push();
         }
 
         if (grabObject != null)
@@ -167,7 +167,7 @@ public class PlayerGrabDrop : MonoBehaviour
         UIManager.Instance.DeactivateIconGrab();
         canBePushed = false;
         launcherScript = null;
-        buttonStop = null;
+        button = null;
         grabableObject = null;
         dropAreaRack = null;
         dropAreaRay = null;

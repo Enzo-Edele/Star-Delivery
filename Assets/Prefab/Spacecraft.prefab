@@ -163,6 +163,7 @@ MonoBehaviour:
   delivered: 0
   deliveredTime: 0
   destinationText: {fileID: 0}
+  launcher: {fileID: 2417576387334224823}
 --- !u!1 &155067068695575203
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ GameObject:
   - component: {fileID: 2417576386391220028}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Button
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,8 +424,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2417576386391220026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.504, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.0132, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2417576387334224820}
   m_RootOrder: 0
@@ -1488,3 +1489,4 @@ MonoBehaviour:
   timeTxt: {fileID: 2417576387249357263}
   launchPanel: {fileID: 2417576386527625960}
   timePanel: {fileID: 2417576387309052608}
+  button: {fileID: 2417576386391220026}
