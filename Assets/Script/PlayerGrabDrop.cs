@@ -143,7 +143,8 @@ public class PlayerGrabDrop : MonoBehaviour
             if(grabObject.GetComponent<Box>().isFragile && player.isRunning == true)
             {
                 grabObject.GetComponent<Box>().isBroken = true;
-                if(GameManager.Instance.levelUnlock == 0)
+                grabObject.GetComponent<Box>().isFragile = false;
+                if (GameManager.Instance.levelUnlock == 0)
                     Destroy(grabObject);
                 SoundManager.Instance.Play("FragileBreak");
             }
@@ -156,9 +157,11 @@ public class PlayerGrabDrop : MonoBehaviour
         grabObject.GetComponent<Rigidbody>().useGravity = true;
         grabObject.transform.parent = dropArea.transform;
         grabObject.transform.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        grabObject.transform.localPosition = new Vector3(0, 0.6f, 0f);
+        grabObject.transform.localPosition = new Vector3(0, 1f, 0f);
         grabObject.transform.parent = null;
         grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
+        if(dropArea.GetComponent<DiffuseTable>() != null)
+            grabObject.transform.parent = dropArea.transform;
         grabObject = null;
     }
 

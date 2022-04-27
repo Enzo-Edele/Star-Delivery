@@ -3993,7 +3993,7 @@ MonoBehaviour:
   - name: explosion
     clip: {fileID: 8300000, guid: 8bff71dc76782e9419367a336f40ae11, type: 3}
     mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.4
+    volume: 0.6
     loop: 0
     source: {fileID: 0}
   - name: StopBelt
@@ -4009,13 +4009,25 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Valid
-    clip: {fileID: 8300000, guid: 61dd3c4a4a07a3a468da000de597a530, type: 3}
+    clip: {fileID: 8300000, guid: e49f29fdec933a347b38c08313b83ca1, type: 3}
     mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0.7
     loop: 0
     source: {fileID: 0}
   - name: NotValid
     clip: {fileID: 8300000, guid: 8cb91edbfc521fb45abe6dc9e7e10d7e, type: 3}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: Boop
+    clip: {fileID: 8300000, guid: 437daeb6f40d55f469ecc09e6d6ebddc, type: 3}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: Disarmed
+    clip: {fileID: 8300000, guid: 122c3e721378bc645b9a7b57e5482f44, type: 3}
     mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0.7
     loop: 0

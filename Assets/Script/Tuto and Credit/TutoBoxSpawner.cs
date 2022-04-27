@@ -30,6 +30,7 @@ public class TutoBoxSpawner : MonoBehaviour
             if (package.GetComponent<Box>().isBroken)
             {
                 tutoManager.ReDoStep(9, 7);
+                Destroy(package);
             }
         }
         if(isOn)
@@ -46,7 +47,7 @@ public class TutoBoxSpawner : MonoBehaviour
                 timerLevel -= Time.deltaTime;
             else if (!endLevel && !GameManager.Instance.gameIsPause)
             {
-                Debug.Log("time's up");
+                //Debug.Log("time's up");
                 GameManager.Instance.EndLevel();
                 endLevel = true;
             }
@@ -57,7 +58,6 @@ public class TutoBoxSpawner : MonoBehaviour
     {
         package = Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
         package.GetComponent<Box>().ForceValue(valid, fragile, sus, bomb, destination);
-        Debug.Log("spawn");
     }
 
     public void StartLevel()

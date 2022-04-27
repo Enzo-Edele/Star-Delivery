@@ -211,6 +211,17 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < spacecraft.Count; i++)
             validDestination.Add(memory[i]);
     }
+    public void ChangeHealth(int damage)
+    {
+        lives += damage;
+        if(lives == 0)
+        {
+            packageSent = 0;
+            EndLevel();
+            Debug.Log("end");
+        }
+        //do UI
+    }
     public void SpacecraftDeliver(int qty)
     {
         packageSent += qty;

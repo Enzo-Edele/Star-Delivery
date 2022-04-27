@@ -7,18 +7,38 @@ public class DiffuseTable : MonoBehaviour
 {
     [SerializeField]CinemachineVirtualCamera cam;
 
-    GameObject bomb;
-    GameObject bombedBox;
-    Bomb bombScript;
+    public GameObject bomb;
+    public List<GameObject> button = new List<GameObject>();
+    public GameObject bombedBox;
+    public Bomb bombScript;
     //trouver un moyen de bypass la bombe
+
+    [SerializeField] List<Material> indicMat = new List<Material>();
+    [SerializeField] List<Renderer> indicator = new List<Renderer>();
+
+    public int combinationLength;
+    public List<int> combination;
+    public int step;
+
+    private void Start()
+    {
+        for(int i = 0; i < combinationLength; i++)
+        {
+            combination.Add(Random.Range(0, 4));
+        }
+        for (int i = 0; i < combinationLength; i++)
+        {
+            indicator[i].material = indicMat[combination[i]];
+        }
+    }
 
     void Update()
     {
-        if(Input.GetKeyDown("f") && GameManager.GameState == GameManager.GameStates.InGame)
+        if(Input.GetKeyDown("f") && GameManager.GameState == GameManager.GameStates.InGame && bomb != null)
         {
             QuitDiffuseMod();
         }
-        if (Input.GetKeyDown("r") && GameManager.GameState == GameManager.GameStates.InGame)
+        if (Input.GetKeyDown("r") && GameManager.GameState == GameManager.GameStates.InGame && bomb != null)
         {
             DiffuseMod();
         }
@@ -31,6 +51,9 @@ public class DiffuseTable : MonoBehaviour
         bomb = box.GetComponent<Box>().bomb;
         bombedBox = box;
         bombScript = bomb.GetComponent<Bomb>();
+        bombScript.diffuseTable = this;
+        for (int i = 0; i < bombScript.buttons.Count; i++)
+            button.Add(bombScript.buttons[i]);
     }
 
     public void RetrieveBox()
@@ -38,21 +61,27 @@ public class DiffuseTable : MonoBehaviour
         bomb = null;
         bombedBox = null;
         bombScript = null;
+        button.Clear();
     }
 
     void DiffuseMod()
     {
         bomb.transform.parent = null;
+        for (int i = 0; i < button.Count; i++)
+            button[i].transform.parent = null;
         bombScript.ActiveCollider();
         cam.Priority = 15;
         Cursor.lockState = CursorLockMode.Confined;
         GameManager.Instance.LockPlayer();
+        step = 0;
         //maybe deactive UI
     }
 
     void QuitDiffuseMod()
     {
         bomb.transform.parent = bombedBox.transform;
+        for (int i = 0; i < button.Count; i++)
+            button[i].transform.parent = bomb.transform;
         bombScript.DeactiveCollider();
         cam.Priority = 5;
         Cursor.lockState = CursorLockMode.Locked;

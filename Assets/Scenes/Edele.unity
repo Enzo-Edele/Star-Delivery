@@ -1666,6 +1666,7 @@ MonoBehaviour:
   delivered: 0
   deliveredTime: 0
   destinationText: {fileID: 412042754}
+  launcher: {fileID: 0}
 --- !u!65 &844120731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2265,6 +2266,7 @@ MonoBehaviour:
   delivered: 0
   deliveredTime: 0
   destinationText: {fileID: 1296652830}
+  launcher: {fileID: 0}
 --- !u!65 &1242869538
 BoxCollider:
   m_ObjectHideFlags: 0

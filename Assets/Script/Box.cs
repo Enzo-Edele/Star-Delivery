@@ -51,6 +51,7 @@ public class Box : MonoBehaviour
                 bomb.SetActive(true);
                 isArmed = true;
                 isSus = true;
+                destination = GameManager.Instance.invalidDestinationLevel[Random.Range(0, GameManager.Instance.invalidDestinationLevel.Count)];
                 GameManager.Instance.bomb++;
             }
         isStored = false;
@@ -127,35 +128,69 @@ public class Box : MonoBehaviour
         if (isArmed)
         {
             SoundManager.Instance.Play("explosion");
+            GameManager.Instance.ChangeHealth(GameManager.Instance.lives * -1);
+            return;
         }
         bool isValid = false;
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
             if (destination == GameManager.Instance.validDestinationLevel[i]) 
                 isValid = true;
         if (isValid)
+        {
             SoundManager.Instance.Play("NotValid");
+            GameManager.Instance.ChangeHealth(-1);
+        }
         else
+        {
             SoundManager.Instance.Play("NotValid");
+            GameManager.Instance.ChangeHealth(-1);
+        }
         Destroy(gameObject);
     }
 
     public void Diffuse()
     {
+        Bomb bombScript =  bomb.GetComponent<Bomb>();
+        for (int i = 0; i < bombScript.buttons.Count; i++)
+            bombScript.buttons[i].SetActive(false);
         bomb.SetActive(false);
         isArmed = false;
+        SoundManager.Instance.Play("Disarmed");
     }
 
     public void Crusher()
     {
-        if (isArmed)
+        if (isArmed) {
             SoundManager.Instance.Play("explosion");
-        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++)
-            if (destination == GameManager.Instance.validDestinationLevel[i])
+            GameManager.Instance.ChangeHealth(GameManager.Instance.lives * -1);
+            Destroy(gameObject);
+            return;
+        }
+        if (isBroken) {
+            SoundManager.Instance.Play("Valid");
+            Destroy(gameObject);
+            return;
+        }
+        if(isSus) {
+            SoundManager.Instance.Play("Valid");
+            Destroy(gameObject);
+            return;
+        }
+        for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++) {
+            if (destination == GameManager.Instance.validDestinationLevel[i]) {
                 SoundManager.Instance.Play("NotValid");
-        for (int i = 0; i < GameManager.Instance.invalidDestinationLevel.Count; i++)
-            if (destination == GameManager.Instance.invalidDestinationLevel[i])
+                GameManager.Instance.ChangeHealth(-1);
+                Destroy(gameObject);
+                return;
+            }
+        }
+        for (int y = 0; y < GameManager.Instance.invalidDestinationLevel.Count; y++) {
+            if (destination == GameManager.Instance.invalidDestinationLevel[y]) {
                 SoundManager.Instance.Play("Valid");
-        Destroy(gameObject);
+                Destroy(gameObject);
+                return;
+            }
+        }
     }
 
     public void Navette()

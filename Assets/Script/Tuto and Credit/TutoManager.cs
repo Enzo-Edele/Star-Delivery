@@ -77,7 +77,10 @@ public class TutoManager : MonoBehaviour
         if (spawner.package == null && step == 13)
             PlayAdvice();
         if (spawner.package == null && step == 15)
+        {
             Debug.Log("tuto finito");
+            OpenDoor();
+        }
     }
 
     void PlayAdvice()

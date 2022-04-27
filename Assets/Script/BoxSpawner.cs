@@ -37,7 +37,6 @@ public class BoxSpawner : MonoBehaviour
             timerLevel -= Time.deltaTime;
         else if (!endLevel && !GameManager.Instance.gameIsPause && !isSecond)
         {
-            Debug.Log("time's up");
             GameManager.Instance.EndLevel();
             endLevel = true;
         }
