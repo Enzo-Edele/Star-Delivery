@@ -22,14 +22,7 @@ public class DiffuseTable : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < combinationLength; i++)
-        {
-            combination.Add(Random.Range(0, 4));
-        }
-        for (int i = 0; i < combinationLength; i++)
-        {
-            indicator[i].material = indicMat[combination[i]];
-        }
+        Randomise();
     }
 
     void Update()
@@ -86,5 +79,18 @@ public class DiffuseTable : MonoBehaviour
         cam.Priority = 5;
         Cursor.lockState = CursorLockMode.Locked;
         GameManager.Instance.UnlockPlayer();
+    }
+
+    public void Randomise()
+    {
+        combination.Clear();
+        for (int i = 0; i < combinationLength; i++)
+        {
+            combination.Add(Random.Range(0, 4));
+        }
+        for (int i = 0; i < combinationLength; i++)
+        {
+            indicator[i].material = indicMat[combination[i]];
+        }
     }
 }

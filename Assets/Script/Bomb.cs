@@ -20,17 +20,25 @@ public class Bomb : MonoBehaviour
 
     public void Diffuse(int index)
     {
-        if(index == diffuseTable.combination[diffuseTable.step])
+        if (index == diffuseTable.combination[diffuseTable.step])
         {
             diffuseTable.step++;
             SoundManager.Instance.Play("Boop");
             if (diffuseTable.step == diffuseTable.combinationLength)
             {
+                diffuseTable.Randomise();
                 parent.GetComponent<Box>().Diffuse();
             }
         }
         else
+        {
             SoundManager.Instance.Play("explosion");
+            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
+            for (int i = 0; i < buttons.Count; i++)
+                Destroy(buttons[i]);
+            Destroy(parent);
+            Destroy(gameObject);
+        }
     }
 
     public void ActiveCollider()

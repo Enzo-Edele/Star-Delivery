@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject grabDropIcon;
     [SerializeField] Text grabDropText;
+    [SerializeField] GameObject LivesDisplay;
+    [SerializeField] List<Image> lives;
+    [SerializeField] Sprite live, emptylive;
 
     bool wasPaused;
     #endregion
@@ -109,6 +112,16 @@ public class UIManager : MonoBehaviour
     {
         grabDropIcon.SetActive(false);
     }
+    public void ActivateLives() //activate livesDisplay
+    {
+        LivesDisplay.SetActive(true);
+        UpdateLives();
+    }
+    public void DeactivateLives()
+    {
+        if (LivesDisplay != null)
+            LivesDisplay.SetActive(false);
+    }
 
     public void ActivateEndLevel(bool success) //end level menu
     {
@@ -139,6 +152,17 @@ public class UIManager : MonoBehaviour
         endLevelButtonLevel.SetActive(false);
         endLevelButtonMain.SetActive(false);
         endGameButton.SetActive(false);
+    }
+
+    public void UpdateLives()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if (GameManager.Instance.lives > i)
+                lives[i].sprite = live;
+            else
+                lives[i].sprite = emptylive;
+        }
     }
 
     public void CheckSaveExist() //make button for load interractible if the file already exists

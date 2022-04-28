@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
             case GameStates.InGame:
                 UnpauseGame();
                 Cursor.lockState = CursorLockMode.Locked;
+                UIManager.Instance.ActivateLives();
                 //Debug.Log("InGame");
                 break;
             case GameStates.Pause:
@@ -189,6 +190,7 @@ public class GameManager : MonoBehaviour
         this.percentageSus = percentageSus;
         this.objective = objective;
         this.lives = 3;
+        UIManager.Instance.ActivateLives();
         Cursor.lockState = CursorLockMode.Locked;
 
         invalidDestinationLevel.Clear();
@@ -211,7 +213,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < spacecraft.Count; i++)
             validDestination.Add(memory[i]);
     }
-    public void ChangeHealth(int damage)
+    public void ChangeLife(int damage)
     {
         lives += damage;
         if(lives == 0)
@@ -220,7 +222,7 @@ public class GameManager : MonoBehaviour
             EndLevel();
             Debug.Log("end");
         }
-        //do UI
+        UIManager.Instance.UpdateLives();
     }
     public void SpacecraftDeliver(int qty)
     {
@@ -270,6 +272,8 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.ActivateEndGame();
             }
         }
+
+        UIManager.Instance.DeactivateLives();
 
         Save(file);
 

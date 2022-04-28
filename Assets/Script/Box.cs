@@ -128,7 +128,7 @@ public class Box : MonoBehaviour
         if (isArmed)
         {
             SoundManager.Instance.Play("explosion");
-            GameManager.Instance.ChangeHealth(GameManager.Instance.lives * -1);
+            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
             return;
         }
         bool isValid = false;
@@ -138,12 +138,12 @@ public class Box : MonoBehaviour
         if (isValid)
         {
             SoundManager.Instance.Play("NotValid");
-            GameManager.Instance.ChangeHealth(-1);
+            GameManager.Instance.ChangeLife(-1);
         }
         else
         {
             SoundManager.Instance.Play("NotValid");
-            GameManager.Instance.ChangeHealth(-1);
+            GameManager.Instance.ChangeLife(-1);
         }
         Destroy(gameObject);
     }
@@ -162,7 +162,7 @@ public class Box : MonoBehaviour
     {
         if (isArmed) {
             SoundManager.Instance.Play("explosion");
-            GameManager.Instance.ChangeHealth(GameManager.Instance.lives * -1);
+            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
             Destroy(gameObject);
             return;
         }
@@ -179,7 +179,7 @@ public class Box : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.validDestinationLevel.Count; i++) {
             if (destination == GameManager.Instance.validDestinationLevel[i]) {
                 SoundManager.Instance.Play("NotValid");
-                GameManager.Instance.ChangeHealth(-1);
+                GameManager.Instance.ChangeLife(-1);
                 Destroy(gameObject);
                 return;
             }
