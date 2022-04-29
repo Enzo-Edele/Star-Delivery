@@ -4115,6 +4115,12 @@ MonoBehaviour:
     volume: 0.7
     loop: 0
     source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 70e652f96a6800c4496723739a75929d, type: 3}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &875667313
 GameObject:
   m_ObjectHideFlags: 0

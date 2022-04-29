@@ -197,12 +197,14 @@ public class UIManager : MonoBehaviour
     {
         DeactivateMainMenu();
         ActivateNewGameMenu();
+        SoundManager.Instance.Play("Button");
     }
     public void ButtonSaveMenu()//main menu/end level -> load menu
     {
         DeactivateMainMenu();
         DeactivateEndLevel();
         ActivateSaveMenu();
+        SoundManager.Instance.Play("Button");
     }
     public void ButtonStartNewGame(int file)//new game menu -> Tuto + create save to file X
     {
@@ -210,17 +212,20 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SetUpStartValue(file);
         GameManager.Instance.Save(file);
         ActivateLevelMenu();
+        SoundManager.Instance.Play("Button");
     }
     public void ButtonLevelMenu(int file)//load menu -> level select menu of file X OR tuto if tuto not completed
     {
         GameManager.Instance.Load(file);
         DeactivateNewGameSaveMenu();
         ActivateLevelMenu();
+        SoundManager.Instance.Play("Button");
     }
     public void ButtonSelectLevel(string level)//level select menu -> level X
     {
         DeactivateLevelMenu();
         SceneManager.LoadScene(level);
+        SoundManager.Instance.Play("Button");
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
     public void ButtonOption(bool paused)//pause menu/main menu -> option
@@ -229,6 +234,7 @@ public class UIManager : MonoBehaviour
         DeactivatePauseMenu();
         ActivateOptionMenu();
         wasPaused = paused;
+        SoundManager.Instance.Play("Button");
     }
     public void ButtonExitOption()//pause menu/main menu -> option
     {
@@ -237,21 +243,25 @@ public class UIManager : MonoBehaviour
             ActivatePauseMenu();
         else
             ActivateMainMenu();
+        SoundManager.Instance.Play("Button");
     }
     public void ButtonResume()//pause menu -> level
     {
         DeactivatePauseMenu();
+        SoundManager.Instance.Play("Button");
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
     public void ButtonRetry()
     {
         DeactivateEndLevel();
+        SoundManager.Instance.Play("Button");
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ButtonNextLevel()//level -> level + 1
     {
         DeactivateEndLevel();
+        SoundManager.Instance.Play("Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame); //David Goodenough
     }
@@ -262,6 +272,7 @@ public class UIManager : MonoBehaviour
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateLevelMenu();
+        SoundManager.Instance.Play("Button");
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
         SceneManager.LoadScene("Main");
     }
@@ -272,12 +283,14 @@ public class UIManager : MonoBehaviour
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateMainMenu();
+        SoundManager.Instance.Play("Button");
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
         SceneManager.LoadScene("Main");
     }
     public void ButtonEndGame()
     {
         DeactivateEndLevel();
+        SoundManager.Instance.Play("Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void ButtonQuit()//exit app

@@ -19,7 +19,7 @@ public class ScrollUV : MonoBehaviour
     }
     void Update()
     {
-        if (belt.isOn) {
+        if (belt.isOn && GameManager.GameState != GameManager.GameStates.Pause && GameManager.GameState != GameManager.GameStates.InMenu) {
             float offsetX = Time.time * scrollX;
             float offsetY = Time.time * scrollY;
             rendererBelt.sharedMaterial.mainTextureOffset = new Vector2(offsetX, offsetY);

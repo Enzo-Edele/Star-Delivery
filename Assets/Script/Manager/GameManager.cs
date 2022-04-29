@@ -220,7 +220,6 @@ public class GameManager : MonoBehaviour
         {
             packageSent = 0;
             EndLevel();
-            Debug.Log("end");
         }
         UIManager.Instance.UpdateLives();
     }
@@ -256,8 +255,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Unlock level : " + levelUnlock);
             }
         }
-        else if (packageSent < objective)
-            Debug.Log("fail");
         packageSent = 0;
 
         spacecraft.Clear();

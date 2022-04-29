@@ -12,6 +12,7 @@ TagManager:
   - Ray
   - Button
   - ButtonAll
+  - Plastic
   layers:
   - Default
   - TransparentFX

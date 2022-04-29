@@ -33,16 +33,12 @@ public class Spacecraft : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Box box = collision.gameObject.GetComponent<Box>();
-        if (box.destination != spacecraftDestination)
-        {
-            Debug.Log("mauvaise adresse");
-        }
-        else if (!full)
+        if (!full)
         { 
             packages++;
             sendScore += 100;
             if (box.isFragile) sendScore += 50;
-            box.Navette();
+            box.Navette(spacecraftDestination);
         }
         if (packages >= (maximumCharge + overload))
         {

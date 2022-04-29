@@ -5,6 +5,7 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     public GameObject bomb;
+
     public bool isArmed { get; private set; }
     public string destination = "test";
     public bool isFragile;
@@ -16,7 +17,7 @@ public class Box : MonoBehaviour
 
     int rnd;
 
-    void Awake() //start
+    void Awake()
     {
         if (Random.Range(0, 100) < GameManager.Instance.percentageValid)
         {
@@ -193,10 +194,40 @@ public class Box : MonoBehaviour
         }
     }
 
-    public void Navette()
+    public void Navette(string shuttleDestination)
     {
         if (isArmed)
+        {
             SoundManager.Instance.Play("explosion");
-        Destroy(gameObject);
+            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
+            Destroy(gameObject);
+            return;
+        }
+        if (isBroken)
+        {
+            SoundManager.Instance.Play("NotValid");
+            GameManager.Instance.ChangeLife(-1);
+            Destroy(gameObject);
+            return;
+        }
+        if (isSus)
+        {
+            SoundManager.Instance.Play("NotValid");
+            Destroy(gameObject);
+            return;
+        }
+        if (destination == shuttleDestination)
+        {
+            SoundManager.Instance.Play("Valid");
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            SoundManager.Instance.Play("NotValid");
+            GameManager.Instance.ChangeLife(-1);
+            Destroy(gameObject);
+            return;
+        }
     }
 }
