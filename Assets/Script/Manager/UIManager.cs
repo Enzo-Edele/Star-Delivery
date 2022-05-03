@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject grabDropIcon;
     [SerializeField] Text grabDropText;
+    [SerializeField] TMP_Text Chronometer;
     [SerializeField] GameObject LivesDisplay;
     [SerializeField] List<Image> lives;
     [SerializeField] Sprite live, emptylive;
@@ -121,6 +123,11 @@ public class UIManager : MonoBehaviour
     {
         if (LivesDisplay != null)
             LivesDisplay.SetActive(false);
+    }
+
+    public void Chrono()
+    {
+        Chronometer.text = 
     }
 
     public void ActivateEndLevel(bool success) //end level menu

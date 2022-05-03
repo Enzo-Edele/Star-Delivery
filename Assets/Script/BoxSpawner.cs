@@ -12,11 +12,11 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] int percentageBomb, percentageGood, percentageFragile, percentageSus;
     float timerBoxes;
 
-    [SerializeField]float timeLevel;
+    [SerializeField] float timeLevel;
     float timerLevel;
     bool endLevel;
 
-    [SerializeField]bool isSecond;
+    [SerializeField] bool isSecond;
 
     void Start()
     {
