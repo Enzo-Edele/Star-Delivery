@@ -13,6 +13,7 @@ public class Box : MonoBehaviour
     public bool isSus;
     public bool isStored;
 
+    [SerializeField] GameObject stickerPatron;
     List<GameObject> stickers = new List<GameObject>();
 
     int rnd;
@@ -91,7 +92,9 @@ public class Box : MonoBehaviour
         {
             if (destination == GameManager.Instance.validDestinationLevel[i])
             {
-                sticker = Instantiate(GameManager.Instance.dictionnaryStickers[destination], stickerPosition, Quaternion.identity, transform);
+                sticker = Instantiate(stickerPatron, stickerPosition, Quaternion.identity, transform);
+                SpriteRenderer renderer = sticker.GetComponent<SpriteRenderer>();
+                renderer.sprite = GameManager.Instance.dictionnaryStickers[destination];
                 stickers.Add(sticker);
             }
         }
@@ -99,7 +102,9 @@ public class Box : MonoBehaviour
         {
             if (destination == GameManager.Instance.invalidDestinationLevel[i])
             {
-                sticker = Instantiate(GameManager.Instance.dictionnaryStickers["Error"], stickerPosition, Quaternion.identity, transform);
+                sticker = Instantiate(stickerPatron, stickerPosition, Quaternion.identity, transform);
+                SpriteRenderer renderer = sticker.GetComponent<SpriteRenderer>();
+                renderer.sprite = GameManager.Instance.dictionnaryStickers["Error"];
                 stickers.Add(sticker);
             }
         }
@@ -107,7 +112,9 @@ public class Box : MonoBehaviour
         stickerPosition = transform.TransformPoint(Random.Range(-0.3f, 0.3f), 0.51f, Random.Range(-0.3f, 0.3f));
         if (isFragile)
         {
-            sticker = Instantiate(GameManager.Instance.dictionnaryStickers["Fragile"], stickerPosition, Quaternion.identity, transform);
+            sticker = Instantiate(stickerPatron, stickerPosition, Quaternion.identity, transform);
+            SpriteRenderer renderer = sticker.GetComponent<SpriteRenderer>();
+            renderer.sprite = GameManager.Instance.dictionnaryStickers["Fragile"];
             stickers.Add(sticker);
             sticker.transform.Rotate(90f, Random.Range(-180, 180), 0f);
         }

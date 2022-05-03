@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
 
     public float mouseSensitivity;
 
-    public List<GameObject> stickers;
+    public List<Sprite> stickers;
     public List<string> stickersName;
-    public Dictionary<string, GameObject> dictionnaryStickers = new Dictionary<string, GameObject>();
+    public Dictionary<string, Sprite> dictionnaryStickers = new Dictionary<string, Sprite>();
 
     public List<string> validDestination;
     public List<string> validDestinationLevel;
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < stickers.Count; i++)
         {
-            dictionnaryStickers.Add(stickersName[i], stickers[i]);
+            dictionnaryStickers.Add(stickersName[i], stickers[i]); //récup le string via le nom du sprite test avec debug log pour check
         }
     }
 

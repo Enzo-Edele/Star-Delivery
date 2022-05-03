@@ -348,14 +348,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7556513693005856617}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 0.9989593, y: 0.6229937, z: 0.4177448}
   m_Children:
   - {fileID: 7556513693329057353}
   m_Father: {fileID: 7556513693302977022}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!114 &7556513693005856623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,10 +510,10 @@ MonoBehaviour:
   bombedBox: {fileID: 0}
   bombScript: {fileID: 0}
   indicMat:
-  - {fileID: 2100000, guid: e3eead54e4bc97048a836195c127933e, type: 2}
-  - {fileID: 2100000, guid: cf6799050064bbb4193775b63c9edcc9, type: 2}
-  - {fileID: 2100000, guid: 442c78becd979ad4589206e60b9d0d16, type: 2}
-  - {fileID: 2100000, guid: 182b9fb124041d34aa1fd338ecfeed18, type: 2}
+  - {fileID: 2100000, guid: 8f96b6272986d3d43b76a8c38c966f7e, type: 2}
+  - {fileID: 2100000, guid: 6002f2b5dd5ef4f4f8b15621d35ca7fc, type: 2}
+  - {fileID: 2100000, guid: 480cc820c37818d4092e063fe11f9a53, type: 2}
+  - {fileID: 2100000, guid: 6df9a26b4e17e9a47ba003ee2c4ff6e0, type: 2}
   indicator:
   - {fileID: 8536667499210857572}
   - {fileID: 7140793354759022676}
