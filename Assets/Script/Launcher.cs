@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Launcher : MonoBehaviour
@@ -11,6 +12,7 @@ public class Launcher : MonoBehaviour
     public TMP_Text packagesTxt;
     public TMP_Text estimatedTimeTxt;
     public TMP_Text timeTxt;
+    public Image sticker;
 
     public GameObject launchPanel;
     public GameObject timePanel;
@@ -21,6 +23,7 @@ public class Launcher : MonoBehaviour
         destinationTxt.text = "Destination : " + spacecraft.spacecraftDestination;
         packagesTxt.text = "Packages : " + spacecraft.packages + " / " + spacecraft.maximumCharge;
         estimatedTimeTxt.text = "Estimated Time : " + spacecraft.estimatedTime + " s";
+        sticker.sprite = GameManager.Instance.dictionnaryStickers[spacecraft.spacecraftDestination];
 
         if (spacecraft.delivered)
         {
