@@ -9,7 +9,11 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public int file;
+    public float chrono;
+    public float minutes;
+    public float seconds;
     public bool tutoDone;
+    public bool chronoStart;
     public int levelUnlock;
     public int boxesObjective;
     public int totalBoxes;
@@ -77,10 +81,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("p") && gameState == GameStates.InGame) {
+        if (chronoStart)
+        {
+            chrono -= Time.deltaTime;
+            minutes = Mathf.Ceil(chrono / 60) - 1;
+            seconds = Mathf.Ceil(chrono - minutes * 60) - 1;
+            UIManager.Instance.Chrono();
+        }
+
+        if (Input.GetKeyDown("p") && gameState == GameStates.InGame) 
+        {
             UIManager.Instance.ActivatePauseMenu();
             ChangeGameState(GameStates.Pause);
         }
+
         if(Input.GetKeyDown(KeyCode.C))
         {
             packageSent = objective;
@@ -190,6 +204,7 @@ public class GameManager : MonoBehaviour
         this.percentageSus = percentageSus;
         this.objective = objective;
         this.lives = 3;
+        chronoStart = true;
         UIManager.Instance.ActivateLives();
         Cursor.lockState = CursorLockMode.Locked;
 

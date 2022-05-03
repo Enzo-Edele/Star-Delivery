@@ -127,7 +127,7 @@ public class UIManager : MonoBehaviour
 
     public void Chrono()
     {
-        Chronometer.text = 
+        Chronometer.text = "" + GameManager.Instance.minutes + " : " + GameManager.Instance.seconds.ToString("00");
     }
 
     public void ActivateEndLevel(bool success) //end level menu
