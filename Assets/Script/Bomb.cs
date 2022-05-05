@@ -35,6 +35,8 @@ public class Bomb : MonoBehaviour
         else
         {
             SoundManager.Instance.Play("explosion");
+            diffuseTable.numbers[diffuseTable.step].material.color = Color.red;
+            diffuseTable.numbers[diffuseTable.step].material.SetColor("_EmissionColor", Color.red);
             GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
             for (int i = 0; i < buttons.Count; i++)
                 Destroy(buttons[i]);

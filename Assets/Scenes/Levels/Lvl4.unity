@@ -320,9 +320,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 736463579}
+  - {fileID: 1631429869}
   - {fileID: 1340232469}
   - {fileID: 1505914400}
-  - {fileID: 1631429869}
   - {fileID: 1788313749}
   - {fileID: 147537989}
   - {fileID: 987834442}
@@ -1800,6 +1800,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5280932378825765542, guid: 17c3f28ac00ebcf499226f3b9d05e2f8, type: 3}
+      propertyPath: spawner.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280932378825765542, guid: 17c3f28ac00ebcf499226f3b9d05e2f8, type: 3}
       propertyPath: belts.Array.data[0]
       value: 
       objectReference: {fileID: 1877593771}
@@ -1815,6 +1819,14 @@ PrefabInstance:
       propertyPath: belts.Array.data[3]
       value: 
       objectReference: {fileID: 840025402}
+    - target: {fileID: 5280932378825765542, guid: 17c3f28ac00ebcf499226f3b9d05e2f8, type: 3}
+      propertyPath: spawner.Array.data[0]
+      value: 
+      objectReference: {fileID: 475000139}
+    - target: {fileID: 5280932378825765542, guid: 17c3f28ac00ebcf499226f3b9d05e2f8, type: 3}
+      propertyPath: spawner.Array.data[1]
+      value: 
+      objectReference: {fileID: 1921379154}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c3f28ac00ebcf499226f3b9d05e2f8, type: 3}
 --- !u!4 &1505914400 stripped
@@ -2006,7 +2018,7 @@ Transform:
   - {fileID: 1459704153}
   - {fileID: 505716577}
   m_Father: {fileID: 297052881}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1788313748
 PrefabInstance:

@@ -72,4 +72,20 @@ public class SoundManager : MonoBehaviour
     {
 
     }
+
+    public void StopAllSoud()
+    {
+        foreach (Sound s in soundsEffects)
+        {
+            s.source.Stop();
+        }
+        foreach (Sound s in tutoSounds)
+        {
+            s.source.Stop();
+        }
+        foreach (Sound s in musics)
+        {
+            s.source.Stop();
+        }
+    }
 }
