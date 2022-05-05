@@ -21,11 +21,6 @@ public class PlayerGrabDrop : MonoBehaviour
 
     public PlayerMovement player;
 
-    void Start()
-    {
-        
-    }
-
     void Update() //mettre pls raycast
     {
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z),
@@ -171,7 +166,7 @@ public class PlayerGrabDrop : MonoBehaviour
         grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
         if(dropArea.GetComponent<DiffuseTable>() != null)
             grabObject.transform.parent = dropArea.transform;
-        if (grabObjectScript.isFragile)
+        if (grabObjectScript.isFragile || grabObjectScript.isBroken)
             UIManager.Instance.DeactivateIconWalk();
         grabObject = null;
     }

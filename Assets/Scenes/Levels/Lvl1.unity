@@ -2146,7 +2146,9 @@ MonoBehaviour:
   - {fileID: 1400622099}
   - {fileID: 50948336}
   - {fileID: 2133195450}
-  spawner: {fileID: 1141516657}
+  spawner:
+  - {fileID: 1141516657}
+  door: []
   tuto: 0
   spawnerTuto: {fileID: 0}
 --- !u!1 &2009651852

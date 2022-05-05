@@ -6,16 +6,18 @@ public class Door : MonoBehaviour
 {
     [SerializeField] float timeOpen;
     float timerOpen = 0;
+    public bool isOn;
     public Animator doorAnimation;
 
     private void Start()
     {
+        isOn = true;
         doorAnimation.enabled = false;
     }
 
     private void Update()
     {
-        if (timerOpen > 0 && !GameManager.Instance.gameIsPause)
+        if (timerOpen > 0 && !GameManager.Instance.gameIsPause && isOn)
             timerOpen -= Time.deltaTime;
         else if (timerOpen < 0)
         {
@@ -30,11 +32,13 @@ public class Door : MonoBehaviour
         if (state == true)
         {
             doorAnimation.Play("OpenDoor");
+            SoundManager.Instance.Play("Door");
             timerOpen = timeOpen;
         }
         else
         {
             doorAnimation.Play("CloseDoor");
+            SoundManager.Instance.Play("Door");
         }
     }
     private void OnTriggerEnter(Collider other)

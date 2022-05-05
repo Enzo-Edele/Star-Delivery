@@ -10,7 +10,8 @@ public class ButtonAll : MonoBehaviour
     float timerUse;
 
     [SerializeField] List<ConvoyerBelt> belts;
-    [SerializeField] BoxSpawner spawner;
+    [SerializeField] List<BoxSpawner> spawner;
+    [SerializeField] List<Door> door;
 
     [SerializeField] bool tuto;
 
@@ -22,10 +23,13 @@ public class ButtonAll : MonoBehaviour
             timerStop -= Time.deltaTime;
         else if (timerStop != 0)
         {
+            timerStop = 0;
             for (int i = 0; i < belts.Count; i++)
                 belts[i].isOn = true;
-            spawner.isOn = true;
-            timerStop = 0;
+            for (int i = 0; i < spawner.Count; i++)
+                spawner[i].isOn = true;
+            for (int i = 0; i < door.Count; i++)
+                door[i].isOn = true;
         }
         if (timerUse > 0)
             timerUse -= Time.deltaTime;
@@ -52,14 +56,17 @@ public class ButtonAll : MonoBehaviour
         {
             for (int i = 0; i < belts.Count; i++)
                 belts[i].isOn = false;
+            for (int i = 0; i < spawner.Count; i++)
+                spawner[i].isOn = false;
+            for (int i = 0; i < door.Count; i++)
+                door[i].isOn = false;
             timerStop = timeStop;
             timerUse = timeUse;
+            Vector3 pos = gameObject.transform.localPosition;
+            pos.y -= 0.1f;
+            gameObject.transform.localPosition = pos;
+            SoundManager.Instance.Play("StopBelt");
         }
-        spawner.isOn = false;
-        Vector3 pos = gameObject.transform.localPosition;
-        pos.y -= 0.1f;
-        gameObject.transform.localPosition = pos;
-        SoundManager.Instance.Play("StopBelt");
     }
 
     void StartTuto()

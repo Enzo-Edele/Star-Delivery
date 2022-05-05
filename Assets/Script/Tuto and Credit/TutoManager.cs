@@ -83,7 +83,7 @@ public class TutoManager : MonoBehaviour
         if (spawner.package == null && step == 17)
         {
             Debug.Log("tuto finito");
-            //OpenDoor();
+            OpenDoor();
         }
     }
 

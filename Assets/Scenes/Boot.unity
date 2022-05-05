@@ -4553,7 +4553,7 @@ MonoBehaviour:
   - name: SpawnBox
     clip: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 1
+    volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Valid
@@ -4568,7 +4568,7 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: Fragile
+  - name: FragileBreak
     clip: {fileID: 8300000, guid: 14ae13c962dd0a3439742c72b9b42dbf, type: 3}
     mixerGroup: {fileID: 0}
     volume: 1
@@ -4598,10 +4598,10 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
+  - name: Door
+    clip: {fileID: 8300000, guid: 18ffd47cf88ce694585495ab21df2628, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
+    volume: 1
     loop: 0
     source: {fileID: 0}
   musics: []
@@ -7584,7 +7584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: 0
-  chrono: 240
   minutes: 0
   seconds: 0
   tutoDone: 0
