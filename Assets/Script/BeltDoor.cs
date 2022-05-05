@@ -12,7 +12,7 @@ public class BeltDoor : MonoBehaviour
 
     private void Update()
     {
-        if (timerOpen > 0)
+        if (timerOpen > 0 && !GameManager.Instance.gameIsPause)
             timerOpen -= Time.deltaTime;
         else if(timerOpen < 0)
         {
@@ -27,18 +27,15 @@ public class BeltDoor : MonoBehaviour
         pos = door.transform.position;
         pos.y += amplitude.y;
         door.transform.position = pos;
-        Debug.Log("open");
     }
     void Close()
     {
         pos = door.transform.position;
         pos.y -= amplitude.y;
         door.transform.position = pos;
-        Debug.Log("close");
     }
     private void OnTriggerEnter(Collider other)
     {
         Open();
-        Debug.Log("collision");
     }
 }

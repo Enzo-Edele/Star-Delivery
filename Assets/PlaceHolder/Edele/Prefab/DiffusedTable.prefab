@@ -938,6 +938,11 @@ MonoBehaviour:
   - {fileID: 7140793354759022676}
   - {fileID: 216410088840038815}
   - {fileID: 4484761708146599502}
+  numbers:
+  - {fileID: 157738133}
+  - {fileID: 1287690297}
+  - {fileID: 1264480108}
+  - {fileID: 946399061}
   combinationLength: 4
   combination: 
   step: 0

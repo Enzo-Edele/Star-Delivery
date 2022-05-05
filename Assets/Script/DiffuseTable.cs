@@ -15,6 +15,7 @@ public class DiffuseTable : MonoBehaviour
 
     [SerializeField] List<Material> indicMat = new List<Material>();
     [SerializeField] List<Renderer> indicator = new List<Renderer>();
+    public List<Renderer> numbers = new List<Renderer>();
 
     public int combinationLength;
     public List<int> combination;
@@ -80,6 +81,11 @@ public class DiffuseTable : MonoBehaviour
 
     void QuitDiffuseMod()
     {
+        for (int i = 0; i < combinationLength; i++)
+        {
+            numbers[i].material.color = Color.white;
+            numbers[i].material.SetColor("_EmissionColor", Color.white);
+        }
         bomb.transform.parent = bombedBox.transform;
         for (int i = 0; i < button.Count; i++)
             button[i].transform.parent = bomb.transform;
@@ -101,6 +107,11 @@ public class DiffuseTable : MonoBehaviour
         for (int i = 0; i < combinationLength; i++)
         {
             indicator[i].material = indicMat[combination[i]];
+        }
+        for (int i = 0; i < combinationLength; i++)
+        {
+            numbers[i].material.color = Color.white;
+            numbers[i].material.SetColor("_EmissionColor", Color.white);
         }
     }
 }

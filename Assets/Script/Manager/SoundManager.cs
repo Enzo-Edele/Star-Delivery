@@ -7,14 +7,15 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     public Sound[] tutoSounds;
-    public Sound[] sounds;
+    public Sound[] soundsEffects;
+    public Sound[] musics;
 
     public static SoundManager Instance { get; private set; }
     private void Awake()
     {
         Instance = this;
 
-        foreach(Sound s in sounds)
+        foreach(Sound s in soundsEffects)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -34,11 +35,21 @@ public class SoundManager : MonoBehaviour
 
             s.source.loop = s.loop;
         }
+        foreach (Sound s in musics)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
+
+            s.source.volume = s.volume;
+
+            s.source.loop = s.loop;
+        }
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(soundsEffects, sound => sound.name == name);
         if (s == null)
         {
             Debug.Log("sound name not find : " + name);
@@ -56,5 +67,9 @@ public class SoundManager : MonoBehaviour
         }
         s.source.Play();
         return s.clip.length;
+    }
+    public void PlayMusic()
+    {
+
     }
 }

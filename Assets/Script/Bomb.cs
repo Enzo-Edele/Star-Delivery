@@ -22,6 +22,8 @@ public class Bomb : MonoBehaviour
     {
         if (index == diffuseTable.combination[diffuseTable.step])
         {
+            diffuseTable.numbers[diffuseTable.step].material.color = Color.green;
+            diffuseTable.numbers[diffuseTable.step].material.SetColor("_EmissionColor", Color.green);
             diffuseTable.step++;
             SoundManager.Instance.Play("Boop");
             if (diffuseTable.step == diffuseTable.combinationLength)
