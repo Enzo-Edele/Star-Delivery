@@ -40,6 +40,8 @@ public class BoxSpawner : MonoBehaviour
             GameManager.Instance.EndLevel();
             endLevel = true;
         }
+
+        GameManager.Instance.TimeLevel(timerLevel);
     }
 
     void StartLevel()
