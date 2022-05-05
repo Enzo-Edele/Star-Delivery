@@ -61,7 +61,9 @@ public class TutoManager : MonoBehaviour
         else if (step == 12)
             SpawnBox(false, false, false, false, null);
         else if (step == 14)
-            SpawnBox(true, false, false, true, spacecraft.spacecraftDestination);
+            SpawnBox(true, false, false, true, GameManager.Instance.invalidDestinationLevel[Random.Range(0,2)]);
+        else if (step == 16)
+            SpawnBox(true, false, true, false, spacecraft.spacecraftDestination);
 
         if (grab.grabObject != null && step == 4)
             PlayAdvice();
@@ -77,9 +79,11 @@ public class TutoManager : MonoBehaviour
         if (spawner.package == null && step == 13)
             PlayAdvice();
         if (spawner.package == null && step == 15)
+            PlayAdvice();
+        if (spawner.package == null && step == 17)
         {
             Debug.Log("tuto finito");
-            OpenDoor();
+            //OpenDoor();
         }
     }
 

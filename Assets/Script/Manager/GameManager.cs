@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int packageSent;
     [SerializeField] int objective;
     public int lives;
+    public bool canDiffuse;
 
     public List<Spacecraft> spacecraft;
 
@@ -58,8 +59,9 @@ public class GameManager : MonoBehaviour
     {
         InMenu,
         InGame,
+        isDiffusing,
         Pause,
-        GameOver,
+        GameOver
     }
     private static GameStates gameState;
     public static GameStates GameState;
@@ -119,7 +121,11 @@ public class GameManager : MonoBehaviour
                 UnpauseGame();
                 Cursor.lockState = CursorLockMode.Locked;
                 UIManager.Instance.ActivateLives();
+                UIManager.Instance.ActivateChrono();
                 //Debug.Log("InGame");
+                break;
+            case GameStates.isDiffusing:
+                LockPlayer();
                 break;
             case GameStates.Pause:
                 PauseGame();
@@ -206,6 +212,7 @@ public class GameManager : MonoBehaviour
         this.lives = 3;
         chronoStart = true;
         UIManager.Instance.ActivateLives();
+        UIManager.Instance.ActivateChrono();
         Cursor.lockState = CursorLockMode.Locked;
 
         invalidDestinationLevel.Clear();
@@ -286,6 +293,8 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.Instance.DeactivateLives();
+        UIManager.Instance.DeactivateChrono();
+        UIManager.Instance.DeactivateIconWalk();
 
         Save(file);
 

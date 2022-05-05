@@ -7,28 +7,38 @@ public class BeltDoor : MonoBehaviour
     [SerializeField] GameObject door;
     public Vector3 amplitude;
     Vector3 pos;
+    [SerializeField] float timeOpen;
+    float timerOpen = 0;
 
-    bool opened = false;
+    private void Update()
+    {
+        if (timerOpen > 0)
+            timerOpen -= Time.deltaTime;
+        else if(timerOpen < 0)
+        {
+            timerOpen = 0;
+            Close();
+        }    
+    }
 
     void Open()
     {
+        timerOpen = timeOpen;
         pos = door.transform.position;
         pos.y += amplitude.y;
         door.transform.position = pos;
-        opened = true;
+        Debug.Log("open");
     }
     void Close()
     {
         pos = door.transform.position;
         pos.y -= amplitude.y;
         door.transform.position = pos;
-        opened = false;
+        Debug.Log("close");
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (opened)
-            Close();
-        else
-            Open();
+        Open();
+        Debug.Log("collision");
     }
 }

@@ -30,7 +30,12 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject grabDropIcon;
     [SerializeField] Text grabDropText;
-    [SerializeField] TMP_Text Chronometer;
+    [SerializeField] GameObject diffuseIcon;
+    [SerializeField] Text diffuseText;
+    [SerializeField] GameObject walkIcon;
+    [SerializeField] Image shiftImage;
+    [SerializeField] GameObject chrono;
+    [SerializeField] TMP_Text chronometerText;
     [SerializeField] GameObject LivesDisplay;
     [SerializeField] List<Image> lives;
     [SerializeField] Sprite live, emptylive;
@@ -41,6 +46,14 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            shiftImage.color = Color.blue;
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            shiftImage.color = Color.cyan;
     }
 
     public void ActivateMainMenu() //main menu
@@ -110,9 +123,38 @@ public class UIManager : MonoBehaviour
         grabDropIcon.SetActive(true);
         grabDropText.text = "Drop";
     }
+    public void ActivateIconPush() //icon drop possible
+    {
+        grabDropIcon.SetActive(true);
+        grabDropText.text = "Push";
+    }
     public void DeactivateIconGrab()
     {
         grabDropIcon.SetActive(false);
+    }
+    public void ActivateIconDiffuse() //icon diffues possible
+    {
+        diffuseIcon.SetActive(true);
+        diffuseText.text = "Diffuse";
+        GameManager.Instance.canDiffuse = true;
+    }
+    public void ActivateIconReturn()
+    {
+        diffuseIcon.SetActive(true);
+        diffuseText.text = "return";
+    }
+    public void DeactivateIconDiffuse()
+    {
+        diffuseIcon.SetActive(false);
+        GameManager.Instance.canDiffuse = false;
+    }
+    public void ActivateIconWalk()
+    {
+        walkIcon.SetActive(true);
+    }
+    public void DeactivateIconWalk()
+    {
+        walkIcon.SetActive(false);
     }
     public void ActivateLives() //activate livesDisplay
     {
@@ -124,10 +166,18 @@ public class UIManager : MonoBehaviour
         if (LivesDisplay != null)
             LivesDisplay.SetActive(false);
     }
-
+    public void ActivateChrono() //activate chrono
+    {
+        chrono.SetActive(true);
+    }
+    public void DeactivateChrono()
+    {
+        if (chrono != null)
+            chrono.SetActive(false);
+    }
     public void Chrono()
     {
-        Chronometer.text = "" + GameManager.Instance.minutes + " : " + GameManager.Instance.seconds.ToString("00");
+        chronometerText.text = "" + GameManager.Instance.minutes + " : " + GameManager.Instance.seconds.ToString("00");
     }
 
     public void ActivateEndLevel(bool success) //end level menu

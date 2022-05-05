@@ -39,7 +39,13 @@ public class PlayerGrabDrop : MonoBehaviour
             !GameManager.Instance.lockPlayer
             )
         {
-            if (hit.transform.gameObject.tag == "Box" && grabObject == null)
+            if (hit.transform.gameObject.tag == "Box" && grabObject == null && hit.transform.gameObject.transform.parent != null)
+            {
+                UIManager.Instance.ActivateIconGrab();
+                UIManager.Instance.ActivateIconDiffuse();
+                grabableObject = hit.transform.gameObject;
+            }
+            else if (hit.transform.gameObject.tag == "Box" && grabObject == null)
             {
                 UIManager.Instance.ActivateIconGrab();
                 grabableObject = hit.transform.gameObject;
@@ -82,9 +88,9 @@ public class PlayerGrabDrop : MonoBehaviour
                 button = hit.transform.gameObject.GetComponent<ButtonAll>();
             }
         }
-        else if (GameManager.Instance.lockPlayer)
+        else if (GameManager.Instance.lockPlayer && GameManager.GameState != GameManager.GameStates.isDiffusing)
             NullRaycast();
-        else
+        else if(GameManager.GameState != GameManager.GameStates.isDiffusing)
         {
             NullRaycast();
         }
@@ -107,6 +113,8 @@ public class PlayerGrabDrop : MonoBehaviour
             rBody.useGravity = false;
             grabObject.GetComponent<BoxCollider>().enabled = false; //faire un tag BoxGrab et désactiver collision de ce tag
             grabObjectScript.isStored = false;
+            if (grabObjectScript.isFragile)
+                UIManager.Instance.ActivateIconWalk();
         }
 
         if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaRack != null)
@@ -163,12 +171,15 @@ public class PlayerGrabDrop : MonoBehaviour
         grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
         if(dropArea.GetComponent<DiffuseTable>() != null)
             grabObject.transform.parent = dropArea.transform;
+        if (grabObjectScript.isFragile)
+            UIManager.Instance.DeactivateIconWalk();
         grabObject = null;
     }
 
     void NullRaycast()
     {
         UIManager.Instance.DeactivateIconGrab();
+        UIManager.Instance.DeactivateIconDiffuse();
         canBePushed = false;
         launcherScript = null;
         button = null;

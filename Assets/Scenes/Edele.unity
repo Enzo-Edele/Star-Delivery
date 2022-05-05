@@ -167,7 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: 0
+  chrono: 0
+  minutes: 0
+  seconds: 0
   tutoDone: 0
+  chronoStart: 0
   levelUnlock: 0
   boxesObjective: 3
   totalBoxes: 0
@@ -221,6 +225,7 @@ MonoBehaviour:
   packageSent: 0
   objective: 0
   lives: 0
+  canDiffuse: 0
   spacecraft: []
   valid: 0
   invalid: 0
@@ -3485,6 +3490,10 @@ MonoBehaviour:
   optionMenu: {fileID: 267400432}
   grabDropIcon: {fileID: 622371488}
   grabDropText: {fileID: 150833021}
+  diffuseIcon: {fileID: 0}
+  diffuseText: {fileID: 0}
+  chrono: {fileID: 0}
+  chronometerText: {fileID: 0}
   LivesDisplay: {fileID: 1121376096}
   lives:
   - {fileID: 102806718}

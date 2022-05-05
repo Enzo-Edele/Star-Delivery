@@ -27,16 +27,20 @@ public class DiffuseTable : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("f") && GameManager.GameState == GameManager.GameStates.InGame && bomb != null)
-        {
-            QuitDiffuseMod();
-        }
-        if (Input.GetKeyDown("r") && GameManager.GameState == GameManager.GameStates.InGame && bomb != null)
+        if(Input.GetMouseButtonDown(1) && 
+           GameManager.GameState == GameManager.GameStates.InGame && 
+           bomb != null && 
+           GameManager.Instance.canDiffuse && 
+           !(GameManager.GameState == GameManager.GameStates.isDiffusing))
         {
             DiffuseMod();
         }
-        if(Input.GetKeyDown("b") && GameManager.GameState == GameManager.GameStates.InGame)
-            BoxInspector.Instance.HideInspector();
+        else if (Input.GetMouseButtonDown(1) && GameManager.GameState == GameManager.GameStates.isDiffusing && bomb != null)
+        {
+            QuitDiffuseMod();
+        }
+        /*if(Input.GetKeyDown("b") && GameManager.GameState == GameManager.GameStates.InGame)
+            BoxInspector.Instance.HideInspector();*/
     }
 
     public void RecieveBox(GameObject box)
@@ -63,10 +67,14 @@ public class DiffuseTable : MonoBehaviour
         for (int i = 0; i < button.Count; i++)
             button[i].transform.parent = null;
         bombScript.ActiveCollider();
+        step = 0;
         cam.Priority = 15;
         Cursor.lockState = CursorLockMode.Confined;
-        GameManager.Instance.LockPlayer();
-        step = 0;
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.isDiffusing);
+        UIManager.Instance.ActivateIconPush();
+        UIManager.Instance.ActivateIconReturn();
+        UIManager.Instance.DeactivateChrono();
+        UIManager.Instance.DeactivateLives();
         //maybe deactive UI
     }
 
@@ -78,7 +86,9 @@ public class DiffuseTable : MonoBehaviour
         bombScript.DeactiveCollider();
         cam.Priority = 5;
         Cursor.lockState = CursorLockMode.Locked;
-        GameManager.Instance.UnlockPlayer();
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
+        UIManager.Instance.ActivateChrono();
+        UIManager.Instance.ActivateLives();
     }
 
     public void Randomise()
