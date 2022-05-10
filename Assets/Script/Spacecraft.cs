@@ -10,8 +10,8 @@ public class Spacecraft : MonoBehaviour
     public GameObject spacecraft;
     public Coroutine launchCo;
     public int packages = 0;
-    public int maximumCharge = 10;
-    public int overload = 5;
+    public int maximumCharge = 4;
+    public int overload = 2;
     public float estimatedTime = 20;
     public string spacecraftDestination;
     public bool delivered;
@@ -61,6 +61,7 @@ public class Spacecraft : MonoBehaviour
         estimatedTime = 20;
         spacecraftMaterial.color = Color.red;//anim atterrisage
         delivered = false;
+        full = false;
         launcher.ButtonUp();
     }
 }

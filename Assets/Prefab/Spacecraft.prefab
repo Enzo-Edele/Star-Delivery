@@ -156,8 +156,8 @@ MonoBehaviour:
   orderInList: 0
   spacecraft: {fileID: 155067068695575203}
   packages: 0
-  maximumCharge: 20
-  overload: 5
+  maximumCharge: 4
+  overload: 2
   estimatedTime: 20
   spacecraftDestination: Mars
   delivered: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

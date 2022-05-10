@@ -255,6 +255,10 @@ public class GameManager : MonoBehaviour
     }
     public void EndLevel()
     {
+        for (int i = 0; i < spacecraft.Count; i++)
+        {
+            spacecraft[i].launchCo = StartCoroutine(spacecraft[i].LaunchCoroutine());
+        }
         bool success = false;
         if (levelUnlock > 0)
         {
