@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public List<string> invalidDestinationLevel;
 
     [SerializeField] int packageSent;
+    int score;
     [SerializeField] int objective;
     public int lives;
     public bool canDiffuse;
@@ -82,13 +83,16 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("p") && gameState == GameStates.InGame) 
+        if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameStates.InGame) 
         {
             UIManager.Instance.ActivatePauseMenu();
             ChangeGameState(GameStates.Pause);
         }
-
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.L) && gameState == GameStates.InGame)
+        {
+            InfiniteLives();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
         {
             packageSent = objective;
             levelUnlock = 7;
@@ -236,6 +240,10 @@ public class GameManager : MonoBehaviour
         }
         UIManager.Instance.UpdateLives();
     }
+    public void UpdateScore(int point)
+    {
+        score += point;
+    }
     public void SpacecraftDeliver(int qty)
     {
         packageSent += qty;
@@ -263,12 +271,14 @@ public class GameManager : MonoBehaviour
         {
             success = true;
             Debug.Log("win");
+            //UIScore
             if (levelUnlock == SceneManager.GetActiveScene().buildIndex - 2 && !(levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2)) {
                 levelUnlock++;
                 Debug.Log("Unlock level : " + levelUnlock);
             }
         }
         packageSent = 0;
+        score = 0;
 
         spacecraft.Clear();
         UIManager.Instance.ActivateEndLevel(success);
@@ -300,6 +310,13 @@ public class GameManager : MonoBehaviour
             seconds = Mathf.Ceil(timeLevel - minutes * 60) - 1;
             UIManager.Instance.Chrono();
         }
+    }
+
+    //cheat function
+
+    void InfiniteLives()
+    {
+        lives = 999;
     }
 
     //test function

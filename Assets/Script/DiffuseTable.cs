@@ -62,7 +62,7 @@ public class DiffuseTable : MonoBehaviour
         button.Clear();
     }
 
-    void DiffuseMod()
+    public void DiffuseMod()
     {
         bomb.transform.parent = null;
         for (int i = 0; i < button.Count; i++)
@@ -79,7 +79,7 @@ public class DiffuseTable : MonoBehaviour
         //maybe deactive UI
     }
 
-    void QuitDiffuseMod()
+    public void QuitDiffuseMod()
     {
         for (int i = 0; i < combinationLength; i++)
         {

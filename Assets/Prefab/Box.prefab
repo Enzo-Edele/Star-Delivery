@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 8540234853805725050}
+  bombScript: {fileID: 4368428677013197016}
   destination: test
   isFragile: 0
   isBroken: 0

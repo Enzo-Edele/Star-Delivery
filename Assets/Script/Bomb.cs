@@ -30,6 +30,7 @@ public class Bomb : MonoBehaviour
             {
                 diffuseTable.Randomise();
                 parent.GetComponent<Box>().Diffuse();
+                diffuseTable.QuitDiffuseMod();
             }
         }
         else

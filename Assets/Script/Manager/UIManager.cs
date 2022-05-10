@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text diffuseText;
     [SerializeField] GameObject walkIcon;
     [SerializeField] Image shiftImage;
+    [SerializeField] GameObject fragileWarning;
     [SerializeField] GameObject chrono;
     [SerializeField] TMP_Text chronometerText;
     [SerializeField] GameObject LivesDisplay;
@@ -147,6 +148,14 @@ public class UIManager : MonoBehaviour
     {
         diffuseIcon.SetActive(false);
         GameManager.Instance.canDiffuse = false;
+    }
+    public void ActivateFragileWarning()
+    {
+        fragileWarning.SetActive(true);
+    }
+    public void DeactivateFragileWarning()
+    {
+        fragileWarning.SetActive(false);
     }
     public void ActivateIconWalk()
     {

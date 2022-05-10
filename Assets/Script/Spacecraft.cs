@@ -17,7 +17,7 @@ public class Spacecraft : MonoBehaviour
     public bool delivered;
     private bool full;
     public float deliveredTime;
-    private float sendScore = 0;
+    private int sendScore = 0;
     public TMP_Text destinationText; //set up tout ca avec une fct
     [SerializeField] Launcher launcher;
 
@@ -54,6 +54,7 @@ public class Spacecraft : MonoBehaviour
     {
         delivered = true;
         GameManager.Instance.SpacecraftDeliver(packages);
+        GameManager.Instance.UpdateScore(sendScore);
         packages = 0;
         spacecraftMaterial.color = Color.blue;//anim décollage
         yield return new WaitForSeconds(estimatedTime);

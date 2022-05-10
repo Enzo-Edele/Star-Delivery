@@ -5,6 +5,7 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     public GameObject bomb;
+    [SerializeField] Bomb bombScript;
 
     public bool isArmed { get; private set; }
     public string destination = "test";
@@ -158,7 +159,6 @@ public class Box : MonoBehaviour
 
     public void Diffuse()
     {
-        Bomb bombScript =  bomb.GetComponent<Bomb>();
         for (int i = 0; i < bombScript.buttons.Count; i++)
             bombScript.buttons[i].SetActive(false);
         bomb.SetActive(false);

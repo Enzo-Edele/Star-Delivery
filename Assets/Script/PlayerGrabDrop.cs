@@ -109,7 +109,10 @@ public class PlayerGrabDrop : MonoBehaviour
             grabObject.GetComponent<BoxCollider>().enabled = false; //faire un tag BoxGrab et désactiver collision de ce tag
             grabObjectScript.isStored = false;
             if (grabObjectScript.isFragile)
+            {
                 UIManager.Instance.ActivateIconWalk();
+                UIManager.Instance.ActivateFragileWarning();
+            }
         }
 
         if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaRack != null)
@@ -164,8 +167,11 @@ public class PlayerGrabDrop : MonoBehaviour
         grabObject.transform.localPosition = new Vector3(0, 1f, 0f);
         grabObject.transform.parent = null;
         grabObject.transform.transform.localScale = new Vector3(1, 1, 1);
-        if(dropArea.GetComponent<DiffuseTable>() != null)
+        if (dropArea.GetComponent<DiffuseTable>() != null)
+        {
             grabObject.transform.parent = dropArea.transform;
+            dropArea.GetComponent<DiffuseTable>().DiffuseMod();
+        }
         if (grabObjectScript.isFragile || grabObjectScript.isBroken)
             UIManager.Instance.DeactivateIconWalk();
         grabObject = null;
