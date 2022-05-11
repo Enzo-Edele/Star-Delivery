@@ -161,9 +161,7 @@ public class Box : MonoBehaviour
     {
         for (int i = 0; i < bombScript.buttons.Count; i++)
             bombScript.buttons[i].SetActive(false);
-        bomb.SetActive(false);
         isArmed = false;
-        SoundManager.Instance.Play("Disarmed");
     }
 
     public void Crusher()
@@ -205,7 +203,7 @@ public class Box : MonoBehaviour
     {
         if (isArmed)
         {
-            SoundManager.Instance.Play("explosion");
+            SoundManager.Instance.Play("Explosion");
             GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
             Destroy(gameObject);
             return;

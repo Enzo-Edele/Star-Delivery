@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: 0
-  chrono: 0
   minutes: 0
   seconds: 0
   tutoDone: 0
@@ -3492,6 +3491,9 @@ MonoBehaviour:
   grabDropText: {fileID: 150833021}
   diffuseIcon: {fileID: 0}
   diffuseText: {fileID: 0}
+  walkIcon: {fileID: 0}
+  shiftImage: {fileID: 0}
+  fragileWarning: {fileID: 0}
   chrono: {fileID: 0}
   chronometerText: {fileID: 0}
   LivesDisplay: {fileID: 1121376096}
@@ -3501,6 +3503,7 @@ MonoBehaviour:
   - {fileID: 1747021598}
   live: {fileID: 21300000, guid: 557d52c5f80f73747b23bc69f4507f99, type: 3}
   emptylive: {fileID: 21300000, guid: dd182d368105f0f41bc5a46357a54393, type: 3}
+  timeWarn: 0
 --- !u!114 &479311883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7106,61 +7109,8 @@ MonoBehaviour:
     volume: 0.1
     loop: 0
     source: {fileID: 0}
-  sounds:
-  - name: alarm
-    clip: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: explosion
-    clip: {fileID: 8300000, guid: 8bff71dc76782e9419367a336f40ae11, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.6
-    loop: 0
-    source: {fileID: 0}
-  - name: StopBelt
-    clip: {fileID: 8300000, guid: 60f2ace3a87d7c24dafba655cc56d0df, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.4
-    loop: 0
-    source: {fileID: 0}
-  - name: FragileBreak
-    clip: {fileID: 8300000, guid: 14ae13c962dd0a3439742c72b9b42dbf, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.7
-    loop: 0
-    source: {fileID: 0}
-  - name: Valid
-    clip: {fileID: 8300000, guid: e49f29fdec933a347b38c08313b83ca1, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.7
-    loop: 0
-    source: {fileID: 0}
-  - name: NotValid
-    clip: {fileID: 8300000, guid: 8cb91edbfc521fb45abe6dc9e7e10d7e, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.7
-    loop: 0
-    source: {fileID: 0}
-  - name: Boop
-    clip: {fileID: 8300000, guid: 437daeb6f40d55f469ecc09e6d6ebddc, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.7
-    loop: 0
-    source: {fileID: 0}
-  - name: Disarmed
-    clip: {fileID: 8300000, guid: 122c3e721378bc645b9a7b57e5482f44, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.7
-    loop: 0
-    source: {fileID: 0}
-  - name: Button
-    clip: {fileID: 8300000, guid: 70e652f96a6800c4496723739a75929d, type: 3}
-    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
-    volume: 0.7
-    loop: 0
-    source: {fileID: 0}
+  soundsEffects: []
+  musics: []
 --- !u!1 &1301155400
 GameObject:
   m_ObjectHideFlags: 0
@@ -10109,6 +10059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   grabObject: {fileID: 0}
+  disamorced: 0
   player: {fileID: 0}
 --- !u!114 &1819604881
 MonoBehaviour:

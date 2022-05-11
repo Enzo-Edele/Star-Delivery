@@ -40,8 +40,6 @@ public class DiffuseTable : MonoBehaviour
         {
             QuitDiffuseMod();
         }
-        /*if(Input.GetKeyDown("b") && GameManager.GameState == GameManager.GameStates.InGame)
-            BoxInspector.Instance.HideInspector();*/
     }
 
     public void RecieveBox(GameObject box)

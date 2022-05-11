@@ -89,7 +89,7 @@ public class TutoManager : MonoBehaviour
 
     void PlayAdvice()
     {
-        timerMessage = SoundManager.Instance.PlayTime(messages);
+        timerMessage = SoundManager.Instance.PlayTuto(messages);
         messages++;
         step++;
     }

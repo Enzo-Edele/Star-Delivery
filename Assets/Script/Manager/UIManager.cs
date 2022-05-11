@@ -42,11 +42,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] Sprite live, emptylive;
 
     bool wasPaused;
+    float timerWarn;
+    [SerializeField] int timeWarn;
+
     #endregion
     public static UIManager Instance { get; private set; }
     void Awake()
     {
         Instance = this;
+        timerWarn = 0;
     }
 
     private void Update()
@@ -55,6 +59,13 @@ public class UIManager : MonoBehaviour
             shiftImage.color = Color.blue;
         if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             shiftImage.color = Color.cyan;
+        if (timerWarn > 0)
+            timerWarn -= Time.deltaTime;
+        else if (timerWarn < 0)
+        {
+            timerWarn = 0;
+            DeactivateFragileWarning();
+        }
     }
 
     public void ActivateMainMenu() //main menu
@@ -151,6 +162,7 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateFragileWarning()
     {
+        timerWarn = timeWarn;
         fragileWarning.SetActive(true);
     }
     public void DeactivateFragileWarning()

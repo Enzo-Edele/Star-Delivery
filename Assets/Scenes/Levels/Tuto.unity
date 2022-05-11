@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 232361822}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Button
+  m_TagString: ButtonAll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3386,6 +3386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   grabObject: {fileID: 0}
+  disamorced: 0
   player: {fileID: 902036572}
 --- !u!114 &1074022146
 MonoBehaviour:
@@ -3891,7 +3892,7 @@ GameObject:
   - component: {fileID: 1287914507}
   m_Layer: 0
   m_Name: LauncherTuto
-  m_TagString: Button
+  m_TagString: ButtonAll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6567,7 +6568,7 @@ GameObject:
   - component: {fileID: 3016147888188780529}
   - component: {fileID: 3016147888188780542}
   - component: {fileID: 412348389}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StartBelt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

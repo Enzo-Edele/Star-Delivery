@@ -19,6 +19,7 @@ public class PlayerGrabDrop : MonoBehaviour
     Launcher launcherScript;
     ButtonAll button;
 
+    public bool disamorced = false;
     public PlayerMovement player;
 
     void Update() //mettre pls raycast
@@ -120,10 +121,11 @@ public class PlayerGrabDrop : MonoBehaviour
             grabObject.GetComponent<Box>().isStored = true;
             Drop(dropAreaRack);
         }
-        else if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaDiffuse != null)
+        else if ((Input.GetMouseButtonDown(0) && grabObject != null && dropAreaDiffuse != null) || disamorced)
         {
             dropAreaDiffuse.GetComponent<DiffuseTable>().RecieveBox(grabObject);
             Drop(dropAreaDiffuse);
+            disamorced = false;
         }
         else if (Input.GetMouseButtonDown(0) && grabObject != null && dropAreaCrusher != null)
         {

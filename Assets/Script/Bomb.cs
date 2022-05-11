@@ -8,15 +8,24 @@ public class Bomb : MonoBehaviour
     GameObject parent;
     public DiffuseTable diffuseTable;
     public List<GameObject> buttons;
+    public float timerDiffuse;
 
     void Start()
     {
         parent = transform.parent.gameObject;
+        timerDiffuse = 0;
     }
-    /*private void OnMouseDown()
+    private void Update()
     {
-        parent.GetComponent<Box>().Diffuse();
-    }*/
+        if (timerDiffuse > 0)
+            timerDiffuse -= Time.deltaTime;
+        else if(timerDiffuse < 0)
+        {
+            timerDiffuse = 0;
+            diffuseTable.QuitDiffuseMod();
+            gameObject.SetActive(false);
+        }
+    }
 
     public void Diffuse(int index)
     {
@@ -30,7 +39,7 @@ public class Bomb : MonoBehaviour
             {
                 diffuseTable.Randomise();
                 parent.GetComponent<Box>().Diffuse();
-                diffuseTable.QuitDiffuseMod();
+                timerDiffuse = SoundManager.Instance.PlayTime("Disarmed") / 2;
             }
         }
         else
