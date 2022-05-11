@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 05af65eb6f1620344be0242bad9eb76c
+guid: 6b6ceef12ac5b484b97683835453d5cd
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Automotive led lights
     second: {fileID: 2100000, guid: 87285314257142d429dc4a05d2b24b0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black Plastic
+    second: {fileID: 2100000, guid: 373bd7e0a79f2ec469a5c0b651c055a5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
