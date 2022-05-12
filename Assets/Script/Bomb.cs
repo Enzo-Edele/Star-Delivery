@@ -44,7 +44,7 @@ public class Bomb : MonoBehaviour
         }
         else
         {
-            SoundManager.Instance.Play("explosion");
+            SoundManager.Instance.Play("Explosion");
             diffuseTable.numbers[diffuseTable.step].material.color = Color.red;
             diffuseTable.numbers[diffuseTable.step].material.SetColor("_EmissionColor", Color.red);
             GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
