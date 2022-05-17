@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8700016167633118942}
   - component: {fileID: 5651259879186067096}
   - component: {fileID: 4447524840589722296}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1643788547027380598}
   - component: {fileID: 4050894155404693677}
   - component: {fileID: 7203907824705333375}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6745435437482684659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0.5, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 0.5, z: 5}
   m_Children:
   - {fileID: 727190776988340158}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 9108804283490437092}
   - component: {fileID: 622014397472477465}
   - component: {fileID: 4584165156645644252}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

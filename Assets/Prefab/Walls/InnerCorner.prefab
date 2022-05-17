@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4423094062788604942}
   - component: {fileID: 8884264110007105912}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: InnerCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,6 +57,10 @@ PrefabInstance:
     - target: {fileID: 99005233339772292, guid: c0843a5923bc90745999f3eb17e3b49e, type: 3}
       propertyPath: m_Name
       value: mae
+      objectReference: {fileID: 0}
+    - target: {fileID: 99005233339772292, guid: c0843a5923bc90745999f3eb17e3b49e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5206615929356581537, guid: c0843a5923bc90745999f3eb17e3b49e, type: 3}
       propertyPath: m_RootOrder
@@ -164,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bae
       objectReference: {fileID: 0}
+    - target: {fileID: 6220762255924789075, guid: ee55e79b4386b4b47be3f1eafe2358c9, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee55e79b4386b4b47be3f1eafe2358c9, type: 3}
 --- !u!4 &9223187478797306672 stripped
@@ -225,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 4138851469985819147, guid: 2887d1cef00c3db4790ffe4c9d214625, type: 3}
       propertyPath: m_Name
       value: hae
+      objectReference: {fileID: 0}
+    - target: {fileID: 4138851469985819147, guid: 2887d1cef00c3db4790ffe4c9d214625, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2887d1cef00c3db4790ffe4c9d214625, type: 3}

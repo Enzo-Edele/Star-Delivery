@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5985153337377717457}
   - component: {fileID: 4372625586566665999}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: OuterCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hai
       objectReference: {fileID: 0}
+    - target: {fileID: 5199920178206989366, guid: 9fccd7b71dbfaf1489b60fa86d533f22, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fccd7b71dbfaf1489b60fa86d533f22, type: 3}
 --- !u!4 &6946354046155535994 stripped
@@ -164,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mai
       objectReference: {fileID: 0}
+    - target: {fileID: 7171759356440083059, guid: 0da08b01b45b33d47811742ac5a7c13d, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0da08b01b45b33d47811742ac5a7c13d, type: 3}
 --- !u!4 &1468173883188797940 stripped
@@ -225,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 7978788347464308470, guid: 5e122a1abd6ab8a45ae2612bed6c8c99, type: 3}
       propertyPath: m_Name
       value: bai
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978788347464308470, guid: 5e122a1abd6ab8a45ae2612bed6c8c99, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e122a1abd6ab8a45ae2612bed6c8c99, type: 3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6782549223168035097}
   - component: {fileID: 8237047032583171910}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WallGlass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,6 +57,10 @@ PrefabInstance:
     - target: {fileID: 518018193311528866, guid: c6ba52cb574d067408400d05126cc8d2, type: 3}
       propertyPath: m_Name
       value: bs (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 518018193311528866, guid: c6ba52cb574d067408400d05126cc8d2, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8836207284832729666, guid: c6ba52cb574d067408400d05126cc8d2, type: 3}
       propertyPath: m_RootOrder
@@ -119,6 +123,10 @@ PrefabInstance:
     - target: {fileID: 6189006832440191856, guid: 58423f291c267f94db241f1b79d32b9e, type: 3}
       propertyPath: m_Name
       value: msg
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189006832440191856, guid: 58423f291c267f94db241f1b79d32b9e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7264653714175807882, guid: 58423f291c267f94db241f1b79d32b9e, type: 3}
       propertyPath: m_RootOrder
@@ -225,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 6428457590888538284, guid: c9f71e85a246fb34ab4a490be4ac286d, type: 3}
       propertyPath: m_Name
       value: hs (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428457590888538284, guid: c9f71e85a246fb34ab4a490be4ac286d, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9f71e85a246fb34ab4a490be4ac286d, type: 3}
