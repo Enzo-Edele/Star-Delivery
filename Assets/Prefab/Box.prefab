@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4490829373307001374}
   - component: {fileID: 8440143457943745023}
   - component: {fileID: 3474499294178050813}
-  m_Layer: 11
+  m_Layer: 31
   m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 5635312680405218242}
   - component: {fileID: 1058594716171677933}
   - component: {fileID: 2732128022609021532}
-  m_Layer: 11
+  m_Layer: 31
   m_Name: Button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1876954202136482487}
   - component: {fileID: 1876954202136482480}
   - component: {fileID: 1876954202136482481}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Box
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 8937947319844276972}
   - component: {fileID: 6814318623419371668}
   - component: {fileID: 9007422642529738838}
-  m_Layer: 11
+  m_Layer: 31
   m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 3174216938347065790}
   - component: {fileID: 8316552673113966248}
   - component: {fileID: 8248001315585068663}
-  m_Layer: 11
+  m_Layer: 31
   m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 7891993377324905647}
   - component: {fileID: 4368428677013197016}
   - component: {fileID: 7717342459032711556}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: Bombe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,6 +685,7 @@ MonoBehaviour:
   - {fileID: 1493523714194557430}
   - {fileID: 8351712139844473849}
   - {fileID: 1777460294254785938}
+  timerDiffuse: 0
 --- !u!65 &7717342459032711556
 BoxCollider:
   m_ObjectHideFlags: 0

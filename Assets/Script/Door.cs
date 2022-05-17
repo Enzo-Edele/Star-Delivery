@@ -31,13 +31,13 @@ public class Door : MonoBehaviour
         doorAnimation.enabled = true;
         if (state == true)
         {
-            doorAnimation.Play("OpenDoor");
+            doorAnimation.Play("Open");
             SoundManager.Instance.Play("Door");
             timerOpen = timeOpen;
         }
         else
         {
-            doorAnimation.Play("CloseDoor");
+            doorAnimation.Play("Close");
             SoundManager.Instance.Play("Door");
         }
     }

@@ -136,8 +136,8 @@ public class Box : MonoBehaviour
     {
         if (isArmed)
         {
-            SoundManager.Instance.Play("explosion");
-            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
+            SoundManager.Instance.Play("Explosion");
+            GameManager.Instance.ChangeLife(-5);
             return;
         }
         bool isValid = false;
@@ -167,8 +167,8 @@ public class Box : MonoBehaviour
     public void Crusher()
     {
         if (isArmed) {
-            SoundManager.Instance.Play("explosion");
-            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
+            SoundManager.Instance.Play("Explosion");
+            GameManager.Instance.ChangeLife(-5);
             Destroy(gameObject);
             return;
         }
@@ -204,7 +204,7 @@ public class Box : MonoBehaviour
         if (isArmed)
         {
             SoundManager.Instance.Play("Explosion");
-            GameManager.Instance.ChangeLife(GameManager.Instance.lives * -1);
+            GameManager.Instance.ChangeLife(-5);
             Destroy(gameObject);
             return;
         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5280932378488130339}
   - component: {fileID: 5280932378488130348}
   - component: {fileID: 5280932378488130349}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pedestal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5280932378825765536}
   - component: {fileID: 5280932378825765537}
   - component: {fileID: 5280932378825765542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: ButtonAll
   m_Icon: {fileID: 0}
@@ -211,6 +211,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  spawner: {fileID: 0}
+  spawner:
+  - {fileID: 0}
+  door: []
   tuto: 0
   spawnerTuto: {fileID: 0}

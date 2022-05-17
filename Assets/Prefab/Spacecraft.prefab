@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 155067068498511999}
   - component: {fileID: 155067068498511998}
   - component: {fileID: 155067068498511969}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 155067068695575230}
   - component: {fileID: 155067068695575201}
   - component: {fileID: 155067068695575200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spacecraft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155067068695575203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4781165, y: 1.33, z: -10.255921}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 1, z: 5}
   m_Children:
   - {fileID: 155067067106511702}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 2417576386136883101}
   - component: {fileID: 2417576386136883103}
   - component: {fileID: 2417576386136883100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Packages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 2417576386391220030}
   - component: {fileID: 2417576386391220031}
   - component: {fileID: 2417576386391220028}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 2417576386527625964}
   - component: {fileID: 2417576386527625965}
   - component: {fileID: 2417576386527625962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LaunchPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 2417576386675622417}
   - component: {fileID: 2417576386675622430}
   - component: {fileID: 2417576386675622431}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Screen Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 2417576386918431009}
   - component: {fileID: 2417576386918431011}
   - component: {fileID: 2417576386918431008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 2417576387004541643}
   - component: {fileID: 2417576387004541640}
   - component: {fileID: 2417576387004541641}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 2417576387068604090}
   - component: {fileID: 2417576387068604095}
   - component: {fileID: 2417576387068604092}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 2417576387249357260}
   - component: {fileID: 2417576387249357262}
   - component: {fileID: 2417576387249357263}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 2417576387299697192}
   - component: {fileID: 2417576387299697194}
   - component: {fileID: 2417576387299697195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Estimated Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1284,7 @@ GameObject:
   - component: {fileID: 2417576387309052612}
   - component: {fileID: 2417576387309052613}
   - component: {fileID: 2417576387309052610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TimePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1385,7 @@ GameObject:
   - component: {fileID: 2417576387334224818}
   - component: {fileID: 2417576387334224819}
   - component: {fileID: 2417576387334224823}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Launcher
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -1503,7 +1503,7 @@ GameObject:
   - component: {fileID: 6520358060544950471}
   - component: {fileID: 3705989009536191787}
   - component: {fileID: 5445363212813587568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sticker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
