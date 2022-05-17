@@ -20,12 +20,16 @@ TagManager:
   - 
   - Water
   - UI
+  - 
+  - 
+  - 
+  - 
+  - Interractible
+  - Package
   - Ground
-  - Player
-  - Box
+  - Wall
+  - Door
   - Belt
-  - Drop
-  - Button
   - 
   - 
   - 
@@ -41,11 +45,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - IgnoreCollision
   m_SortingLayers:
   - name: Default
     uniqueID: 0

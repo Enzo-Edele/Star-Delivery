@@ -233,7 +233,7 @@ public class GameManager : MonoBehaviour
     public void ChangeLife(int damage)
     {
         lives += damage;
-        if(lives == 0)
+        if(lives <= 0)
         {
             packageSent = 0;
             EndLevel();
