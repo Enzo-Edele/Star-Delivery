@@ -104,7 +104,7 @@ public class DiffuseTable : MonoBehaviour
         }
         for (int i = 0; i < combinationLength; i++)
         {
-            indicator[i].material = indicMat[combination[i]];
+            indicator[i].materials[i + 1] = indicMat[combination[i]];
         }
         for (int i = 0; i < combinationLength; i++)
         {
