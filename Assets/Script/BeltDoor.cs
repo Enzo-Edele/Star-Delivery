@@ -4,38 +4,45 @@ using UnityEngine;
 
 public class BeltDoor : MonoBehaviour
 {
-    [SerializeField] GameObject door;
-    public Vector3 amplitude;
-    Vector3 pos;
     [SerializeField] float timeOpen;
     float timerOpen = 0;
+    public bool isOn;
+    public Animator doorAnimation;
+
+    private void Start()
+    {
+        isOn = true;
+        doorAnimation.enabled = false;
+    }
 
     private void Update()
     {
-        if (timerOpen > 0 && !GameManager.Instance.gameIsPause)
+        if (timerOpen > 0 && !GameManager.Instance.gameIsPause && isOn)
             timerOpen -= Time.deltaTime;
-        else if(timerOpen < 0)
+        else if (timerOpen < 0)
         {
             timerOpen = 0;
-            Close();
-        }    
+            PackagesDoor(false);
+        }
     }
 
-    void Open()
+    public void PackagesDoor(bool state)
     {
-        timerOpen = timeOpen;
-        pos = door.transform.position;
-        pos.y += amplitude.y;
-        door.transform.position = pos;
-    }
-    void Close()
-    {
-        pos = door.transform.position;
-        pos.y -= amplitude.y;
-        door.transform.position = pos;
+        doorAnimation.enabled = true;
+        if (state == true)
+        {
+            doorAnimation.Play("Open");
+            SoundManager.Instance.Play("Door");
+            timerOpen = timeOpen;
+        }
+        else
+        {
+            doorAnimation.Play("Close");
+            SoundManager.Instance.Play("Door");
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
-        Open();
+        PackagesDoor(true);
     }
 }

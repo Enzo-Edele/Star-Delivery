@@ -19,6 +19,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Button> LevelButtons;
     [SerializeField] List<Text> highScores;
     [SerializeField] GameObject endLevel;
+    [SerializeField] Text endLevelScoreText;
+    [SerializeField] GameObject endLevelNextButton;
+    [SerializeField] Text endLevelScoreRecap;
+    [SerializeField] GameObject endLevelButtons;
     [SerializeField] GameObject retryButton;
     [SerializeField] GameObject endLevelNextLevelButton;
     [SerializeField] GameObject endLevelButtonLevel;
@@ -37,6 +41,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject fragileWarning;
     [SerializeField] GameObject chrono;
     [SerializeField] TMP_Text chronometerText;
+    [SerializeField] GameObject score;
+    [SerializeField] TMP_Text scoreText;
     [SerializeField] GameObject LivesDisplay;
     [SerializeField] List<Image> lives;
     [SerializeField] Sprite live, emptylive;
@@ -200,18 +206,36 @@ public class UIManager : MonoBehaviour
     {
         chronometerText.text = "" + GameManager.Instance.minutes + " : " + GameManager.Instance.seconds.ToString("00");
     }
+    public void ActivateScore() //activate score
+    {
+        score.SetActive(true);
+        scoreText.text = "Score : " + (0 + GameManager.Instance.score);
+    }
+    public void DeactivateScore()
+    {
+        if (score != null)
+            score.SetActive(false);
+    }
+    public void UpadateScore()
+    {
+        scoreText.text = "Score : " + GameManager.Instance.score;
+    }
 
     public void ActivateEndLevel(bool success) //end level menu
     {
         DeactivatePauseMenu();
         DeactivateOptionMenu();
         endLevel.SetActive(true);
+        endLevelScoreText.text = "Score : " + GameManager.Instance.score;
+        endLevelNextButton.SetActive(true);
+        //text recap
         endLevelButtonLevel.SetActive(true);
         endLevelButtonMain.SetActive(true);
         if (success)
             endLevelNextLevelButton.SetActive(true);
         else
             retryButton.SetActive(true);
+        endLevelButtons.SetActive(false);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
     }
     public void ActivateEndGame() //end level menu for success level 7
@@ -219,7 +243,10 @@ public class UIManager : MonoBehaviour
         DeactivatePauseMenu();
         DeactivateOptionMenu();
         endLevel.SetActive(true);
+        endLevelNextButton.SetActive(true);
+        //text recap
         endGameButton.SetActive(true);
+        endLevelButtons.SetActive(false);
         GameManager.Instance.ChangeGameState(GameManager.GameStates.Pause);
     }
     public void DeactivateEndLevel()
@@ -329,6 +356,11 @@ public class UIManager : MonoBehaviour
         SoundManager.Instance.Play("Button");
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
+    public void ButtonNext()
+    {
+        endLevelButtons.SetActive(true);
+        endLevelNextButton.SetActive(false);
+    }
     public void ButtonRetry()
     {
         DeactivateEndLevel();
@@ -341,7 +373,7 @@ public class UIManager : MonoBehaviour
         DeactivateEndLevel();
         SoundManager.Instance.Play("Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame); //David Goodenough
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
     }
     public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
     {

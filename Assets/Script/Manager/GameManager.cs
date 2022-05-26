@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     public List<string> invalidDestinationLevel;
 
     [SerializeField] int packageSent;
-    int score;
+    public int score;
     [SerializeField] int objective;
     public int lives;
     public bool canDiffuse;
@@ -117,10 +117,14 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 UIManager.Instance.ActivateLives();
                 UIManager.Instance.ActivateChrono();
+                UIManager.Instance.ActivateScore();
                 //Debug.Log("InGame");
                 break;
             case GameStates.isDiffusing:
                 LockPlayer();
+                UIManager.Instance.DeactivateLives();
+                UIManager.Instance.DeactivateChrono();
+                UIManager.Instance.DeactivateScore();
                 break;
             case GameStates.Pause:
                 PauseGame();
@@ -208,6 +212,7 @@ public class GameManager : MonoBehaviour
         chronoStart = true;
         UIManager.Instance.ActivateLives();
         UIManager.Instance.ActivateChrono();
+        UIManager.Instance.ActivateScore();
         Cursor.lockState = CursorLockMode.Locked;
 
         invalidDestinationLevel.Clear();
@@ -243,6 +248,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int point)
     {
         score += point;
+        UIManager.Instance.UpadateScore();
     }
     public void SpacecraftDeliver(int qty)
     {
@@ -281,12 +287,11 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Unlock level : " + levelUnlock);
             }
         }
-        packageSent = 0;
-        score = 0;
-
         spacecraft.Clear();
         UIManager.Instance.ActivateEndLevel(success);
 
+        packageSent = 0;
+        score = 0;
         if (!(packageSent < objective))
         {
             if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2 && boxesObjective < totalBoxes)
@@ -299,6 +304,7 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.DeactivateLives();
         UIManager.Instance.DeactivateChrono();
+        UIManager.Instance.DeactivateScore();
         UIManager.Instance.DeactivateIconWalk();
 
         Save(file);

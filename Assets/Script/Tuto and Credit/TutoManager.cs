@@ -49,7 +49,7 @@ public class TutoManager : MonoBehaviour
             OpenDoor();
         else if (step == 3)
         {
-            CloseDoor();
+            //CloseDoor();
             SpawnBox(true, false, false, false, spacecraft.spacecraftDestination);
         }
         else if (step == 5)
@@ -95,9 +95,14 @@ public class TutoManager : MonoBehaviour
     }
     void OpenDoor()
     {
+        /*
         Vector3 position = door[doors].transform.position;
         position.y -= 5;
         door[doors].transform.position = position;
+        */
+        //anim ouverture + Collider
+        door[doors].GetComponent<BoxCollider>().enabled = false;
+        door[doors].GetComponent<Door>().Open();
         doors++;
         step++;
         if(step == 2)
@@ -106,12 +111,15 @@ public class TutoManager : MonoBehaviour
             return;
         }
     }
+    //remplacer par script indépendant
+    /*
     void CloseDoor()
     {
         Vector3 position = door[doors - 1].transform.position;
         position.y += 5;
         door[doors - 1].transform.position = position;
     }
+    */
 
     void SpawnBox(bool valid, bool fragile, bool sus, bool bomb, string destination)
     {

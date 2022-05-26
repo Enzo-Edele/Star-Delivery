@@ -11,13 +11,12 @@ public class DiffuseTable : MonoBehaviour
     public List<GameObject> button = new List<GameObject>();
     public GameObject bombedBox;
     public Bomb bombScript;
-    //trouver un moyen de bypass la bombe
 
     [SerializeField] List<Material> indicMat = new List<Material>();
     [SerializeField] List<Renderer> indicator = new List<Renderer>();
     public List<Renderer> numbers = new List<Renderer>();
 
-    public int combinationLength;
+    public int combinationLength = 4;
     public List<int> combination;
     public int step;
 
@@ -72,9 +71,6 @@ public class DiffuseTable : MonoBehaviour
         GameManager.Instance.ChangeGameState(GameManager.GameStates.isDiffusing);
         UIManager.Instance.ActivateIconPush();
         UIManager.Instance.ActivateIconReturn();
-        UIManager.Instance.DeactivateChrono();
-        UIManager.Instance.DeactivateLives();
-        //maybe deactive UI
     }
 
     public void QuitDiffuseMod()
@@ -91,8 +87,6 @@ public class DiffuseTable : MonoBehaviour
         cam.Priority = 5;
         Cursor.lockState = CursorLockMode.Locked;
         GameManager.Instance.ChangeGameState(GameManager.GameStates.InGame);
-        UIManager.Instance.ActivateChrono();
-        UIManager.Instance.ActivateLives();
     }
 
     public void Randomise()
@@ -104,7 +98,8 @@ public class DiffuseTable : MonoBehaviour
         }
         for (int i = 0; i < combinationLength; i++)
         {
-            indicator[i].materials[i + 1] = indicMat[combination[i]];
+            //indicator[i].materials[i + 1] = indicMat[combination[i]];
+            indicator[i].material = indicMat[combination[i]];
         }
         for (int i = 0; i < combinationLength; i++)
         {

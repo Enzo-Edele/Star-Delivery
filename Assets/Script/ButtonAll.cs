@@ -11,7 +11,7 @@ public class ButtonAll : MonoBehaviour
 
     [SerializeField] List<ConvoyerBelt> belts;
     [SerializeField] List<BoxSpawner> spawner;
-    [SerializeField] List<Door> door;
+    [SerializeField] List<BeltDoor> door;
 
     [SerializeField] bool tuto;
 

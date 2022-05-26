@@ -593,6 +593,10 @@ PrefabInstance:
       propertyPath: combinationLength
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9112340098248241336, guid: 23b0e3ec30d65594eaf85894d2f4bf5b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b0e3ec30d65594eaf85894d2f4bf5b, type: 3}
 --- !u!4 &442429202 stripped
@@ -1308,6 +1312,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: objective
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: timeLevel
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: percentageBomb
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: percentageGood
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: percentageFragile
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1532890965362482361, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
       propertyPath: m_Name
       value: StartBelt
