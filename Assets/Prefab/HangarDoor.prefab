@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4435096332265241647}
   - component: {fileID: 1902867412208732389}
   m_Layer: 0
-  m_Name: sc_door
+  m_Name: HangarDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
