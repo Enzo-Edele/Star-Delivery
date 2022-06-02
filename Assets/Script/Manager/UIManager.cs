@@ -141,7 +141,12 @@ public class UIManager : MonoBehaviour
         grabDropIcon.SetActive(true);
         grabDropText.text = "Drop";
     }
-    public void ActivateIconPush() //icon drop possible
+    public void ActivateIconPress() //icon press lvl Button possible
+    {
+        grabDropIcon.SetActive(true);
+        grabDropText.text = "Press";
+    }
+    public void ActivateIconPush() //icon push Bomb Boutton possible
     {
         grabDropIcon.SetActive(true);
         grabDropText.text = "Push";

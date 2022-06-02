@@ -96,14 +96,14 @@ public class PlayerGrabDrop : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.tag == "Button" && !hasHit)
                 {
-                    UIManager.Instance.ActivateIconDrop();
+                    UIManager.Instance.ActivateIconPress();
                     canBePushed = true;
                     launcherScript = hit.transform.gameObject.GetComponent<Launcher>();
                     hasHit = true;
                 }
                 else if (hit.transform.gameObject.tag == "ButtonAll" && !hasHit)
                 {
-                    UIManager.Instance.ActivateIconDrop();
+                    UIManager.Instance.ActivateIconPress();
                     canBePushed = true;
                     button = hit.transform.gameObject.GetComponent<ButtonAll>();
                     hasHit = true;

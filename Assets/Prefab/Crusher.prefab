@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2926808827116113358}
   - component: {fileID: 1041008282463638098}
   m_Layer: 10
-  m_Name: crusherGraph
+  m_Name: Crusher
   m_TagString: Crusher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

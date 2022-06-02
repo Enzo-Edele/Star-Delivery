@@ -18,6 +18,8 @@ public class Launcher : MonoBehaviour
     public GameObject timePanel;
     public GameObject button;
 
+    bool buttonDown = false;
+
     void Update()
     {
         destinationTxt.text = "Destination : " + spacecraft.spacecraftDestination;
@@ -54,17 +56,22 @@ public class Launcher : MonoBehaviour
         timePanel.SetActive(spacecraft.delivered);
     }
 
-    public void Launch()
+    public void Launch() //empêcher double push
     {
-        spacecraft.launchCo = StartCoroutine(spacecraft.LaunchCoroutine());
-        Vector3 pos = button.transform.localPosition;
-        pos.y -= 0.08f;
-        button.transform.localPosition = pos;
+        if (!buttonDown)
+        {
+            spacecraft.launchCo = StartCoroutine(spacecraft.LaunchCoroutine());
+            Vector3 pos = button.transform.localPosition;
+            pos.y -= 0.08f;
+            button.transform.localPosition = pos;
+            buttonDown = true;
+        }
     }
     public void ButtonUp()
     {
         Vector3 pos = button.transform.localPosition;
         pos.y += 0.08f;
         button.transform.localPosition = pos;
+        buttonDown = false;
     }
 }
