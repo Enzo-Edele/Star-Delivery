@@ -110,6 +110,12 @@ public class GameManager : MonoBehaviour
                 UnpauseGame();
                 LockPlayer();
                 Cursor.lockState = CursorLockMode.Confined;
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.DeactivateLives();
+                    UIManager.Instance.DeactivateChrono();
+                    UIManager.Instance.DeactivateScore();
+                }
                 //Debug.Log("InMenu");
                 break;
             case GameStates.InGame:
@@ -125,16 +131,19 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.DeactivateLives();
                 UIManager.Instance.DeactivateChrono();
                 UIManager.Instance.DeactivateScore();
+                //Debug.Log("isDiffusing");
                 break;
             case GameStates.Pause:
                 PauseGame();
                 Cursor.lockState = CursorLockMode.Confined;
+                UIManager.Instance.DactivateIcons();
                 //Debug.Log("Pause");
                 break;
             case GameStates.GameOver:
                 UnpauseGame();
                 LockPlayer();
                 Cursor.lockState = CursorLockMode.Locked;
+                UIManager.Instance.DactivateIcons();
                 //Debug.Log("GameOver");
                 break;
         }
@@ -241,6 +250,7 @@ public class GameManager : MonoBehaviour
         if(lives <= 0)
         {
             packageSent = 0;
+            score = 0;
             EndLevel();
         }
         UIManager.Instance.UpdateLives();
@@ -256,6 +266,7 @@ public class GameManager : MonoBehaviour
     }
     void UpdateTotalBoxes()
     {
+        totalBoxes = 0;
         for (int i = 0; i < boxScoreList.Count; i++)
             totalBoxes += boxScoreList[i];
     }
@@ -273,15 +284,15 @@ public class GameManager : MonoBehaviour
                 if (packageSent > boxScoreList[SceneManager.GetActiveScene().buildIndex - 3]) { 
                     boxScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
                     UpdateTotalBoxes();
-                    Debug.Log("set highscore to : " + packageSent);
                 }
+                if(score > highScoreList[SceneManager.GetActiveScene().buildIndex - 3])
+                    highScoreList[SceneManager.GetActiveScene().buildIndex - 3] = score;
             }
         }
         if (!(packageSent < objective))
         {
             success = true;
             Debug.Log("win");
-            //UIScore
             if (levelUnlock == SceneManager.GetActiveScene().buildIndex - 2 && !(levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2)) {
                 levelUnlock++;
                 Debug.Log("Unlock level : " + levelUnlock);

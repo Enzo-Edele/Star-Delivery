@@ -162,6 +162,7 @@ public class Box : MonoBehaviour
         for (int i = 0; i < bombScript.buttons.Count; i++)
             bombScript.buttons[i].SetActive(false);
         isArmed = false;
+        GameManager.Instance.UpdateScore(200);
     }
 
     public void Crusher()
@@ -174,11 +175,13 @@ public class Box : MonoBehaviour
         }
         if (isBroken) {
             SoundManager.Instance.Play("Valid");
+            GameManager.Instance.UpdateScore(50);
             Destroy(gameObject);
             return;
         }
         if(isSus) {
             SoundManager.Instance.Play("Valid");
+            GameManager.Instance.UpdateScore(50);
             Destroy(gameObject);
             return;
         }
@@ -193,6 +196,10 @@ public class Box : MonoBehaviour
         for (int y = 0; y < GameManager.Instance.invalidDestinationLevel.Count; y++) {
             if (destination == GameManager.Instance.invalidDestinationLevel[y]) {
                 SoundManager.Instance.Play("Valid");
+                if(isFragile && !isBroken)
+                    GameManager.Instance.UpdateScore(100);
+                else
+                    GameManager.Instance.UpdateScore(50);
                 Destroy(gameObject);
                 return;
             }

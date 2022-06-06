@@ -3,7 +3,17 @@ guid: 8d6e62ebde1f7b9498d0de5f90e26561
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brushed Aluminum 2
+    second: {fileID: 2100000, guid: 29e5eaf8a8483cf42ace3778d5a1e5cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scifi Panels 06
+    second: {fileID: 2100000, guid: e1e78345ecd14424da4c6725938a6d24, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

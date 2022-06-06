@@ -17,7 +17,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Button> loadButtons;
     [SerializeField] GameObject levelMenu;
     [SerializeField] List<Button> LevelButtons;
+    [SerializeField] List<Text> highScoresBox;
     [SerializeField] List<Text> highScores;
+    [SerializeField] List<Vector3> starRequirement;
+    [SerializeField] List<Image> starLvl;
+    [SerializeField] List<Sprite> starImage;
     [SerializeField] GameObject endLevel;
     [SerializeField] Text endLevelScoreText;
     [SerializeField] GameObject endLevelNextButton;
@@ -46,11 +50,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject LivesDisplay;
     [SerializeField] List<Image> lives;
     [SerializeField] Sprite live, emptylive;
-
-    bool wasPaused;
     float timerWarn;
     [SerializeField] int timeWarn;
 
+    bool wasPaused;
     #endregion
     public static UIManager Instance { get; private set; }
     void Awake()
@@ -188,6 +191,12 @@ public class UIManager : MonoBehaviour
     {
         walkIcon.SetActive(false);
     }
+    public void DactivateIcons()
+    {
+        grabDropIcon.SetActive(false);
+        diffuseIcon.SetActive(false);
+        walkIcon.SetActive(false);
+    }
     public void ActivateLives() //activate livesDisplay
     {
         LivesDisplay.SetActive(true);
@@ -291,7 +300,17 @@ public class UIManager : MonoBehaviour
         {
             if (i < GameManager.Instance.levelUnlock)
                 LevelButtons[i].interactable = true;
-            highScores[i].text = GameManager.Instance.boxScoreList[i].ToString() + " Packages";
+            highScoresBox[i].text = GameManager.Instance.boxScoreList[i].ToString() + " Packages";
+            highScores[i].text = GameManager.Instance.highScoreList[i].ToString() + " Points";
+            //if statement to activate star
+            if (GameManager.Instance.highScoreList[i] > starRequirement[i].z)
+                starLvl[i].sprite = starImage[3];
+            else if (GameManager.Instance.highScoreList[i] > starRequirement[i].y)
+                starLvl[i].sprite = starImage[2];
+            else if (GameManager.Instance.highScoreList[i] > starRequirement[i].x)
+                starLvl[i].sprite = starImage[1];
+            else
+                starLvl[i].sprite = starImage[0];
         }
     }
     void ExitCampain()
@@ -299,7 +318,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < LevelButtons.Count; i++)
         {
             LevelButtons[i].interactable = false;
-            highScores[i].text = GameManager.Instance.boxScoreList[i].ToString();
+            highScoresBox[i].text = GameManager.Instance.boxScoreList[i].ToString();
         }
     }
 
@@ -382,8 +401,8 @@ public class UIManager : MonoBehaviour
     }
     public void ButtonSelectLevelResume()//pause menu/end level menu -> select level menu
     {
-        if(pauseMenu.activeSelf == true)
-            GameManager.Instance.EndLevel();
+        /*if(pauseMenu.activeSelf == true)
+            GameManager.Instance.EndLevel();*/
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateLevelMenu();
@@ -393,8 +412,8 @@ public class UIManager : MonoBehaviour
     }
     public void ButtonMainMenuResume()//pause menu/end level menu -> main menu
     {
-        if (pauseMenu.activeSelf == true)
-            GameManager.Instance.EndLevel();
+        /*if(pauseMenu.activeSelf == true)
+            GameManager.Instance.EndLevel();*/
         DeactivatePauseMenu();
         DeactivateEndLevel();
         ActivateMainMenu();
