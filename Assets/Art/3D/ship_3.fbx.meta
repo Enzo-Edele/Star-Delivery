@@ -21,7 +21,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal Black Dixon
-    second: {fileID: 2100000, guid: 7fb0b37c0885a5f48a741b0605d83a41, type: 2}
+    second: {fileID: -167906427434553992, guid: 4387fee24e8dc4a4fb5767cf2838c36b, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -36,12 +36,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Scifi Panels 06
-    second: {fileID: 2100000, guid: 9c56378af23b53f47b1c4a0cff51714d, type: 2}
+    second: {fileID: 2100000, guid: 987df790990324440b3bb970ea191c49, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Scifi Panels 10
-    second: {fileID: 2100000, guid: 9c56378af23b53f47b1c4a0cff51714d, type: 2}
+    second: {fileID: 2100000, guid: 987df790990324440b3bb970ea191c49, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -1612,7 +1612,11 @@ MonoBehaviour:
   - {fileID: 2112988219}
   - {fileID: 1110616897}
   - {fileID: 1679679570}
+  highScoresBox: []
   highScores: []
+  starRequirement: []
+  starLvl: []
+  starImage: []
   endLevel: {fileID: 1046195020}
   endLevelScoreText: {fileID: 0}
   endLevelNextButton: {fileID: 0}
@@ -12602,6 +12606,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship_3
       objectReference: {fileID: 0}
+    - target: {fileID: 3898418757549302720, guid: f2798b79bedf18649a1f67e224626e17, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987df790990324440b3bb970ea191c49, type: 2}
+    - target: {fileID: 3898418757549302720, guid: f2798b79bedf18649a1f67e224626e17, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987df790990324440b3bb970ea191c49, type: 2}
+    - target: {fileID: 3898418757549302720, guid: f2798b79bedf18649a1f67e224626e17, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987df790990324440b3bb970ea191c49, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2798b79bedf18649a1f67e224626e17, type: 3}
 --- !u!1 &7172651018608831933
