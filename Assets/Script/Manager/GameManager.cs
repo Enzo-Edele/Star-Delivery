@@ -116,6 +116,8 @@ public class GameManager : MonoBehaviour
                     UIManager.Instance.DeactivateChrono();
                     UIManager.Instance.DeactivateScore();
                 }
+                SoundManager.Instance.StopMusic("MusicGame");
+                SoundManager.Instance.PlayMusic("MusicMenu");
                 //Debug.Log("InMenu");
                 break;
             case GameStates.InGame:
@@ -124,6 +126,8 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.ActivateLives();
                 UIManager.Instance.ActivateChrono();
                 UIManager.Instance.ActivateScore();
+                SoundManager.Instance.StopMusic("MusicMenu");
+                SoundManager.Instance.PlayMusic("MusicGame");
                 //Debug.Log("InGame");
                 break;
             case GameStates.isDiffusing:
@@ -137,6 +141,8 @@ public class GameManager : MonoBehaviour
                 PauseGame();
                 Cursor.lockState = CursorLockMode.Confined;
                 UIManager.Instance.DactivateIcons();
+                SoundManager.Instance.PauseMusic("MusicGame");
+                SoundManager.Instance.PlayMusic("MusicMenu");
                 //Debug.Log("Pause");
                 break;
             case GameStates.GameOver:
@@ -258,7 +264,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int point)
     {
         score += point;
-        UIManager.Instance.UpadateScore();
+        UIManager.Instance.UpadateScore(point);
     }
     public void SpacecraftDeliver(int qty)
     {

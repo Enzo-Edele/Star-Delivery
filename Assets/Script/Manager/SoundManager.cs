@@ -79,9 +79,45 @@ public class SoundManager : MonoBehaviour
         s.source.Play();
         return s.clip.length;
     }
-    public void PlayMusic()
+    public void PlayMusic(string name)
     {
-
+        Sound s = Array.Find(musics, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.Play();
+    }
+    public void PauseMusic(string name)
+    {
+        Sound s = Array.Find(musics, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.Pause();
+    }
+    public void UnpauseMusic(string name)
+    {
+        Sound s = Array.Find(musics, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.UnPause();
+    }
+    public void StopMusic(string name)
+    {
+        Sound s = Array.Find(musics, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.Stop();
     }
 
     public void StopAllSoud()

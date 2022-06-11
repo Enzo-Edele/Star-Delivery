@@ -47,6 +47,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text chronometerText;
     [SerializeField] GameObject score;
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] Animator textAnimator;
+    [SerializeField] TMP_Text scoreAddText;
     [SerializeField] GameObject LivesDisplay;
     [SerializeField] List<Image> lives;
     [SerializeField] Sprite live, emptylive;
@@ -230,9 +232,11 @@ public class UIManager : MonoBehaviour
         if (score != null)
             score.SetActive(false);
     }
-    public void UpadateScore()
+    public void UpadateScore(int point)
     {
         scoreText.text = "Score : " + GameManager.Instance.score;
+        textAnimator.SetTrigger("add");
+        scoreAddText.text = "+" + point;
     }
 
     public void ActivateEndLevel(bool success) //end level menu
