@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] int packageSent;
     public int score;
+    public int[] scoreDtails = new int[8];
     [SerializeField] int objective;
     public int lives;
     public bool canDiffuse;
@@ -261,10 +262,29 @@ public class GameManager : MonoBehaviour
         }
         UIManager.Instance.UpdateLives();
     }
-    public void UpdateScore(int point)
+    public void UpdateScore(int point, int index)
     {
         score += point;
+        if (index >= 0 && index < 8)
+        {
+            if (index < 5)
+                scoreDtails[0] += point;
+            else
+                scoreDtails[5] += point;
+            scoreDtails[index] += point;
+        }
         UIManager.Instance.UpadateScore(point);
+    }
+    public void UpdateScoreDetails(int point, int index)
+    {
+        if (index >= 0 && index < 8)
+        {
+            if (index < 5)
+                scoreDtails[0] += point;
+            else
+                scoreDtails[5] += point;
+            scoreDtails[index] += point;
+        }
     }
     public void SpacecraftDeliver(int qty)
     {
@@ -275,6 +295,14 @@ public class GameManager : MonoBehaviour
         totalBoxes = 0;
         for (int i = 0; i < boxScoreList.Count; i++)
             totalBoxes += boxScoreList[i];
+    }
+    public void ResetValue()
+    {
+        spacecraft.Clear();
+        packageSent = 0;
+        score = 0;
+        for (int i = 0; i < scoreDtails.Length; i++)
+            scoreDtails[i] = 0;
     }
     public void EndLevel()
     {
@@ -304,11 +332,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Unlock level : " + levelUnlock);
             }
         }
-        spacecraft.Clear();
         UIManager.Instance.ActivateEndLevel(success);
 
-        packageSent = 0;
-        score = 0;
+        ResetValue();
         if (!(packageSent < objective))
         {
             if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2 && boxesObjective < totalBoxes)

@@ -162,7 +162,7 @@ public class Box : MonoBehaviour
         for (int i = 0; i < bombScript.buttons.Count; i++)
             bombScript.buttons[i].SetActive(false);
         isArmed = false;
-        GameManager.Instance.UpdateScore(200);
+        GameManager.Instance.UpdateScore(200, 6);
     }
 
     public void Crusher()
@@ -175,13 +175,13 @@ public class Box : MonoBehaviour
         }
         if (isBroken) {
             SoundManager.Instance.Play("Valid");
-            GameManager.Instance.UpdateScore(50);
+            GameManager.Instance.UpdateScore(50, 2);
             Destroy(gameObject);
             return;
         }
         if(isSus) {
             SoundManager.Instance.Play("Valid");
-            GameManager.Instance.UpdateScore(50);
+            GameManager.Instance.UpdateScore(50, 4);
             Destroy(gameObject);
             return;
         }
@@ -197,9 +197,9 @@ public class Box : MonoBehaviour
             if (destination == GameManager.Instance.invalidDestinationLevel[y]) {
                 SoundManager.Instance.Play("Valid");
                 if(isFragile && !isBroken)
-                    GameManager.Instance.UpdateScore(100);
+                    GameManager.Instance.UpdateScore(100, 2);
                 else
-                    GameManager.Instance.UpdateScore(50);
+                    GameManager.Instance.UpdateScore(50, 2);
                 Destroy(gameObject);
                 return;
             }
@@ -225,12 +225,17 @@ public class Box : MonoBehaviour
         if (isSus)
         {
             SoundManager.Instance.Play("NotValid");
+            GameManager.Instance.ChangeLife(-1);
             Destroy(gameObject);
             return;
         }
         if (destination == shuttleDestination)
         {
             SoundManager.Instance.Play("Valid");
+            if(isFragile)
+                GameManager.Instance.UpdateScoreDetails(150, 3);
+            else
+                GameManager.Instance.UpdateScoreDetails(100, 1);
             Destroy(gameObject);
             return;
         }

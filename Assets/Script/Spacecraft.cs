@@ -54,7 +54,7 @@ public class Spacecraft : MonoBehaviour
     {
         delivered = true;
         GameManager.Instance.SpacecraftDeliver(packages);
-        GameManager.Instance.UpdateScore(sendScore);
+        GameManager.Instance.UpdateScore(sendScore, -1);
         packages = 0;
         spacecraftMaterial.color = Color.blue;//anim décollage
         yield return new WaitForSeconds(estimatedTime);
