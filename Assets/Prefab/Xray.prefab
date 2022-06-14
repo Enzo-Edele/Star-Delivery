@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2936830046502252695}
   - component: {fileID: 1091348956218459229}
   - component: {fileID: 3366185506181215961}
+  - component: {fileID: 1246094510269572085}
   m_Layer: 0
   m_Name: Xray
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1129696623207493675, guid: 4387fee24e8dc4a4fb5767cf2838c36b, type: 3}
-  - {fileID: -6058240501824027473, guid: 4387fee24e8dc4a4fb5767cf2838c36b, type: 3}
+  - {fileID: 2100000, guid: 45ad8cc8adae00c44a637124e734aa8f, type: 2}
   - {fileID: -167906427434553992, guid: 4387fee24e8dc4a4fb5767cf2838c36b, type: 3}
   - {fileID: -382652638819485698, guid: 4387fee24e8dc4a4fb5767cf2838c36b, type: 3}
   - {fileID: -2505642851634945670, guid: 4387fee24e8dc4a4fb5767cf2838c36b, type: 3}
@@ -101,3 +102,16 @@ MonoBehaviour:
   XRay: {fileID: 0}
   X: {fileID: 0}
   V: {fileID: 0}
+--- !u!65 &1246094510269572085
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451773609151997320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75585747, y: 4.127108, z: 6.000003}
+  m_Center: {x: -1.6220713, y: 2.7062976, z: -0.0000014305115}
