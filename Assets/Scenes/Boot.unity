@@ -3509,7 +3509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &701051985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4578,142 +4578,142 @@ MonoBehaviour:
   tutoSounds:
   - name: Intro
     clip: {fileID: 8300000, guid: 9fb5103b6318b7344a5dd1f819b772b3, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Colis
     clip: {fileID: 8300000, guid: 45d1a3c1b76206d4f94f913adc719b7b, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Adresse
     clip: {fileID: 8300000, guid: 131307fcc2a241c42b59baa12f59274f, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Navette-Tablette
     clip: {fileID: 8300000, guid: de845dcb5afa1124c819dc7d62f8d364, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: "D\xE9poseNavette"
     clip: {fileID: 8300000, guid: 72f9bb55f5bdfda46914543f372ad14c, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Envoie
     clip: {fileID: 8300000, guid: 5ed51162627e54242aafae314f30d3c0, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Fragile
     clip: {fileID: 8300000, guid: c1f46dc1a24705f41aef12910f525520, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Stockage
     clip: {fileID: 8300000, guid: 1abfc78723be95248a2f71d9831c2820, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Destroy
     clip: {fileID: 8300000, guid: 03e125bb77d18ca41816a161ba4b77ee, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Bomb
     clip: {fileID: 8300000, guid: 8e79a35e40dc7ee479d373c4748761a2, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Sus
     clip: {fileID: 8300000, guid: e281990835ffeb64ca89d6f02c2f66c7, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   soundsEffects:
   - name: Button
     clip: {fileID: 8300000, guid: 70e652f96a6800c4496723739a75929d, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: SpawnBox
     clip: {fileID: 8300000, guid: 5d09678a0765dd548a64f4552c2f4557, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Valid
     clip: {fileID: 8300000, guid: e49f29fdec933a347b38c08313b83ca1, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: NotValid
     clip: {fileID: 8300000, guid: 8cb91edbfc521fb45abe6dc9e7e10d7e, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: FragileBreak
     clip: {fileID: 8300000, guid: 14ae13c962dd0a3439742c72b9b42dbf, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Boop
     clip: {fileID: 8300000, guid: 437daeb6f40d55f469ecc09e6d6ebddc, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Disarmed
     clip: {fileID: 8300000, guid: 122c3e721378bc645b9a7b57e5482f44, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Explosion
     clip: {fileID: 8300000, guid: 8bff71dc76782e9419367a336f40ae11, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: StopBelt
-    clip: {fileID: 8300000, guid: 60f2ace3a87d7c24dafba655cc56d0df, type: 3}
-    mixerGroup: {fileID: 0}
+    clip: {fileID: 8300000, guid: 70e652f96a6800c4496723739a75929d, type: 3}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 1
     loop: 0
     source: {fileID: 0}
   - name: Door
     clip: {fileID: 8300000, guid: 18ffd47cf88ce694585495ab21df2628, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -7529767881757792432, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0.1
     loop: 0
     source: {fileID: 0}
   musics:
   - name: MusicMenu
     clip: {fileID: 8300000, guid: 3bf4762691df3074aa910a33f3baf42f, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8814146142692536671, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0.125
     loop: 1
     source: {fileID: 0}
   - name: MusicGame
-    clip: {fileID: 8300000, guid: 8349021e3d4c3194aa8f7211cc48d70f, type: 3}
-    mixerGroup: {fileID: 0}
-    volume: 0.125
+    clip: {fileID: 8300000, guid: 4168be59f65ae1c479b562859c56a215, type: 3}
+    mixerGroup: {fileID: 8814146142692536671, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
+    volume: 0.8
     loop: 1
     source: {fileID: 0}
 --- !u!1 &875667313
