@@ -3703,6 +3703,7 @@ MonoBehaviour:
   - {fileID: 1142792133}
   - {fileID: 535173304}
   levelMenu: {fileID: 1773749430}
+  tuto: {fileID: 2019153298}
   LevelButtons:
   - {fileID: 1747413831}
   - {fileID: 931212391}
@@ -4097,9 +4098,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 442976821}
     m_Modifications:
+    - target: {fileID: 278774069, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
+      propertyPath: m_Name
+      value: DoneText
+      objectReference: {fileID: 0}
+    - target: {fileID: 278774070, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 278774070, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.999998
+      objectReference: {fileID: 0}
     - target: {fileID: 278774071, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
       propertyPath: m_Text
       value: Done/To Do
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699217482361735056, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4593064406486928527, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
@@ -15677,6 +15694,17 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &2019153298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 278774071, guid: 5843fdcba5eb18847ac6fe0a3cfb66a6, type: 3}
+  m_PrefabInstance: {fileID: 813507802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2039693543
 GameObject:
   m_ObjectHideFlags: 0

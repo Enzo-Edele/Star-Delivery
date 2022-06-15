@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3996784112247695558}
+  - component: {fileID: 5175872375141479660}
   m_Layer: 0
   m_Name: ShuttleModel
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 368054104164736054}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5175872375141479660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243528708314805755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.845439, y: 1.3059454, z: 7.1002827}
+  m_Center: {x: -0.010046005, y: 0.7080989, z: -0.49977016}
 --- !u!1 &1031403399551993484
 GameObject:
   m_ObjectHideFlags: 0

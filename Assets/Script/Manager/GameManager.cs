@@ -313,17 +313,20 @@ public class GameManager : MonoBehaviour
         bool success = false;
         if (levelUnlock > 0)
         {
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+                if (lives > 0)
+                    tutoDone = true;
             if (SceneManager.GetActiveScene().buildIndex - 3 >= 0)
             { //attention ce if permet de mettre un cheat pour changer levelUnlock pendant tuto et permet actualisation des scores
-                if (packageSent > boxScoreList[SceneManager.GetActiveScene().buildIndex - 3]) { 
+                if (packageSent > boxScoreList[SceneManager.GetActiveScene().buildIndex - 3] && lives > 0) { 
                     boxScoreList[SceneManager.GetActiveScene().buildIndex - 3] = packageSent;
                     UpdateTotalBoxes();
                 }
-                if(score > highScoreList[SceneManager.GetActiveScene().buildIndex - 3])
+                if(score > highScoreList[SceneManager.GetActiveScene().buildIndex - 3] && lives > 0)
                     highScoreList[SceneManager.GetActiveScene().buildIndex - 3] = score;
             }
         }
-        if (!(packageSent < objective))
+        if (!(packageSent < objective) && lives > 0)
         {
             success = true;
             Debug.Log("win");

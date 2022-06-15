@@ -2642,7 +2642,7 @@ MonoBehaviour:
   - {fileID: 1446538664}
   spawner: {fileID: 3016147889306477324}
   grab: {fileID: 193916878}
-  spacecraft: {fileID: 0}
+  spacecraft: {fileID: 854671587}
 --- !u!4 &440692324
 Transform:
   m_ObjectHideFlags: 0
@@ -4430,6 +4430,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f886eef2ff99db45972153a0c973fbf, type: 3}
+--- !u!114 &854671587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4962290118628933829, guid: 7f886eef2ff99db45972153a0c973fbf, type: 3}
+  m_PrefabInstance: {fileID: 854671586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b6134d66f07c9488589c053eddc906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &858425105
 GameObject:
   m_ObjectHideFlags: 0

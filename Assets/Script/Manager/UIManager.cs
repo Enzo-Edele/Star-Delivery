@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject loadButton;
     [SerializeField] List<Button> loadButtons;
     [SerializeField] GameObject levelMenu;
+    [SerializeField] Text tuto;
     [SerializeField] List<Button> LevelButtons;
     [SerializeField] List<Text> highScoresBox;
     [SerializeField] List<Text> highScores;
@@ -305,6 +306,15 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < LevelButtons.Count; i++)
         {
+            //condition tuto
+            if (GameManager.Instance.tutoDone)
+            {
+                tuto.text = "Done";
+            }
+            else
+            {
+                tuto.text = "To Do";
+            }
             if (i < GameManager.Instance.levelUnlock)
                 LevelButtons[i].interactable = true;
             highScoresBox[i].text = GameManager.Instance.boxScoreList[i].ToString() + " Packages";
