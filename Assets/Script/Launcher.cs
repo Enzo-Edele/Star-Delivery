@@ -36,7 +36,7 @@ public class Launcher : MonoBehaviour
             spacecraft.deliveredTime = Time.time;
         }
 
-        if (spacecraft.packages > spacecraft.maximumCharge)
+        if (spacecraft.packages >= spacecraft.maximumCharge)
         {
             if (spacecraft.packages == (spacecraft.overload + spacecraft.maximumCharge))
             {
