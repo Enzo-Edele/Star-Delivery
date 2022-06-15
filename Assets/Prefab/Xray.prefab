@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1091348956218459229}
   - component: {fileID: 3366185506181215961}
   - component: {fileID: 1246094510269572085}
+  - component: {fileID: 5954839128524836777}
   m_Layer: 0
   m_Name: Xray
   m_TagString: Untagged
@@ -115,3 +116,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.75585747, y: 4.127108, z: 6.000003}
   m_Center: {x: -1.6220713, y: 2.7062976, z: -0.0000014305115}
+--- !u!65 &5954839128524836777
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451773609151997320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8443987, y: 1.4799523, z: 3.134295}
+  m_Center: {x: 0.23360597, y: 2.5480683, z: 0.11023115}
