@@ -545,7 +545,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8e7be4d4da8c1a649b1432bbccb28e75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1432,6 +1432,10 @@ PrefabInstance:
     - target: {fileID: 101519714256283952, guid: 534d8cbef2db7dc44a8909039bd64665, type: 3}
       propertyPath: m_Name
       value: HangarDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 101519714256283952, guid: 534d8cbef2db7dc44a8909039bd64665, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 730562842935276426, guid: 534d8cbef2db7dc44a8909039bd64665, type: 3}
       propertyPath: m_RootOrder

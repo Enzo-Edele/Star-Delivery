@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HangarDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 101519714256283952, guid: 534d8cbef2db7dc44a8909039bd64665, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 730562842935276426, guid: 534d8cbef2db7dc44a8909039bd64665, type: 3}
       propertyPath: m_RootOrder
       value: 19
