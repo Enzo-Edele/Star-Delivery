@@ -61,7 +61,7 @@ public class TutoManager : MonoBehaviour
         else if (step == 12)
             SpawnBox(false, false, false, false, null);
         else if (step == 14)
-            SpawnBox(true, false, false, true, GameManager.Instance.invalidDestinationLevel[Random.Range(0,2)]);
+            SpawnBox(true, false, true, true, GameManager.Instance.invalidDestinationLevel[Random.Range(0,2)]);
         else if (step == 16)
             SpawnBox(true, false, true, false, spacecraft.spacecraftDestination);
 

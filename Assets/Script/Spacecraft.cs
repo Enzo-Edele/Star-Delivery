@@ -8,6 +8,10 @@ public class Spacecraft : MonoBehaviour
     public Material spacecraftMaterial;
     public float orderInList;
     public GameObject spacecraft;
+    [SerializeField] GameObject shuttlePrefab;
+    [SerializeField] Animator ShuttleAnimator;
+    GameObject shuttle;
+    Vector3 shuttleStartPos;
     public Coroutine launchCo;
     public int packages = 0;
     public int maximumCharge = 4;
@@ -20,14 +24,17 @@ public class Spacecraft : MonoBehaviour
     private int sendScore = 0;
     public TMP_Text destinationText; //set up tout ca avec une fct
     [SerializeField] Launcher launcher;
+    [SerializeField] Cinemachine.CinemachineSmoothPath path;
 
     private void Awake()
     {
-        spacecraftMaterial = spacecraft.GetComponent<Renderer>().material;
+        //spacecraftMaterial = spacecraft.GetComponent<Renderer>().material;
+        //spacecraft = this.gameObject.transform.parent.gameObject;
         delivered = false;
-        spacecraft = this.gameObject.transform.parent.gameObject;
         orderInList = GameManager.Instance.spacecraft.Count;
         GameManager.Instance.spacecraft.Add(this);
+        shuttleStartPos = new Vector3(0, 1, -3.5f);
+        shuttleStartPos = transform.parent.TransformPoint(shuttleStartPos);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,14 +59,23 @@ public class Spacecraft : MonoBehaviour
 
     public IEnumerator LaunchCoroutine()
     {
+        full = true;
         delivered = true;
         GameManager.Instance.SpacecraftDeliver(packages);
         GameManager.Instance.UpdateScore(sendScore, -1);
         packages = 0;
-        spacecraftMaterial.color = Color.blue;//anim décollage
+        //anim décollage
+        Debug.Log(transform.parent.name + ", " + shuttleStartPos);
+        spacecraft.SetActive(false);
+        shuttle = Instantiate(shuttlePrefab, shuttleStartPos, Quaternion.identity, transform.parent);
+        shuttle.GetComponent<Cinemachine.CinemachineDollyCart>().m_Path = path;
+        ShuttleAnimator.SetTrigger("Depart");
         yield return new WaitForSeconds(estimatedTime);
         estimatedTime = 20;
-        spacecraftMaterial.color = Color.red;//anim atterrisage
+        //anim atterrisage
+        spacecraft.SetActive(true);
+        Destroy(shuttle);
+        shuttle = null;
         delivered = false;
         full = false;
         launcher.ButtonUp();
