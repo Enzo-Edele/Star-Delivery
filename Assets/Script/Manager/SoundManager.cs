@@ -57,6 +57,36 @@ public class SoundManager : MonoBehaviour
         }
         s.source.Play();
     }
+    public void PauseSound(string name)
+    {
+        Sound s = Array.Find(soundsEffects, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.Pause();
+    }
+    public void UnpauseSound(string name)
+    {
+        Sound s = Array.Find(soundsEffects, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.UnPause();
+    }
+    public void StopSound(string name)
+    {
+        Sound s = Array.Find(soundsEffects, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("musics name not find : " + name);
+            return;
+        }
+        s.source.Stop();
+    }
     public float PlayTime(string name)
     {
         Sound s = Array.Find(soundsEffects, sound => sound.name == name);

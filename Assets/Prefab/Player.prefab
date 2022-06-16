@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3711587085108480027}
   - component: {fileID: 3711587085108480026}
   - component: {fileID: 3711587085108480005}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 3711587085382189916}
   - component: {fileID: 3711587085382189906}
   - component: {fileID: 3711587085382189917}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 3711587085748133662}
   - component: {fileID: 3711587085748133657}
   - component: {fileID: 3711587085748133656}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3711587085926638605}
   - component: {fileID: 3711587085926638594}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3711587087177953448}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -61,6 +61,7 @@ public class Launcher : MonoBehaviour
         if (!buttonDown)
         {
             spacecraft.launchCo = StartCoroutine(spacecraft.LaunchCoroutine());
+            SoundManager.Instance.Play("StopBelt");
             Vector3 pos = button.transform.localPosition;
             pos.y -= 0.08f;
             button.transform.localPosition = pos;

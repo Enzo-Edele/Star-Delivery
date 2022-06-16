@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
                     UIManager.Instance.DeactivateScore();
                 }
                 SoundManager.Instance.StopMusic("MusicGame");
+                SoundManager.Instance.StopSound("Dradis");
                 SoundManager.Instance.PlayMusic("MusicMenu");
                 //Debug.Log("InMenu");
                 break;
@@ -128,6 +129,7 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.ActivateChrono();
                 UIManager.Instance.ActivateScore();
                 SoundManager.Instance.StopMusic("MusicMenu");
+                SoundManager.Instance.Play("Dradis");
                 SoundManager.Instance.PlayMusic("MusicGame");
                 //Debug.Log("InGame");
                 break;
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Confined;
                 UIManager.Instance.DactivateIcons();
                 SoundManager.Instance.PauseMusic("MusicGame");
+                SoundManager.Instance.PauseSound("Dradis");
                 SoundManager.Instance.PlayMusic("MusicMenu");
                 //Debug.Log("Pause");
                 break;
