@@ -56,6 +56,10 @@ public class UIManager : MonoBehaviour
     float timerWarn;
     [SerializeField] int timeWarn;
 
+    [SerializeField] GameObject dialogue;
+    [SerializeField] TMP_Text dialogueText;
+    float timerDialogue;
+
     bool wasPaused;
     #endregion
     public static UIManager Instance { get; private set; }
@@ -78,6 +82,10 @@ public class UIManager : MonoBehaviour
             timerWarn = 0;
             DeactivateFragileWarning();
         }
+        if (timerDialogue > 0)
+            timerDialogue -= Time.deltaTime;
+        else if (timerDialogue < 0)
+            DeactivateDialogue();
     }
 
     public void ActivateMainMenu() //main menu
@@ -337,6 +345,20 @@ public class UIManager : MonoBehaviour
             LevelButtons[i].interactable = false;
             highScoresBox[i].text = GameManager.Instance.boxScoreList[i].ToString();
         }
+    }
+
+    public void ActivateDialogue(string textDial, int time) //activate text et set dialogue
+    {
+        dialogue.SetActive(true);
+        dialogueText.text = textDial;
+        timerDialogue = time;
+    }
+    public void DeactivateDialogue() //desactiver a la fin de niveau pause et autre 
+    {
+        dialogueText.text = "";
+        timerDialogue = 0;      
+        if (dialogue != null)
+            dialogue.SetActive(false);
     }
 
     public void ButtonNewGameMenu()//main menu -> new game menu

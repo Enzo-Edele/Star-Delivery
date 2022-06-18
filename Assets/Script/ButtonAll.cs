@@ -73,7 +73,7 @@ public class ButtonAll : MonoBehaviour
     {
         spawnerTuto.StartLevel();
         Vector3 pos = gameObject.transform.localPosition;
-        pos.y -= 0.08f;
+        pos.y -= 0.1f;
         gameObject.transform.localPosition = pos;
     }
 }

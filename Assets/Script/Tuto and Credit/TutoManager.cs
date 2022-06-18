@@ -21,6 +21,7 @@ public class TutoManager : MonoBehaviour
         messages = 0;
         doors = 0;
         PlayAdvice();
+        UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[0], 7);
     }
     /* step 0 : intro(0) explication déplacement //mettre une lumiére pour pointer les élément clef
      * step 1 : ouverture porte(0)
@@ -49,37 +50,54 @@ public class TutoManager : MonoBehaviour
             OpenDoor();
         else if (step == 3)
         {
-            //CloseDoor();
             SpawnBox(true, false, false, false, spacecraft.spacecraftDestination);
         }
         else if (step == 5)
+        {
             PlayAdvice();
+        }
         else if (step == 6)
+        {
             PlayAdvice();
+        }
         else if (step == 9)
             SpawnBox(true, true, false, false, spacecraft.spacecraftDestination);
         else if (step == 12)
             SpawnBox(false, false, false, false, null);
         else if (step == 14)
-            SpawnBox(true, false, true, true, GameManager.Instance.invalidDestinationLevel[Random.Range(0,2)]);
+            SpawnBox(true, false, true, true, GameManager.Instance.invalidDestinationLevel[Random.Range(0, 2)]);
         else if (step == 16)
             SpawnBox(true, false, true, false, spacecraft.spacecraftDestination);
 
         if (grab.grabObject != null && step == 4)
+        {
             PlayAdvice();
-        if(spacecraft.packages == 1 && step == 7)
+        }
+        if (spacecraft.packages == 1 && step == 7)
+        {
             PlayAdvice();
-        if(spacecraft.delivered == true && step == 8)
+        }
+        if (spacecraft.delivered == true && step == 8)
+        {
             PlayAdvice();
-        if(grab.grabObject != null && step == 10)
+        }
+        if (grab.grabObject != null && step == 10)
+        {
             PlayAdvice();
-        if(spawner.package != null)
+        }
+        if (spawner.package != null)
             if(spawner.package.GetComponent<Box>().isStored && step == 11)
+            {
                 PlayAdvice();
+            }
         if (spawner.package == null && step == 13)
+        {
             PlayAdvice();
+        }
         if (spawner.package == null && step == 15)
+        {
             PlayAdvice();
+        }
         if (spawner.package == null && step == 17)
         {
             Debug.Log("tuto finito");
@@ -108,6 +126,7 @@ public class TutoManager : MonoBehaviour
         if(step == 2)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[1], 10);
             return;
         }
     }
