@@ -116,6 +116,8 @@ public class GameManager : MonoBehaviour
                     UIManager.Instance.DeactivateLives();
                     UIManager.Instance.DeactivateChrono();
                     UIManager.Instance.DeactivateScore();
+                    UIManager.Instance.DeactivateFragileWarning();
+                    UIManager.Instance.DeactivateDialogue();
                 }
                 SoundManager.Instance.StopMusic("MusicGame");
                 SoundManager.Instance.StopSound("Dradis");
@@ -138,6 +140,8 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.DeactivateLives();
                 UIManager.Instance.DeactivateChrono();
                 UIManager.Instance.DeactivateScore();
+                UIManager.Instance.DeactivateFragileWarning();
+                UIManager.Instance.DeactivateDialogue();
                 //Debug.Log("isDiffusing");
                 break;
             case GameStates.Pause:
@@ -355,6 +359,8 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.DeactivateChrono();
         UIManager.Instance.DeactivateScore();
         UIManager.Instance.DeactivateIconWalk();
+        UIManager.Instance.DeactivateFragileWarning();
+        UIManager.Instance.DeactivateDialogue();
 
         Save(file);
 

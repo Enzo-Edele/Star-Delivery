@@ -347,13 +347,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ActivateDialogue(string textDial, int time) //activate text et set dialogue
+    public void ActivateDialogue(string textDial, int time) //activate dialog box and set text
     {
         dialogue.SetActive(true);
         dialogueText.text = textDial;
         timerDialogue = time;
     }
-    public void DeactivateDialogue() //desactiver a la fin de niveau pause et autre 
+    public void DeactivateDialogue() //deactive dialog box
     {
         dialogueText.text = "";
         timerDialogue = 0;      

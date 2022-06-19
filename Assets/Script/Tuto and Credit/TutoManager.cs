@@ -55,10 +55,12 @@ public class TutoManager : MonoBehaviour
         else if (step == 5)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[3], 7);
         }
         else if (step == 6)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[4], 7);
         }
         else if (step == 9)
             SpawnBox(true, true, false, false, spacecraft.spacecraftDestination);
@@ -72,31 +74,39 @@ public class TutoManager : MonoBehaviour
         if (grab.grabObject != null && step == 4)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[2], 7);
         }
         if (spacecraft.packages == 1 && step == 7)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[5], 7);
         }
         if (spacecraft.delivered == true && step == 8)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[6], 7);
+
         }
         if (grab.grabObject != null && step == 10)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[7], 7);
         }
         if (spawner.package != null)
             if(spawner.package.GetComponent<Box>().isStored && step == 11)
             {
                 PlayAdvice();
+                UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[8], 7);
             }
         if (spawner.package == null && step == 13)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[9], 7);
         }
         if (spawner.package == null && step == 15)
         {
             PlayAdvice();
+            UIManager.Instance.ActivateDialogue(TextManager.Instance.tutoDial[10], 7);
         }
         if (spawner.package == null && step == 17)
         {
