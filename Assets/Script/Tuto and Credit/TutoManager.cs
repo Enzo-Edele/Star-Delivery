@@ -160,5 +160,6 @@ public class TutoManager : MonoBehaviour
     {
         this.step = step;
         this.messages = message;
+        UIManager.Instance.DeactivateIconWalk(); //mettre if si on reuse la fct
     }
 }

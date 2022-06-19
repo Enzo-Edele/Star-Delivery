@@ -50,6 +50,6 @@ public class BoxSpawner : MonoBehaviour
         timerBoxes = timeMin;
         timerLevel = timeLevel;
         endLevel = false;
-        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective);
+        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective, 3);
     }
 }

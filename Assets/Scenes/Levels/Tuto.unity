@@ -433,6 +433,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Belt
       objectReference: {fileID: 0}
+    - target: {fileID: 8038271068316771783, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Size.y
+      value: 5.402529
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038271068316771783, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Center.y
+      value: 2.4567223
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038271068316771783, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Center.z
+      value: -0.009134809
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4050894155404693677, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
     - {fileID: 7203907824705333375, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
@@ -921,7 +933,7 @@ GameObject:
   - component: {fileID: 150919550}
   - component: {fileID: 150919549}
   - component: {fileID: 150919548}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LaunchPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1566,7 @@ GameObject:
   - component: {fileID: 232361820}
   - component: {fileID: 232361819}
   - component: {fileID: 232361822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button
   m_TagString: ButtonAll
   m_Icon: {fileID: 0}
@@ -1569,7 +1581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232361817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.55, z: 0}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1287914510}
@@ -4317,50 +4329,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6996808669700905739, guid: ab7c809a93da310439051e79eb4950d8, type: 3}
   m_PrefabInstance: {fileID: 772088971}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &772999485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 772999486}
-  - component: {fileID: 772999487}
-  m_Layer: 9
-  m_Name: Box Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &772999486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772999485}
-  m_LocalRotation: {x: 0, y: 0.013089582, z: 0, w: 0.99991435}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2038135851}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 1.5, z: 0}
---- !u!65 &772999487
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772999485}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4394932, y: 3.5523047, z: 0.50394744}
-  m_Center: {x: 0, y: 0, z: 0.2480264}
 --- !u!1 &800871085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5394,7 +5362,7 @@ GameObject:
   - component: {fileID: 967580358}
   - component: {fileID: 967580357}
   - component: {fileID: 967580356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Screen Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6230,7 +6198,7 @@ GameObject:
   - component: {fileID: 1110129973}
   - component: {fileID: 1110129975}
   - component: {fileID: 1110129974}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6972,9 +6940,9 @@ GameObject:
   - component: {fileID: 1287914509}
   - component: {fileID: 1287914508}
   - component: {fileID: 1287914507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LauncherTuto
-  m_TagString: ButtonAll
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7607,7 +7575,7 @@ GameObject:
   - component: {fileID: 1371981740}
   - component: {fileID: 1371981741}
   - component: {fileID: 1371981742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Estimated Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10759,7 +10727,7 @@ GameObject:
   - component: {fileID: 2020670710}
   - component: {fileID: 2020670709}
   - component: {fileID: 2020670708}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10976,6 +10944,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 727190776988340158, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758318953616238331, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684655, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
@@ -11029,6 +11001,18 @@ PrefabInstance:
     - target: {fileID: 6745435437482684659, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Name
       value: Belt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038271068316771783, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Size.y
+      value: 6.5470138
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038271068316771783, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Center.y
+      value: 3.0289648
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038271068316771783, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Center.z
+      value: -0.009134875
       objectReference: {fileID: 0}
     - target: {fileID: 8296983146108600137, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_RootOrder

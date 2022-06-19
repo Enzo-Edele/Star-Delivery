@@ -224,14 +224,14 @@ public class GameManager : MonoBehaviour
         gameIsPause = false;
     }
 
-    public void StartLevel(int percentageBomb, int percentageValid, int percentageFragile, int percentageSus, int objective)
+    public void StartLevel(int percentageBomb, int percentageValid, int percentageFragile, int percentageSus, int objective, int lives)
     {
         this.percentageBomb = percentageBomb;
         this.percentageValid = percentageValid;
         this.percentageFragile = percentageFragile;
         this.percentageSus = percentageSus;
         this.objective = objective;
-        this.lives = 3;
+        this.lives = lives;
         chronoStart = true;
         UIManager.Instance.ActivateLives();
         UIManager.Instance.ActivateChrono();

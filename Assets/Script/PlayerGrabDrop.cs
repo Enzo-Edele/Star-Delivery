@@ -57,49 +57,49 @@ public class PlayerGrabDrop : MonoBehaviour
                     UIManager.Instance.ActivateIconDiffuse();
                     grabableObject = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("boiteOnDiffuse");
+                    //Debug.Log("boiteOnDiffuse");
                 }
                 else if (hit.transform.gameObject.tag == "Box" && grabObject == null && !hasHit)
                 {
                     UIManager.Instance.ActivateIconGrab();
                     grabableObject = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("boite");
+                    //Debug.Log("boite");
                 }
                 else if (hit.transform.gameObject.tag == "Drop" && grabObject != null && !hasHit)
                 {
                     UIManager.Instance.ActivateIconDrop();
                     dropAreaRack = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("DropArea");
+                    //Debug.Log("DropArea");
                 }
                 else if (hit.transform.gameObject.tag == "Crusher" && grabObject != null && !hasHit)
                 {
                     UIManager.Instance.ActivateIconDrop();
                     dropAreaCrusher = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("crusher");
+                    //Debug.Log("crusher");
                 }
                 else if (hit.transform.gameObject.tag == "Diffuse" && grabObject != null && !hasHit)
                 {
                     UIManager.Instance.ActivateIconDrop();
                     dropAreaDiffuse = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("Diffuse");
+                    //Debug.Log("Diffuse");
                 }
                 else if (hit.transform.gameObject.tag == "Spacecraft" && grabObject != null && !hasHit)
                 {
                     UIManager.Instance.ActivateIconDrop();
                     dropAreaSpacecraft = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("shuttle");
+                    //Debug.Log("shuttle");
                 }
                 else if (hit.transform.gameObject.tag == "Ray" && grabObject != null && !hasHit)
                 {
                     UIManager.Instance.ActivateIconDrop();
                     dropAreaRay = hit.transform.gameObject;
                     hasHit = true;
-                    Debug.Log("Eror");
+                    //Debug.Log("Eror");
                 }
                 else if (hit.transform.gameObject.tag == "Button" && !hasHit)
                 {
@@ -107,7 +107,7 @@ public class PlayerGrabDrop : MonoBehaviour
                     canBePushed = true;
                     launcherScript = hit.transform.gameObject.GetComponent<Launcher>();
                     hasHit = true;
-                    Debug.Log("button");
+                    //Debug.Log("button");
                 }
                 else if (hit.transform.gameObject.tag == "ButtonAll" && !hasHit)
                 {
@@ -115,7 +115,7 @@ public class PlayerGrabDrop : MonoBehaviour
                     canBePushed = true;
                     button = hit.transform.gameObject.GetComponent<ButtonAll>();
                     hasHit = true;
-                    Debug.Log("buttonAll");
+                    //Debug.Log("buttonAll");
                 }
                 else if (GameManager.Instance.lockPlayer && GameManager.GameState != GameManager.GameStates.isDiffusing && !hasHit)
                     NullRaycast();

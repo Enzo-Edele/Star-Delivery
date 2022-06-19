@@ -21,7 +21,7 @@ public class TutoBoxSpawner : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective);
+        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective, 999);
     }
     private void Update()
     {
@@ -66,6 +66,6 @@ public class TutoBoxSpawner : MonoBehaviour
         timerBoxes = timeMin;
         timerLevel = timeLevel;
         endLevel = false;
-        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective);
+        GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective, 999);
     }
 }
