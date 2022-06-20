@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BoxSpawner : MonoBehaviour
 {
-    [SerializeField]GameObject box;
+    [SerializeField]GameObject boxPrefab;
+    GameObject box;
 
     [SerializeField] int objective;
     public bool isOn;
@@ -30,7 +31,9 @@ public class BoxSpawner : MonoBehaviour
         else if(!GameManager.Instance.gameIsPause && isOn)
         {
             timerBoxes = Random.Range(timeMin, timeMax);
-            Instantiate(box, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
+            box = Instantiate(boxPrefab, transform.position + (transform.forward * 0.5f) + (Vector3.up * 0.1f), Quaternion.identity);
+            if (isSecond)
+                box.GetComponent<Box>().NotSus();
             SoundManager.Instance.Play("SpawnBox");
         }
         if (timerLevel > 0 && !GameManager.Instance.gameIsPause)

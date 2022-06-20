@@ -47,8 +47,9 @@ public class DiffuseTable : MonoBehaviour
         bombedBox = box;
         bombScript = bomb.GetComponent<Bomb>();
         bombScript.diffuseTable = this;
-        for (int i = 0; i < bombScript.buttons.Count; i++)
-            button.Add(bombScript.buttons[i]);
+        if(bombedBox.GetComponent<Box>().isArmed == true)
+            for (int i = 0; i < bombScript.buttons.Count; i++)
+                button.Add(bombScript.buttons[i]);
     }
 
     public void RetrieveBox()

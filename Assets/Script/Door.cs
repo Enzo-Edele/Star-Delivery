@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
     {
         doorAnimation.enabled = true;
         doorAnimation.Play("Open");
+        SoundManager.Instance.Play("Door");
     }
     public void Close()
     {

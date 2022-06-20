@@ -244,8 +244,11 @@ public class UIManager : MonoBehaviour
     public void UpadateScore(int point)
     {
         scoreText.text = "Score : " + GameManager.Instance.score;
-        textAnimator.SetTrigger("add");
-        scoreAddText.text = "+" + point;
+        if (point > 0)
+        {
+            textAnimator.SetTrigger("add");
+            scoreAddText.text = "+" + point;
+        }
     }
 
     public void ActivateEndLevel(bool success) //end level menu

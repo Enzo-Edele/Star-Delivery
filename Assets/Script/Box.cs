@@ -62,7 +62,7 @@ public class Box : MonoBehaviour
         ApplyStickers();
 
         GameManager.Instance.total++;
-        GameManager.Instance.AverageCheck();
+        //GameManager.Instance.AverageCheck();
     }
 
     public void ForceValue(bool valid, bool fragile, bool sus, bool bomb, string destination)
@@ -85,6 +85,12 @@ public class Box : MonoBehaviour
         ApplyStickers();
     }
 
+    public void NotSus()
+    {
+        if (!isArmed)
+            isSus = false;
+    }
+
     void ApplyStickers()
     {
         GameObject sticker = this.gameObject;
@@ -105,7 +111,7 @@ public class Box : MonoBehaviour
             {
                 sticker = Instantiate(stickerPatron, stickerPosition, Quaternion.identity, transform);
                 SpriteRenderer renderer = sticker.GetComponent<SpriteRenderer>();
-                renderer.sprite = GameManager.Instance.dictionnaryStickers["Error"];
+                renderer.sprite = GameManager.Instance.dictionnaryStickers[destination];
                 stickers.Add(sticker);
             }
         }

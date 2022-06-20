@@ -65,7 +65,6 @@ public class Spacecraft : MonoBehaviour
         GameManager.Instance.UpdateScore(sendScore, -1);
         packages = 0;
         //anim décollage
-        Debug.Log(transform.parent.name + ", " + shuttleStartPos);
         spacecraft.SetActive(false);
         shuttle = Instantiate(shuttlePrefab, shuttleStartPos, Quaternion.identity, transform.parent);
         shuttle.GetComponent<Cinemachine.CinemachineDollyCart>().m_Path = path;

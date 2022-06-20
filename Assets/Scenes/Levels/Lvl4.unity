@@ -3012,7 +3012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1200797808
 PrefabInstance:
@@ -3608,6 +3608,10 @@ PrefabInstance:
       propertyPath: isSecond
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: boxPrefab
+      value: 
+      objectReference: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
     - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
       propertyPath: timeLevel
       value: 300
@@ -4545,6 +4549,10 @@ PrefabInstance:
       propertyPath: timeMin
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: boxPrefab
+      value: 
+      objectReference: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
     - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
       propertyPath: timeLevel
       value: 300

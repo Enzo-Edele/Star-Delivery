@@ -1458,6 +1458,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
+      propertyPath: boxPrefab
+      value: 
+      objectReference: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
+    - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
       propertyPath: timeLevel
       value: 300
       objectReference: {fileID: 0}

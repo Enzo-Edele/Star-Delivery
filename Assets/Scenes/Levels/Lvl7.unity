@@ -3067,7 +3067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3c28779ce9fed4faab6200edf7ab9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
+  boxPrefab: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 0
   isOn: 0
   timeMin: 10
@@ -3077,7 +3077,7 @@ MonoBehaviour:
   percentageFragile: 10
   percentageSus: 20
   timeLevel: 300
-  isSecond: 1
+  isSecond: 0
 --- !u!65 &785994450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3332,7 +3332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3c28779ce9fed4faab6200edf7ab9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
+  boxPrefab: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
   objective: 0
   isOn: 0
   timeMin: 10
@@ -3342,7 +3342,7 @@ MonoBehaviour:
   percentageFragile: 10
   percentageSus: 20
   timeLevel: 300
-  isSecond: 0
+  isSecond: 1
 --- !u!65 &936006173
 BoxCollider:
   m_ObjectHideFlags: 0
