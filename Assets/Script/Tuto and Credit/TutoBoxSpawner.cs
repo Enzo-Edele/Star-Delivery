@@ -22,6 +22,7 @@ public class TutoBoxSpawner : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective, 999);
+        UIManager.Instance.DeactivateChrono();
     }
     private void Update()
     {

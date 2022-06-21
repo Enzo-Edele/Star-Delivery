@@ -128,7 +128,8 @@ public class GameManager : MonoBehaviour
                 UnpauseGame();
                 Cursor.lockState = CursorLockMode.Locked;
                 UIManager.Instance.ActivateLives();
-                UIManager.Instance.ActivateChrono();
+                if (SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("Tuto").buildIndex)
+                    UIManager.Instance.ActivateChrono();
                 UIManager.Instance.ActivateScore();
                 SoundManager.Instance.StopMusic("MusicMenu");
                 SoundManager.Instance.Play("Dradis");
@@ -236,7 +237,8 @@ public class GameManager : MonoBehaviour
         this.lives = lives;
         chronoStart = true;
         UIManager.Instance.ActivateLives();
-        UIManager.Instance.ActivateChrono();
+        if (SceneManager.GetActiveScene().buildIndex != SceneManager.GetSceneByName("Tuto").buildIndex)
+            UIManager.Instance.ActivateChrono();
         UIManager.Instance.ActivateScore();
         Cursor.lockState = CursorLockMode.Locked;
 
