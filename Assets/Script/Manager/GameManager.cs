@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
 
     public void Load(int file)
     {
-        SetUpStartValue(0);
+        SetUpStartValue(file);
         string path = Application.persistentDataPath + "/data" + file + ".save";
         if (File.Exists(path))
         {
@@ -195,11 +195,11 @@ public class GameManager : MonoBehaviour
             tutoDone = data.tutoDone;
             levelUnlock = data.levelUnlock;
             totalBoxes = data.totalBoxes;
-            for (int i = 0; i < data.highScoreList.Length; i++)
+            for (int i = 0; i < 7; i++)
             {
                 highScoreList[i] = (data.highScoreList[i]);
             }
-            for (int i = 0; i < data.boxScoreList.Length; i++)
+            for (int i = 0; i < 7; i++)
             {
                 boxScoreList[i] = (data.boxScoreList[i]);
             }

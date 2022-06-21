@@ -426,6 +426,14 @@ public class UIManager : MonoBehaviour
     {
         endLevelButtons.SetActive(true);
         endLevelNextButton.SetActive(false);
+        if(SceneManager.GetActiveScene().buildIndex == SceneManager.GetSceneByName("Lvl7").buildIndex)
+        {
+            endGameButton.SetActive(true);
+            retryButton.SetActive(false);
+            endLevelNextLevelButton.SetActive(false);
+            endLevelButtonLevel.SetActive(false);
+            endLevelButtonMain.SetActive(false);
+        }
     }
     public void ButtonRetry()
     {
