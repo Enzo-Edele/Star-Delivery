@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
     public void Save(int file)
     {
         SaveSysteme.Save(this, file);
-        Debug.Log("save to file : " + file);
+        //Debug.Log("save to file : " + file);
     }
 
     public void Load(int file)
@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
             {
                 boxScoreList[i] = (data.boxScoreList[i]);
             }
-            Debug.Log("load file : "+ file);
+            //Debug.Log("load file : "+ file);
         }
     }
 
