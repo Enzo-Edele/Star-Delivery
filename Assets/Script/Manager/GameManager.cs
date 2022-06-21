@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
     public void Save(int file)
     {
         SaveSysteme.Save(this, file);
-        //Debug.Log("save to file : " + file);
+        Debug.Log("save to file : " + file);
     }
 
     public void Load(int file)
@@ -203,7 +203,7 @@ public class GameManager : MonoBehaviour
             {
                 boxScoreList[i] = (data.boxScoreList[i]);
             }
-            //Debug.Log("load file : "+ file);
+            Debug.Log("load file : "+ file);
         }
     }
 
@@ -346,16 +346,16 @@ public class GameManager : MonoBehaviour
         }
         UIManager.Instance.ActivateEndLevel(success);
 
-        ResetValue();
         if (!(packageSent < objective))
         {
-            if (levelUnlock == SceneManager.GetSceneByName("Lvl7").buildIndex - 2 && boxesObjective < totalBoxes)
+            if (SceneManager.GetActiveScene().buildIndex + 500 == SceneManager.GetSceneByName("Lvl7").buildIndex && boxesObjective < totalBoxes)
             {
                 Debug.Log("credit, vous êtes employé du mois vous avez battu glados intensité 5, go get a life now.");
                 UIManager.Instance.DeactivateEndLevel();
                 UIManager.Instance.ActivateEndGame();
             }
         }
+        ResetValue();
 
         UIManager.Instance.DeactivateLives();
         UIManager.Instance.DeactivateChrono();

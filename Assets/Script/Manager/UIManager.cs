@@ -258,10 +258,10 @@ public class UIManager : MonoBehaviour
         endLevel.SetActive(true);
         endLevelScoreText.text = "Score : " + GameManager.Instance.score;
         endLevelNextButton.SetActive(true);
-        endLevelScoreRecap.text = "Livraison : " + GameManager.Instance.scoreDtails[0] + "\n" + "    -normal : " + GameManager.Instance.scoreDtails[1] + "\n" + 
-                                  "    -mauvais : " + GameManager.Instance.scoreDtails[2] + "\n" + "    -fragile : " + GameManager.Instance.scoreDtails[3] + "\n" + 
-                                  "    -suspect : " + GameManager.Instance.scoreDtails[4] + "\n" + "Autre : " + GameManager.Instance.scoreDtails[5] + "\n" + 
-                                  "    -désamorcage : " + GameManager.Instance.scoreDtails[6] + "\n" + "    -courrant : " + GameManager.Instance.scoreDtails[7];
+        endLevelScoreRecap.text = "Livraison : " + GameManager.Instance.scoreDtails[0] + "\n" + "  -normal : " + GameManager.Instance.scoreDtails[1] + "\n" + 
+                                  "  -mauvais : " + GameManager.Instance.scoreDtails[2] + "\n" + "  -fragile : " + GameManager.Instance.scoreDtails[3] + "\n" + 
+                                  "  -suspect : " + GameManager.Instance.scoreDtails[4] + "\n" + "Autre : " + GameManager.Instance.scoreDtails[5] + "\n" + 
+                                  "  -désamorcage : " + GameManager.Instance.scoreDtails[6] + "\n" + "  -courrant : " + GameManager.Instance.scoreDtails[7];
         endLevelButtonLevel.SetActive(true);
         endLevelButtonMain.SetActive(true);
         if (success)
@@ -276,7 +276,7 @@ public class UIManager : MonoBehaviour
         DeactivatePauseMenu();
         DeactivateOptionMenu();
         endLevel.SetActive(true);
-        endLevelNextButton.SetActive(true);
+        endLevelNextButton.SetActive(false);
         //text recap
         endGameButton.SetActive(true);
         endLevelButtons.SetActive(false);
@@ -468,6 +468,11 @@ public class UIManager : MonoBehaviour
     public void ButtonEndGame()
     {
         DeactivateEndLevel();
+        DeactivateLives();
+        DeactivateChrono();
+        DeactivateScore();
+        DeactivateFragileWarning();
+        DeactivateDialogue();
         SoundManager.Instance.Play("Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
