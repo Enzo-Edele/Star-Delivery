@@ -487,7 +487,6 @@ public class UIManager : MonoBehaviour
     public void ButtonQuit()//exit app
     {
         Application.Quit();
-        Debug.Log("Quit");
     }
 
     public void SliderMooseSensitivity(float sensitivity)
