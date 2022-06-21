@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010482854, g: 0.052960828, b: 0.15313554, a: 1}
+  m_IndirectSpecularColor: {r: 0.010487316, g: 0.05298409, b: 0.1531921, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &662510240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 662510241}
+  - component: {fileID: 662510243}
+  - component: {fileID: 662510242}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &662510241
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662510240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 805380379}
+  m_Father: {fileID: 1229477355}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.835, y: 444}
+  m_SizeDelta: {x: 2497.165, y: 6431.154}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &662510242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662510240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: ae2ec6abf3c84544087ca191944f6488, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &662510243
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662510240}
+  m_CullTransparentMesh: 1
 --- !u!1 &805380378
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,12 +225,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1229477355}
+  m_Father: {fileID: 662510241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1515.0361}
+  m_AnchoredPosition: {x: 1.8349999, y: 1217.43}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805380380
@@ -180,13 +253,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n<SIZE=130><B>STAR DELIVERY</B>\r</SIZE>\r\n\n\n<SIZE=100>- DEVELOPERS
-    -</SIZE>\r\n\nDEV 1\n\r\nDEV 2\n\n\n<SIZE=100>- GRAPHISTS -</SIZE>\r\n\r\nGRAPH
-    1\n\r\nGRAPH 2\n\r\nGRAPH 3\n\nGRAPH 4\n\nGRAPH 5\n\nGRAPH 6\n\n\n\n<SIZE=100>-
-    AUDIO -</SIZE>\r\n\r\n<SIZE=80> SOUND DESIGN </SIZE>\r\n\n SOUND DESIGNER 1\n\n<SIZE=80>
-    MUSIC </SIZE>\r\n\n MUSICIAN 1\n\n<SIZE=80> VOICE ACTING </SIZE>\r\n\n VOICE
-    ACTOR 1\n\n\n\r\n<SIZE=100>- SPECIAL  THANKS -</SIZE>\r\n\nDOMINIQUE GANTOIS\n\nLUCILE
-    CACCIUTTOLO\n\nTOGI MARO\n\n\n<SIZE=130><B>THANKS FOR PLAYING !</B>\r</SIZE>\r\n\n\r\n"
+  m_text: "\n<SIZE=130><B>STAR DELIVERY</B>\r</SIZE>\r\n\n\n<SIZE=100>- DEVELOPERS\n
+    Game Designer -</SIZE>\r\n\nAlexandre Le Bacquer\n\r\nEnzo Cloup\n\n\n<SIZE=100>
+    - GRAPHISTS -</SIZE>\r\n\r\nAlexandra Pasquali\n\nAlexandre Le Bacquer\n\r\nAmandine
+    Locquet\n\r\nChloe Guerin\n\nEnzo Cloup\n\nJulie Fernandez\n\nTatiana Fabert\n\n\n\n<SIZE=100>-
+    AUDIO -</SIZE>\r\n\r\n<SIZE=80> SOUND DESIGN </SIZE>\r\n\n Enzo Cloup\n\n<SIZE=80>
+    MUSIC </SIZE>\r\n\n \n\n<SIZE=80> VOICE ACTOR </SIZE>\r\n\n Enzo Cloup\n\n\n\r\n<SIZE=100>-
+    SPECIAL  THANKS -</SIZE>\r\n\nDOMINIQUE GANTOIS\n\nLUCILE CACCIUTTOLO\n\nTOGI
+    MARO\n\n\n<SIZE=130><B>THANKS FOR PLAYING !</B>\r</SIZE>\r\n\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 647d82139052e4f43bed075bc7418084, type: 2}
   m_sharedMaterial: {fileID: -4863269486010254411, guid: 647d82139052e4f43bed075bc7418084, type: 2}
@@ -195,8 +269,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -249,7 +323,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -860.5118, y: -920.9424, z: -858.6717, w: -3931.2969}
+  m_margin: {x: -860.5118, y: -1006.43756, z: -858.6717, w: -4619.8}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -484,7 +558,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 805380379}
+  - {fileID: 662510241}
   m_Father: {fileID: 906255982}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
