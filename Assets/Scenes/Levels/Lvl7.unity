@@ -466,6 +466,18 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Size.z
+      value: 1.0716498
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0000000010974051
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.035825677
+      objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684659, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Name
       value: Belt (4)
@@ -1352,15 +1364,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Size.z
-      value: 1.1034
+      value: 1.0312612
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Center.x
-      value: -0.0000000035150487
+      value: -5.828815e-11
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Center.z
-      value: 0.051700555
+      value: 0.015631357
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684659, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Name
@@ -2878,16 +2890,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.89435315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Size.z
-      value: 0.9334272
+      value: 1.0043817
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Center.x
-      value: -9.214535e-16
+      value: 0.052823424
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684658, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Center.z
-      value: 0.0332865
+      value: 0.06876345
       objectReference: {fileID: 0}
     - target: {fileID: 6745435437482684659, guid: 4c55348531f05b5479e4b74227e734e2, type: 3}
       propertyPath: m_Name
