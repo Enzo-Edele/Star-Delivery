@@ -60,18 +60,19 @@ public class Spacecraft : MonoBehaviour
     public IEnumerator LaunchCoroutine()
     {
         full = true;
+        if (!delivered)
+        {
+            GameManager.Instance.SpacecraftDeliver(packages);
+            GameManager.Instance.UpdateScore(sendScore, -1);
+            packages = 0;
+            spacecraft.SetActive(false);
+            shuttle = Instantiate(shuttlePrefab, shuttleStartPos, Quaternion.identity, transform.parent);
+            shuttle.GetComponent<Cinemachine.CinemachineDollyCart>().m_Path = path;
+            ShuttleAnimator.SetTrigger("Depart");
+        }
         delivered = true;
-        GameManager.Instance.SpacecraftDeliver(packages);
-        GameManager.Instance.UpdateScore(sendScore, -1);
-        packages = 0;
-        //anim décollage
-        spacecraft.SetActive(false);
-        shuttle = Instantiate(shuttlePrefab, shuttleStartPos, Quaternion.identity, transform.parent);
-        shuttle.GetComponent<Cinemachine.CinemachineDollyCart>().m_Path = path;
-        ShuttleAnimator.SetTrigger("Depart");
         yield return new WaitForSeconds(estimatedTime);
         estimatedTime = 20;
-        //anim atterrisage
         spacecraft.SetActive(true);
         Destroy(shuttle);
         shuttle = null;
