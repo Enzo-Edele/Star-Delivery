@@ -78,6 +78,7 @@ public class Spacecraft : MonoBehaviour
         shuttle = null;
         delivered = false;
         full = false;
+        sendScore = 0;
         launcher.ButtonUp();
     }
 }
