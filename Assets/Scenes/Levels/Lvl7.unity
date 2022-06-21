@@ -3084,7 +3084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  objective: 0
+  objective: 2
   isOn: 0
   timeMin: 10
   timeMax: 14
@@ -3092,7 +3092,7 @@ MonoBehaviour:
   percentageGood: 90
   percentageFragile: 10
   percentageSus: 20
-  timeLevel: 300
+  timeLevel: 120
   isSecond: 0
   timerDial: 7
 --- !u!65 &785994450
@@ -3350,7 +3350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
-  objective: 0
+  objective: 2
   isOn: 0
   timeMin: 10
   timeMax: 14
@@ -3358,7 +3358,7 @@ MonoBehaviour:
   percentageGood: 90
   percentageFragile: 10
   percentageSus: 20
-  timeLevel: 300
+  timeLevel: 120
   isSecond: 1
   timerDial: 7
 --- !u!65 &936006173

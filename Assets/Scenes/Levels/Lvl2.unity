@@ -3248,7 +3248,7 @@ PrefabInstance:
       objectReference: {fileID: 1876954202136482482, guid: 51e7b591a6177c54d89eb66f48eeaa29, type: 3}
     - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
       propertyPath: timeLevel
-      value: 300
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1532890965362482360, guid: dfbb2a82f6132e84e8d1683aefe8bdb2, type: 3}
       propertyPath: timerDial
