@@ -32,9 +32,16 @@ public class TextManager : MonoBehaviour
         tutoDial.Add("Finnaly suspicious parcel, those are parcel containing illegal good, check the machine on the belt if it shows a red 'X' then the parcel must be destroyed regardless of it's destination.");
         tutoDial.Add("Congrats you pass all the test now proceed to the next room and press the button to begin the trainning in real condition it will last 2 minutes if you remember the instructions you should do just fine.");
 
-        LvlEntryDial.Add("");
+        LvlEntryDial.Add("Welcome to your first day at Star Delivery we hope you follow the trainning. The only things left for you to learn are the button to stop" +
+                         " the belt it will temporary stop the belt but hinder your productivity as no package will be brought to the belt for 10 seconds, that bring us to the second point be productive engough and you will be employee of the month");
+        LvlEntryDial.Add("You survive your first day and didn't quit maybe you've got some potential after all. Let's see how you'll do today because now some package will have bombs attached to them good luck.");
+        LvlEntryDial.Add("Let's begin this third day of work, third time the charm as we say. This one as a nice slope on the belt isn't it exiting sadly no new challenge for you just a bit more bomb.");
+        LvlEntryDial.Add("Hello and welcome to your fourth day in hell, sorry in our company. Today a little challenge there's two entry point for the parcel to come on the belt and some parcel will be fragile so be carefull.");
+        LvlEntryDial.Add("I have to admit you're performance those last four days was slightly impressive so today your assign on a hard workplace, because the shuttle are a little far from the belt but I believe in you. At least I'm contractly oblige to say so.");
+        LvlEntryDial.Add("You're still showing up after five day working under my care, I hope you don't use stimulant to keep up the pace. Anyway your perfomance speak for you so now you will have to handle suspicious package too.");
+        LvlEntryDial.Add("I quite can't believe it the stat say if you fulfill your abjective today you will become the employee of the month in one week. Well you're assign to my workplace so I'm confident you will fail.");
 
-        LvlExitDial.Add("");
+        //LvlExitDial.Add(""); //non utilisé
 
         barkDial.Add("");
     }

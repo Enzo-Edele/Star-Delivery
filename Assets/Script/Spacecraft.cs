@@ -22,7 +22,7 @@ public class Spacecraft : MonoBehaviour
     private bool full;
     public float deliveredTime;
     private int sendScore = 0;
-    public TMP_Text destinationText; //set up tout ca avec une fct
+    public TMP_Text destinationText; 
     [SerializeField] Launcher launcher;
     [SerializeField] Cinemachine.CinemachineSmoothPath path;
 

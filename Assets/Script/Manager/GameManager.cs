@@ -148,6 +148,8 @@ public class GameManager : MonoBehaviour
                 PauseGame();
                 Cursor.lockState = CursorLockMode.Confined;
                 UIManager.Instance.DactivateIcons();
+                UIManager.Instance.DeactivateFragileWarning();
+                UIManager.Instance.DeactivateDialogue();
                 SoundManager.Instance.PauseMusic("MusicGame");
                 SoundManager.Instance.PauseSound("Dradis");
                 SoundManager.Instance.PlayMusic("MusicMenu");

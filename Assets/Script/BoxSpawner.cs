@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoxSpawner : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class BoxSpawner : MonoBehaviour
     bool endLevel;
 
     [SerializeField] bool isSecond;
+    [SerializeField] int timerDial;
 
     void Start()
     {
@@ -54,5 +56,6 @@ public class BoxSpawner : MonoBehaviour
         timerLevel = timeLevel;
         endLevel = false;
         GameManager.Instance.StartLevel(percentageBomb, percentageGood, percentageFragile, percentageSus, objective, 3);
+        UIManager.Instance.ActivateDialogue(TextManager.Instance.LvlEntryDial[SceneManager.GetActiveScene().buildIndex - 3], timerDial);
     }
 }
