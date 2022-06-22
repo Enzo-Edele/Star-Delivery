@@ -5295,67 +5295,67 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
   tutoSounds:
   - name: Intro
-    clip: {fileID: 8300000, guid: 9fb5103b6318b7344a5dd1f819b772b3, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Colis
-    clip: {fileID: 8300000, guid: 45d1a3c1b76206d4f94f913adc719b7b, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Adresse
-    clip: {fileID: 8300000, guid: 131307fcc2a241c42b59baa12f59274f, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Navette-Tablette
-    clip: {fileID: 8300000, guid: de845dcb5afa1124c819dc7d62f8d364, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: "D\xE9poseNavette"
-    clip: {fileID: 8300000, guid: 72f9bb55f5bdfda46914543f372ad14c, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Envoie
-    clip: {fileID: 8300000, guid: 5ed51162627e54242aafae314f30d3c0, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Fragile
-    clip: {fileID: 8300000, guid: c1f46dc1a24705f41aef12910f525520, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Stockage
-    clip: {fileID: 8300000, guid: 1abfc78723be95248a2f71d9831c2820, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Destroy
-    clip: {fileID: 8300000, guid: 03e125bb77d18ca41816a161ba4b77ee, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Bomb
-    clip: {fileID: 8300000, guid: 8e79a35e40dc7ee479d373c4748761a2, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
     source: {fileID: 0}
   - name: Sus
-    clip: {fileID: 8300000, guid: e281990835ffeb64ca89d6f02c2f66c7, type: 3}
+    clip: {fileID: 8300000, guid: 07401e6aa15876b48a57f7e41344e298, type: 3}
     mixerGroup: {fileID: 2940913792430510330, guid: 4377ef8c706c46e4188675334c57492e, type: 2}
     volume: 0
     loop: 0
