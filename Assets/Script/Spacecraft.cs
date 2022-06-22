@@ -73,12 +73,15 @@ public class Spacecraft : MonoBehaviour
         delivered = true;
         yield return new WaitForSeconds(estimatedTime);
         estimatedTime = 20;
-        spacecraft.SetActive(true);
+        if (spacecraft != null)
+        {
+            spacecraft.SetActive(true);
+            launcher.ButtonUp();
+        }
         Destroy(shuttle);
         shuttle = null;
         delivered = false;
         full = false;
         sendScore = 0;
-        launcher.ButtonUp();
     }
 }
