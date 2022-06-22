@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Credits : MonoBehaviour
     public IEnumerator CreditsTime()
     {
         yield return new WaitForSeconds(22);
-        Debug.Log("a");
+        GameManager.Instance.ChangeGameState(GameManager.GameStates.InMenu);
+        UIManager.Instance.ActivateLevelMenu();
+        SceneManager.LoadScene("Main");
     }
 }

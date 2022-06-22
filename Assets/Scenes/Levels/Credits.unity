@@ -253,12 +253,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n<SIZE=130><B>STAR DELIVERY</B>\r</SIZE>\r\n\n\n<SIZE=100>- DEVELOPERS\n
-    Game Designer -</SIZE>\r\n\nAlexandre Le Bacquer\n\r\nEnzo Cloup\n\n\n<SIZE=100>
-    - GRAPHISTS -</SIZE>\r\n\r\nAlexandra Pasquali\n\nAlexandre Le Bacquer\n\r\nAmandine
+  m_text: "\n<SIZE=130><B>STAR DELIVERY</B>\r</SIZE>\r\n\n\n<SIZE=100>- DEVELOPERS\nGame
+    Designer -</SIZE>\r\n\nAlexandre Le Bacquer\n\r\nEnzo Cloup\n\n\n<SIZE=100> -
+    GRAPHISTS -</SIZE>\r\n\r\nAlexandra Pasquali\n\nAlexandre Le Bacquer\n\r\nAmandine
     Locquet\n\r\nChloe Guerin\n\nEnzo Cloup\n\nJulie Fernandez\n\nTatiana Fabert\n\n\n\n<SIZE=100>-
     AUDIO -</SIZE>\r\n\r\n<SIZE=80> SOUND DESIGN </SIZE>\r\n\n Enzo Cloup\n\n<SIZE=80>
-    MUSIC </SIZE>\r\n\n \n\n<SIZE=80> VOICE ACTOR </SIZE>\r\n\n Enzo Cloup\n\n\n\r\n<SIZE=100>-
+    MUSIC </SIZE>\r\n\n Bensound\n\n<SIZE=80> VOICE ACTOR </SIZE>\r\n\n Enzo Cloup\n\n\n\r\n<SIZE=100>-
     SPECIAL  THANKS -</SIZE>\r\n\nDOMINIQUE GANTOIS\n\nLUCILE CACCIUTTOLO\n\nTOGI
     MARO\n\n\n<SIZE=130><B>THANKS FOR PLAYING !</B>\r</SIZE>\r\n\n\r\n"
   m_isRightToLeft: 0
@@ -540,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1229477355}
   - component: {fileID: 1229477356}
+  - component: {fileID: 1229477357}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -586,6 +587,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1229477357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229477354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de0af3715086af4aabff5d6295544b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2102470233
 GameObject:
   m_ObjectHideFlags: 0
