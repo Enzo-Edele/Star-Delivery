@@ -377,7 +377,7 @@ public class UIManager : MonoBehaviour
         ActivateSaveMenu();
         SoundManager.Instance.Play("Button");
     }
-    public void ButtonStartNewGame(int file)//new game menu -> Tuto + create save to file X
+    public void ButtonStartNewGame(int file)//new game menu -> level select + create save to file X
     {
         DeactivateNewGameSaveMenu();
         GameManager.Instance.SetUpStartValue(file);
